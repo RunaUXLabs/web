@@ -1,0 +1,296 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+/* Noto Sans KR 폰트 */
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+/* 구글아이콘폰트 */
+*{
+    box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
+}
+:root{
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 14px;
+    color: #212121;
+}
+ul, li{ list-style: none; }
+body{
+    padding: 0px;
+    margin: 0px;
+    min-width: 1280px;
+}
+header{
+    width: 100%;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 200;
+    background-color: #3b3535;
+    color: #fff;
+}
+header a:link,
+header a:hover,
+header a:visited{
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+.inner{
+    width: 1160px;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.lbox,
+.rbox{
+    display: flex;
+    align-items: center;
+}
+
+/* header */
+.header1{
+    background-color: #0c82e9;
+    width: 100%;
+    height: 46px;
+}
+.header2{
+    width: 100%;
+    height: 40px;
+}
+.header3{
+    width: 100%;
+    height: 64px;
+}
+.header1 .inner .lbox .announce{
+    margin: 0 0 0 50px;
+    display: flex;
+    align-items: center;
+}
+.header1 .inner .lbox span:nth-of-type(1){
+    font-size: 1.2rem;
+}
+.header1 .inner .lbox .announce .material-icons{
+    font-size: 2rem;
+    color: rgba(255,255,255,0.3);
+    margin: 0 5px 0 0;
+}
+.header1 .inner .rbox a{
+    margin: 0 10px;
+}
+.header2 .inner{
+    border-bottom: 1px solid rgba(255,255,255,0.3);
+}
+.header2 .inner .lbox a{
+    margin: 0 10px 0 0;
+    padding: 1px 10px 2px;
+    border: 1px solid rgba(255,255,255,0.5);
+    border-radius: 15px;
+}
+.header2 .inner .rbox a{
+    margin: 0 10px;
+}
+.header2 .inner .rbox a:nth-of-type(4){ color: #f49e00; }
+.header2 .inner .rbox span{
+    width: 50px;
+    height: 1.4rem;
+    border-bottom: 1px solid #fff;
+    font-size: 0.9rem;
+    margin: 0 0 0 10px;
+    position: relative;
+}
+.header2 .inner .rbox span::after{
+    position: absolute;
+    top: 0;
+    right: 0;
+    content: '\25BE';
+}
+.header3 .inner a.lbox{
+    width: 182px;
+    height: 100%;
+    background: url(../images/sfac/seoul_culture_logo.png) 0px 50% no-repeat;
+    position: relative;
+    display: block;
+}
+.header3 .inner .rbox .header3link{
+    font-size: 1.3rem;
+    margin: 0 30px;
+    cursor: pointer;
+}
+.header3 .inner .rbox .material-icons{
+    font-size: 2rem;
+    margin: 0 0 0 20px;
+}
+
+
+/* nav */
+nav{
+    width: 100%;
+    height: 0;
+    overflow: hidden;
+    border-bottom: 3px solid rgba(0,0,0,0.3);
+    position: absolute;
+    z-index: 100;
+    top: 150px;
+    left: 0;
+    background: linear-gradient(to right, #f3f3f3 50%, #ffffff 50%) -200px 0 no-repeat;
+    transition: height 0.5s;
+}
+nav .inner{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+nav.on{
+    height: 300px;
+    transition: height 0.5s;
+}
+nav .inner .menu{
+    width: 100%;
+    height: 280px;
+    display: flex;
+    transform: translateY(-100%);
+    transition: all 0.5s;
+    position: absolute;
+    opacity: 0;
+}
+
+nav.on .inner .menu.on{
+    opacity: 1;
+    transform: translateY(0%);
+    transition: all 0.5s;
+}
+.menu .titlebox{
+    width: 380px;
+    padding: 30px 0;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+.menu .titlebox::after{
+    width: 1px;
+    height: 280px;
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color:  rgba(0,0,0,0.3);
+}
+.menu .titlebox .title{
+    font-size: 1.6rem;
+    font-weight: 600;
+    margin: 0 0 30px 0;
+    position: relative;
+}
+.menu .titlebox .title::after{
+    width: 30px;
+    height: 1px;
+    background-color: #212121;
+    content: "";
+    position: absolute;
+    bottom: -16px;
+    left: 0;
+}
+.menu .titlebox .subtitle{ color: #777; }
+.menu .titlebox .ic{
+    position: absolute;
+    right: 20px;
+    bottom: 0;
+    width: 150px;
+    height: 150px;
+    content: "";
+    background: url(../images/sfac/chrome_reader_mode-black-48dp.svg) 50% 50% no-repeat;
+    background-size: contain;
+    opacity: 0.05;
+}
+.menu .listbox{
+    width: 780px;
+    height: 100%;
+    display: flex;
+    align-items: flex-start;
+}
+.menu .listbox ul.list{
+    display: flex;
+    flex-direction: column;
+    width: 210px;
+    height: 100%;
+    padding: 30px;
+}
+.menu .listbox ul.list li{
+    width: 100%;
+    margin: 0 0 15px 0;
+    cursor: pointer;
+    letter-spacing: -1px;
+}
+#menu3 .listbox ul.list{
+    flex-flow: row wrap;
+    width: 100%;
+}
+#menu3 .listbox ul.list li{
+    width: 210px;
+}
+.menu .listbox ul.list li:hover,
+.menu .listbox ul.list li.on{
+    color: #FA321A;
+}
+.menu .listbox ul.list li::before{
+    content: '\25B8';
+    margin: 0 5px 0 0;
+}
+.menu .listbox ul.list li.more::after{
+    content: '\002B';
+    margin: 0 0 0 5px;
+}
+.menu .listbox ul.list li.more.on::after,
+.menu .listbox ul.list li.more:hover::after{
+    content: '\002D';
+    margin: 0 0 0 5px;
+}
+.menu .listbox .content{
+    display: block;
+    width: 570px;
+    height: 100%;
+}
+.menu .listbox .content .contentlist{
+    display: flex;
+    flex-flow: row wrap;
+    align-content: flex-start;
+    width: 570px;
+    height: 100%;
+    padding: 30px;
+    border-left: 1px solid rgba(0,0,0,0.3);
+    opacity: 0;
+    transition: all 0.3s;
+    position: absolute;
+}
+.menu .listbox .content .contentlist.on{
+    opacity: 1;
+    transition: all 0.3s;
+}
+.menu .listbox.list1 .content .contentlist:nth-child(3),
+.menu .listbox.list2 .content .contentlist:nth-child(2),
+.menu .listbox.list6 .content .contentlist:nth-child(2){
+    border-left: none;
+}
+.menu .listbox .content .contentlist > a:link,
+.menu .listbox .content .contentlist > a:visited{
+    display: block;
+    width: 200px;
+    padding: 0 0 0 10px;
+    margin: 0 0 15px 0;
+    color: #666;
+    text-decoration: none;
+    position: relative;
+}
+.menu .listbox .content .contentlist > a:hover{
+    text-decoration: underline;
+}
+.menu .listbox .content .contentlist > a::before{
+    content: '\002D';
+    margin: 0 5px 0 0;
+    position: absolute;
+    left: 0;
+}
