@@ -1,0 +1,26 @@
+@charset "UTF-8";
+* {
+    box-sizing: border-box;
+    word-break: keep-all;
+}
+.wrap{
+    width: 100%;
+    min-width: 320px;
+    margin: 20px auto 100px auto;
+    padding: 0px 20px;
+}
+
+/*수업자료 페이지*/
+.study_main h1{
+    height: auto;
+    line-height: 2.5rem;
+}
+.study_main .date{
+    padding: 0px 5px;
+    height: auto;
+    line-height: 2rem;
+}
+h2{
+    height: auto;
+    line-height: 1.2;
+}
