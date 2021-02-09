@@ -2,13 +2,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
 /* reset start */
 /*** Reset ***/
+*{ 
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
 html {
     font: 1rem/1.3rem "Noto Sans KR", sans-serif;
     color: #3d3d3d;
-}
-body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,form,fieldset,p,button,legend{
-    padding: 0;
-    margin: 0;
 }
 h1,h2,h3,h4,h5,h6{
     font-weight: normal;
@@ -38,13 +39,7 @@ legend, caption{*width: 0px; display: none;}
 table{border-collapse: collapse; border-spacing: 0;}
 input::-ms-clear{display: none;}
 
-*{
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    -o-box-sizing: border-box;
-    -ms-box-sizing: border-box;
-    box-sizing: border-box;
-}
+
 
 
 ul,

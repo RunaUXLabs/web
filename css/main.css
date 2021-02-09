@@ -302,7 +302,6 @@ ul.study_list li a:hover{
 }
 .schedule_table{
     margin-top: 20px;
-    display: none;
 }
 .schedule_table table{
     width: 100%;
@@ -327,6 +326,10 @@ ul.study_list li a:hover{
 
 
 /*수업자료 페이지*/
+.study_main{
+    display: flex;
+    flex-direction: column;
+}
 .study_main h1{
     text-align: center;
     height: 2rem;
