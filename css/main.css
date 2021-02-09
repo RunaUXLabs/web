@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 /* Layout */
-@import url('common.css');
+@import url('/web/css/common.css');
 
 .intro{
     margin: 50px 0 0 0;
