@@ -403,7 +403,7 @@ ul.study_list li a:hover{
     padding-left: 15px;
     margin: 5px 0;
     list-style: none;
-    background: url(../images/li_bg.png) 0 50% no-repeat;
+    background: url(/web/images/li_bg.png) 0 50% no-repeat;
 }
 .list ul li a:hover{
     color: #2361be;

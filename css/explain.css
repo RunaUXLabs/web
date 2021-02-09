@@ -60,7 +60,7 @@
 }
 .animate .txt ul li{
     padding-left: 15px;
-    background: url(../images/li_bg.png) left 5px top 10px no-repeat;
+    background: url(/web/images/li_bg.png) left 5px top 10px no-repeat;
 }
 .animate .txt dl dt{
     float: left;
@@ -1335,14 +1335,14 @@
     border: 1px solid #fff;
 }
 .fullpage_01 .sec01{
-    background: url(../images/popup1.jpg) center top no-repeat;
+    background: url(/web/images/popup1.jpg) center top no-repeat;
     background-size: cover;
 }
 .fullpage_01 .sec02{
-    background: url(../images/popup2.jpg) center top no-repeat;
+    background: url(/web/images/popup2.jpg) center top no-repeat;
     background-size: cover;}
 .fullpage_01 .sec03{
-    background: url(../images/popup3.jpg) center top no-repeat;
+    background: url(/web/images/popup3.jpg) center top no-repeat;
     background-size: cover;
 }
 
@@ -1387,15 +1387,15 @@
     border: 1px solid #fff;
 }
 .fullpage_02 .sec01{
-    background: url(../images/popup1.jpg) center top no-repeat;
+    background: url(/web/images/popup1.jpg) center top no-repeat;
     background-size: cover;
 }
 .fullpage_02 .sec02{
-    background: url(../images/popup2.jpg) center top no-repeat;
+    background: url(/web/images/popup2.jpg) center top no-repeat;
     background-size: cover;
 }
 .fullpage_02 .sec03{
-    background: url(../images/popup3.jpg) center top no-repeat;
+    background: url(/web/images/popup3.jpg) center top no-repeat;
     background-size: cover;
 }
 .fullpage_02 aside{
@@ -1504,7 +1504,7 @@
     margin: 0 auto;
 }
 .fullpage_05 .visual{
-    background: url(../images/popup1.jpg) center top no-repeat;
+    background: url(/web/images/popup1.jpg) center top no-repeat;
     background-size: cover;
     position: fixed;
     top: 0;
@@ -1696,15 +1696,15 @@
     border: 1px solid #fff;
 }
 .fullpage_10 .sec01{
-    background: url(../images/popup1.jpg) center top no-repeat;
+    background: url(/web/images/popup1.jpg) center top no-repeat;
     background-size: cover;
 }
 .fullpage_10 .sec02{
-    background: url(../images/popup2.jpg) center top no-repeat;
+    background: url(/web/images/popup2.jpg) center top no-repeat;
     background-size: cover;
 }
 .fullpage_10 .sec03{
-    background: url(../images/popup3.jpg) center top no-repeat;
+    background: url(/web/images/popup3.jpg) center top no-repeat;
     background-size: cover;
 }
 .fullpage_10 aside{
@@ -1813,15 +1813,15 @@
     border: 1px solid #fff;
 }
 .fullpage_11 .sec01{
-    background: url(../images/popup1.jpg) center top no-repeat;
+    background: url(/web/images/popup1.jpg) center top no-repeat;
     background-size: cover;
 }
 .fullpage_11 .sec02{
-    background: url(../images/popup2.jpg) center top no-repeat;
+    background: url(/web/images/popup2.jpg) center top no-repeat;
     background-size: cover;
 }
 .fullpage_11 .sec03{
-    background: url(../images/popup3.jpg) center top no-repeat;
+    background: url(/web/images/popup3.jpg) center top no-repeat;
     background-size: cover;
 }
 .fullpage_11 aside{
@@ -1919,7 +1919,7 @@
 .slide_01.ex .sec01.open .color_slide{width: 100%;}
 .slide_01.ex .sec01.open .cts_slide{width: 100%;}
 
-.slide_01.ex .sec01 .sec01_cts{background: url(../images/popup1.jpg) center top no-repeat;height: 150px;}
+.slide_01.ex .sec01 .sec01_cts{background: url(/web/images/popup1.jpg) center top no-repeat;height: 150px;}
 .slide_01.ex .sec01 .sec01_cts ul{text-align: center;}
 .slide_01.ex .sec01 .sec01_cts ul li{display: inline-block;padding: 50px 100px;font-size: 30px;font-weight: 600;color: #fff;text-shadow: 0 0 5px rgba(0,0,0,0.5);}
 
