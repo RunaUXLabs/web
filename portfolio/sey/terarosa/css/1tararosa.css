@@ -1,0 +1,921 @@
+@charset "utf-8";
+@import url('https://pro.fontawesome.com/releases/v5.10.0/css/all.css');
+@import url('https://fonts.googleapis.com/css2?family=Material+Icons');
+
+*{ 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box;
+    /* border: 1px solid red; */
+}
+
+body{min-width: 1280px;}
+
+.inner{
+    width: 1200px;
+    margin: 0 auto;
+}
+
+:root {
+    --swiper-theme-color: rgba(190,49,40,0.7);
+}
+
+div.top{
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.mbmanu{ display: none;}
+.mbsearch{ display: none;}
+
+div.top > div > span{
+    padding: 0 10px;
+}
+
+div.top > div > span a{ 
+    color: black;
+    text-decoration: none;
+}
+
+div.top > div:last-child{
+    display: flex;
+    align-items: center;
+}
+div.top > div:last-child button{
+    background: url(../images/테라로사/search_black_24dp.svg) 50% 50% no-repeat;
+    width: 25px;
+    height: 25px;
+    border: none;
+}
+
+div.logo{
+    background: url(../images/테라로사/logo2_03.png) 50% 50% no-repeat;
+    width: 100%;
+    height: 80px;
+}
+
+nav .mlogin{display: none;}
+nav .mtop{display: none;}
+nav div.menu{
+    height: 60px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+nav div.menu a{
+    color: black;
+    text-decoration: none;
+    font-size: 22px;
+}
+nav div.menu a:hover{
+    color: #be3128;
+}
+
+.swiper-container.banner{
+    width: 100%;
+    height: 650px;
+}
+
+.swiper-slide.bgimg1{
+    background: url(../images/테라로사/테라로사제주벚꽃베너_02.png) 50% 50% no-repeat;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+}
+
+.swiper-slide.bgimg2{
+    background: url(../images/테라로사/세종점베너.jpg) 50% 60% no-repeat;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+}
+
+.swiper-slide.bgimg3{
+    background: url(../images/테라로사/몰리해치_02.png) 50% 50% no-repeat;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+}
+
+
+section h2{
+    font-size: 45px;
+    margin: 40px 0 30px;
+}
+
+section .sec01{
+    width: 100%;
+    height: 620px;
+    display: flex;
+    justify-content: space-between;
+}
+
+section .sec01 > .news{
+    width: 760px;
+    height: 100%;
+    text-align: center;
+    
+}
+
+.tab{
+    width: 100%;
+    height: 50px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+}
+
+section .sec01 > .news > .tab span{
+    height: 40px;
+    line-height: 40px;
+    margin: 0 60px;
+    font-size: 25px;
+    font-weight: 500;
+    position: relative;
+}
+
+section .sec01 > .news > .tab span.on{color: #be3128;}
+section .sec01 > .news > .tab span.on::after{
+    content: "";
+    width: 160px;
+    height: 2px;
+    display: block;
+    background: #be3128;
+    position: absolute;
+    bottom: -13px;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: all 0.5s ease;
+}
+
+section .sec01 > .news > .tab span.on:hover::after{width: 100%;}
+
+
+.sec01 > .news > .story{display: none;}
+.sec01 > .news > .story.on{display: block;}
+
+.sec01 > .news > .story .txt{
+    width: 100%;
+    height: auto;
+    text-align: justify;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 100px 0 65px;
+}
+
+.sec01 > .news > .story .txt1 div:first-child,
+.sec01 > .news > .story .txt2 div:first-child,
+.sec01 > .news > .New > div:last-child{
+    width: 57%;
+}
+.sec01 > .news > .story .txt1 .img{
+    background: url(../images/테라로사/테라로사로고-설명사진_12.png) 50% 50% no-repeat;
+    width: 205px;
+    height: 133px;
+    background-size: cover;
+    border: 1px solid #000;
+}
+
+
+.sec01 > .news > .story .txt2 .img{
+    background: url(../images/테라로사/테라스토리_회사소개_05.png) 50% 50% no-repeat;
+    width: 205px;
+    height: 133px;
+}
+
+.sec01 > .news > .New{
+    width: 100%;
+    height: 570px;
+    text-align: justify;
+    display: none;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.sec01 > .news > .New.on{display: flex;}
+
+.sec01 > .news > .New .img{
+    background: url(../images/테라로사/테라로사뉴스_12.png) 50% 50% no-repeat;
+    width: 260px;
+    height: 332px;
+    background-size: cover;
+}
+
+.sec01 > .news > .New > div:last-child{
+    height: 332px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.sec01 > .news > .New > div:last-child h4{
+    font-size: 18px;
+}
+
+.sec01 > .news > .New > div:last-child i{
+    font-size: 30px;
+}
+
+.sec01 > .news > .New > div:last-child div{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.sec01 > .news > .New > div:last-child div > a{
+    color: #383535;
+}
+
+section .sec01 > .times{
+    width: 400px;
+    height: 100%;
+    
+}
+
+section .sec01 > .times .tab{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+section .sec01 > .times span{
+    font-size: 25px;
+    font-weight: 500;
+}
+
+section .sec01 > .times button{
+    background: url(../images/테라로사/plus-solid.svg) 50% 50% no-repeat;
+    width: 25px;
+    height: 25px;
+    border: none;
+    order: 2;
+    cursor: pointer;
+}
+.times > .tab div{
+    display: flex;
+}
+.times > .tab form{ display: none;}
+.times > .tab form.on{
+    display: flex;
+    order: 1;
+    margin-right: 10px;
+}
+
+section .sec01  .swiper-container.timesimg{
+    display: flex;
+    flex-wrap: nowrap;
+    width: 400px;
+    height: 570px;
+    justify-content: center;
+}
+
+.swiper-slide.tim{
+    width: 390px;
+    height: 565px;
+    border: 1px solid #383535;
+}
+
+.swiper-slide.tim.t01{
+    background: url(../images/테라로사/테라타임즈_49.png) 50% 50% no-repeat;
+}
+.swiper-slide.tim.t02{
+    background: url(../images/테라로사/테라타임즈_48.png) 50% 50% no-repeat;
+}
+.swiper-slide.tim.t03{
+    background: url(../images/테라로사/테라타임즈_47.png) 50% 50% no-repeat;
+}
+.swiper-slide.tim.t04{
+    background: url(../images/테라로사/테라타임즈_46.png) 50% 50% no-repeat;
+}
+.swiper-slide.tim.t05{
+    background: url(../images/테라로사/테라타임즈_45.png) 50% 50% no-repeat;
+}
+.swiper-slide.tim.t06{
+    background: url(../images/테라로사/테라타임즈_44.png) 50% 50% no-repeat;
+}
+.swiper-slide.tim.t07{
+    background: url(../images/테라로사/테라타임즈_43.png) 50% 50% no-repeat;
+}
+.swiper-slide.tim.t08{
+    background: url(../images/테라로사/테라타임즈_42.png) 50% 50% no-repeat;
+}
+.swiper-slide.tim.t09{
+    background: url(../images/테라로사/테라타임즈_41.png) 50% 50% no-repeat;
+}
+.swiper-slide.tim.t10{
+    background: url(../images/테라로사/테라타임즈_40.png) 50% 50% no-repeat;
+}
+
+section:nth-of-type(2){ margin-bottom: 100px;}
+
+section:nth-of-type(2) h2{ text-align: center;}
+
+section .sec02{
+    width: 100%;
+    height: 650px;
+    border: 2px solid #dfdfdf;
+}
+
+section .sec02 > .tab{
+    text-align: center;
+    height: 65px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+
+section .sec02 > .tab span{
+    height: 50px;
+    line-height: 50px;
+    font-size: 25px;
+    font-weight: 500;
+    position: relative;
+}
+
+section .sec02 > .tab span.on{
+    color: #be3128;
+}
+section .sec02 > .tab span.on::after{
+    content: "";
+    width: 180px;
+    height: 2px;
+    display: block;
+    background: #be3128;
+    position: absolute;
+    bottom: -7px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+
+
+.sec02 > .bean{
+    width: 100%;
+    height: 580px;
+}
+
+.sec02 > .bean > div{display: none;}
+.sec02 > .bean .on{
+    display: block;
+}
+.sec02 > .bean > div .swiper-container.Origin,
+.sec02 > .bean > div .swiper-container.Blend{
+    height: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+.sec02 > .bean .swiper-container.Origin .swiper-button-next,
+.sec02 > .bean .swiper-container.Origin .swiper-button-prev,
+.sec02 > .bean .swiper-container.Blend .swiper-button-next,
+.sec02 > .bean .swiper-container.Blend .swiper-button-prev{
+    display: none;
+}
+
+.sec02 > .bean > div .swiper-container.Origin .swiper-slide,
+.sec02 > .bean > div .swiper-container.Blend .swiper-slide{
+    display: flex;
+    justify-content: space-around;
+    margin: 90px 0;
+}
+
+.swiper-slide.Panama div:last-child,
+.swiper-slide.Guatemala div:last-child,
+.swiper-slide.Brazil div:last-child,
+.swiper-slide.Blossoms div:last-child,
+.swiper-slide.Jeju div:last-child,
+.swiper-slide.Gangneung div:last-child{
+    width: 650px;
+    height: 350px;
+}
+.swiper-slide.Panama div:last-child h4,
+.swiper-slide.Guatemala div:last-child h4,
+.swiper-slide.Brazil div:last-child h4,
+.swiper-slide.Blossoms div:last-child h4,
+.swiper-slide.Jeju div:last-child h4,
+.swiper-slide.Gangneung div:last-child h4{
+    font-size: 30px;
+    margin: 40px 0;
+}
+.swiper-slide.Panama div:last-child p:nth-child(3),
+.swiper-slide.Guatemala div:last-child p:nth-child(3),
+.swiper-slide.Brazil div:last-child p:nth-child(3),
+.swiper-slide.Blossoms div:last-child p:nth-child(3),
+.swiper-slide.Jeju div:last-child p:nth-child(3),
+.swiper-slide.Gangneung div:last-child p:nth-child(3){
+    margin: 30px 0;
+}
+
+.swiper-slide.Panama > .pic{
+    background: url(../images/테라로사/파나마꽃_13.png) 50% 50% no-repeat;
+    width: 450px;
+    height: 350px;
+}
+
+.swiper-slide.Guatemala > .pic{
+    background: url(../images/테라로사/과테말라_13.png) 50% 50% no-repeat;
+    width: 450px;
+    height: 350px;
+}
+
+.swiper-slide.Brazil > .pic{
+    background: url(../images/테라로사/브라질엔리케_13.png) 50% 50% no-repeat;
+    width: 450px;
+    height: 350px;
+}
+
+.swiper-slide.Blossoms > .pic{
+    background: url(../images/테라로사/블랜드벚꽃_17.png) 50% 50% no-repeat;
+    width: 450px;
+    height: 350px;
+}
+
+.swiper-slide.Jeju > .pic{
+    background: url(../images/테라로사/블랜드제주_17.png) 50% 50% no-repeat;
+    width: 450px;
+    height: 350px;
+}
+
+.swiper-slide.Gangneung > .pic{
+    background: url(../images/테라로사/블랜드강릉_17.png) 50% 50% no-repeat;
+    width: 450px;
+    height: 350px;
+}
+
+section.sec03{
+    width: 100%;
+    height: auto;
+}
+
+section.sec03 .swiper-container.Locations{
+    width: 100%;
+    height: 740px;
+    display: none;
+}
+section.sec03 .swiper-container.Locations.on{
+    display: flex;
+}
+section.sec03 .swiper-container.Locations .swiper-slide{
+    display: flex;
+}
+
+.swiper-slide.factory > .left{
+    background: url(../images/테라로사/테라로사강릉본점_20.png) 50% 50% no-repeat;
+    width: 70%;
+    height: 740px;
+    background-size: cover;
+}
+
+.swiper-slide.factory > .right,
+.swiper-slide.GilDong > .right,
+.swiper-slide.ArtMuseum > .right,
+.swiper-slide.GyeongPo > .right,
+.swiper-slide.Seojong > .right,
+.swiper-slide.Sejong > .right,
+.swiper-slide.SuYoung > .right,
+.swiper-slide.Seogwipo > .right{
+    width: 30%;
+    height: 740px;
+    
+}
+
+.swiper-slide.factory .right > .map, 
+.swiper-slide.GilDong > .right > .map,
+.swiper-slide.ArtMuseum > .right > .map, 
+.swiper-slide.GyeongPo > .right > .map, 
+.swiper-slide.Seojong > .right > .map, 
+.swiper-slide.Sejong > .right > .map,
+.swiper-slide.SuYoung > .right > .map,
+.swiper-slide.Seogwipo > .right > .map{
+    width: 100%;
+    height: 370px;
+}
+.swiper-slide.factory .right > .map > iframe,
+.swiper-slide.GilDong > .right > .map > iframe,
+.swiper-slide.ArtMuseum > .right > .map > iframe,
+.swiper-slide.GyeongPo > .right > .map > iframe,
+.swiper-slide.Seojong > .right > .map > iframe,
+.swiper-slide.Sejong > .right > .map > iframe,
+.swiper-slide.SuYoung > .right > .map > iframe,
+.swiper-slide.Seogwipo > .right > .map > iframe{
+    width: 100%;
+    height: 370px;
+}
+
+.swiper-slide.factory .right h3, 
+.swiper-slide.GilDong > .right h3,
+.swiper-slide.ArtMuseum > .right h3, 
+.swiper-slide.GyeongPo > .right h3,
+.swiper-slide.Seojong > .right h3, 
+.swiper-slide.Sejong > .right h3,
+.swiper-slide.SuYoung > .right h3, 
+.swiper-slide.Seogwipo > .right h3{
+    font-size: 32px;
+    margin: 25px 0;
+    padding-left: 5px;
+}
+
+.swiper-slide.factory .right > .address,
+.swiper-slide.GilDong > .right > .address,
+.swiper-slide.ArtMuseum > .right > .address,
+.swiper-slide.GyeongPo > .right > .address,
+.swiper-slide.Seojong > .right > .address,
+.swiper-slide.Sejong > .right > .address,
+.swiper-slide.SuYoung > .right > .address,
+.swiper-slide.Seogwipo > .right > .address{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.swiper-slide.factory .right > .address div,
+.swiper-slide.Seojong > .right > .address div{
+    width: 50%;
+    height: 270px;
+    font-size: 17px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.swiper-slide.GilDong > .right > .address div,
+.swiper-slide.ArtMuseum > .right > .address div{
+    width: 50%;
+    height: 270px;
+    font-size: 17px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.swiper-slide.GyeongPo > .right > .address div,
+.swiper-slide.Sejong > .right > .address div,
+.swiper-slide.SuYoung > .right > .address div,
+.swiper-slide.Seogwipo > .right > .address div{
+    width: 50%;
+    height: 270px;
+    font-size: 14px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.swiper-slide.factory .right > .address dl{
+    width: 46%;
+    height: 270px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.swiper-slide.GilDong > .right > .address dl,
+.swiper-slide.ArtMuseum > .right > .address dl,
+.swiper-slide.GyeongPo > .right > .address dl,
+.swiper-slide.Seojong > .right > .address dl,
+.swiper-slide.Sejong > .right > .address dl,
+.swiper-slide.SuYoung > .right > .address dl,
+.swiper-slide.Seogwipo > .right > .address dl{
+    width: 46%;
+    height: 270px;
+}
+
+.swiper-slide.factory .right > .address dl > dt,
+.swiper-slide.GilDong > .right > .address dl > dt,
+.swiper-slide.ArtMuseum > .right > .address dl > dt,
+.swiper-slide.GyeongPo > .right > .address dl > dt,
+.swiper-slide.Seojong > .right > .address dl > dt,
+.swiper-slide.Sejong > .right > .address dl > dt,
+.swiper-slide.SuYoung > .right > .address dl > dt,
+.swiper-slide.Seogwipo > .right > .address dl > dt{
+    font-weight: 600;
+    font-size: 17px;
+}
+
+.swiper-slide.GilDong > .right > .address dl > dt,
+.swiper-slide.GyeongPo > .right > .address dl > dt,
+.swiper-slide.SuYoung > .right > .address dl > dt{
+    margin: 10px 0;
+}
+
+
+.swiper-slide.Seogwipo > .right > .address dl > dt{
+    margin: 8px 0;
+}
+
+.swiper-slide.ArtMuseum > .right > .address dl > dt,
+.swiper-slide.Sejong > .right > .address dl > dt{
+    margin: 17px 0;
+}
+
+.swiper-slide.factory .right > .address dl > dd,
+.swiper-slide.GilDong > .right > .address dl > dd,
+.swiper-slide.ArtMuseum > .right > .address dl > dd,
+.swiper-slide.GyeongPo > .right > .address dl > dd,
+.swiper-slide.Seojong > .right > .address dl > dd,
+.swiper-slide.Sejong > .right > .address dl > dd,
+.swiper-slide.SuYoung > .right > .address dl > dd,
+.swiper-slide.Seogwipo > .right > .address dl > dd{
+    font-size: 13px;
+}
+
+.swiper-slide.GilDong > .right > .address dl > dd,
+.swiper-slide.ArtMuseum > .right > .address dl > dd,
+.swiper-slide.GyeongPo > .right > .address dl > dd,
+.swiper-slide.Sejong > .right > .address dl > dd,
+.swiper-slide.SuYoung > .right > .address dl > dd{
+    margin: 15px 0;    
+}
+
+.swiper-slide.Seojong > .right > .address dl > dd,
+.swiper-slide.Seogwipo > .right > .address dl > dd{
+    margin: 10px 0;
+}
+
+
+.swiper-slide.GilDong > .left{
+    background: url(../images/테라로사/테라로사길동점_20.png) 50% 50% no-repeat;
+    width: 70%;
+    height: 740px;
+    background-size: cover;
+}
+
+.swiper-slide.ArtMuseum > .left{
+    background: url(../images/테라로사/테라로사국립현대미술관_20.png) 50% 50% no-repeat;
+    width: 70%;
+    height: 740px;
+    background-size: cover;
+}
+
+.swiper-slide.GyeongPo > .left{
+    background: url(../images/테라로사/테라로사경포호수_20.png) 50% 50% no-repeat;
+    width: 70%;
+    height: 740px;
+    background-size: cover;
+}
+
+.swiper-slide.Seojong > .left{
+    background: url(../images/테라로사/테라로사서종_20.png) 50% 50% no-repeat;
+    width: 70%;
+    height: 740px;
+    background-size: cover;
+}
+
+.swiper-slide.Sejong > .left{
+    background: url(../images/테라로사/테라로사세종_02.png) 50% 50% no-repeat;
+    width: 70%;
+    height: 740px;
+    background-size: cover;
+}
+
+.swiper-slide.SuYoung > .left{
+    background: url(../images/테라로사/테라로사부산수영_02.png) 50% 50% no-repeat;
+    width: 70%;
+    height: 740px;
+    background-size: cover;
+}
+
+.swiper-slide.Seogwipo > .left{
+    background: url(../images/테라로사/테라로사제주_02.png) 50% 50% no-repeat;
+    width: 70%;
+    height: 740px;
+    background-size: cover;
+}
+
+.swiper-pagination.space{
+    opacity: 0;
+}
+section.sec03 .swiper-container.Locations:hover .swiper-pagination.space{
+    opacity: 1;
+}
+.swiper-container-vertical>.swiper-pagination-bullets{
+    left: 12px;
+}
+
+
+section.sec03 .TERAMUSEUM{
+    background: url(../images/테라로사/테라로사박물관_20.png) 50% 50% no-repeat;
+    width: 100%;
+    height: 740px;
+    position: relative;
+    background-size: cover;
+    display: none;
+}
+section.sec03 .TERAMUSEUM.on{display: block;}
+
+section.sec03 .TERAMUSEUM > dl{
+    width: 250px;
+    color: #fff;
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-136%);
+}
+
+section.sec03 .TERAMUSEUM > dl dt,
+section.sec03 .TERAMUSEUM > dl dd{
+    font-weight: bold;
+}
+
+section.sec03 .TERAMUSEUM > dl dd:nth-child(2),
+section.sec03 .TERAMUSEUM > dl dd:nth-child(4){
+    margin-bottom: 30px;
+}
+
+section.sec03 .linetab{
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    margin: 30px 0;
+    position: relative;
+    cursor: pointer;
+}
+
+section.sec03 .linetab::after{
+    width: 420px;
+    height: 2px;
+    content: "";
+    display: block;
+    background: #000;
+    position: absolute;
+    left: 50%;
+    bottom: 40px;
+    transform: translateX(-50%);
+}
+
+section.sec03 .linetab span{
+    margin: 0 80px;
+    font-size: 20px;
+    font-weight: 400;
+    position: relative;
+}
+
+section.sec03 .linetab span.on{
+    color: #be3128;
+    
+}
+
+section.sec03 .linetab span:hover.on::before{
+    border: 1px solid #be3128;
+    border-radius: 50%;
+    position: absolute;
+    left: 50%;
+    bottom: 13px;
+    transform: translateX(-50%);
+    content: "";
+    width: 50px;
+    height:50px;
+    display: block;
+}
+
+
+section.sec03 .linetab span::after{
+    width: 10px;
+    height: 10px;
+    content: "";
+    display: block;
+    background: #000;
+    position: absolute;
+    left: 50%;
+    bottom: 35px;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    z-index: 10;
+}
+
+section.sec03 .linetab span.on::after{
+    background: #be3128;
+    width: 10px;
+    height: 10px;
+}
+
+section.sec03 .linetab span.on:hover::after{
+    background: #be3128;
+}
+
+footer{
+    width: 100%;
+    height: 200px;
+}
+
+footer .inner{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+footer .info{
+    width: 60%;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    font-size: 14px;
+    color: #333131;
+    position: relative;
+}
+
+footer .inner > .info::after{
+    content: "";
+    width: 1px;
+    height: 180px;
+    display: block;
+    position: absolute;
+    right: 0;
+    top:  10px;
+    background: rgba(127, 121, 121, 0.5);
+}
+
+footer .info > div span{
+    margin: 0 20px 0 0;
+    position: relative;
+}
+
+footer .info > div span:first-child::after{
+    width: 1px;
+    height: 14px;
+    content: "";
+    display: block;
+    background: #000;
+    position: absolute;
+    left: 70px;
+    top: 3px;
+}
+
+footer .info dl:nth-child(2),
+footer .info dl:nth-child(3){
+    display: flex;
+}
+
+footer .info dl:nth-child(2) dt,
+footer .info dl:nth-child(3) dt{
+    color: #7f7979;
+}
+
+footer .info dl:nth-child(2) dd,
+footer .info dl:nth-child(3) dd{
+    margin: 0 10px;
+}
+
+footer .info div:last-child{
+    display: flex;
+    align-items: center;
+}
+
+footer .info div:last-child i{
+    color: #000;
+    font-size: 25px;
+    margin-right: 10px;
+}
+footer .info div:last-child span{
+    font-size: 15px;
+}
+
+footer .customer{
+    width: 40%;
+    height: 200px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    color: #333131;
+    position: relative;
+}
+
+footer .inner > .customer::after{
+    content: "";
+    width: 1px;
+    height: 180px;
+    display: block;
+    position: absolute;
+    right: 0;
+    top:  10px;
+    background: rgba(127, 121, 121, 0.5);
+}
+
+footer .customer > div:nth-child(2) i,
+footer .customer > div:nth-child(2) span{
+   font-size: 20px; 
+}
+
+footer .customer > div:nth-child(3) > span:nth-child(2){
+    margin: 0 10px 0 0;
+}
+
+.scrolltop{
+    position: fixed;
+    font-size: 30px;
+    bottom: 20px;
+    right: 10%;
+    border: 1px solid rgba(0, 0, 0, 0.7);
+    color: rgba(0, 0, 0, 0.7);
+    background: #fff;
+    z-index: 50;
+}
