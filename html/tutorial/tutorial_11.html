@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8" />
+	<link rel="stylesheet" type="text/css" href="/web/css/explain.css" />
+	<title>중앙정렬</title>
+</head>
+<body>
+	<div class="wrap">
+        <h1>중앙정렬</h1>
+        <h2>text-align: center;로 가운데 정렬하기</h2>
+        <div class="contents layout_06">
+            <ul class="gray bg_gray">
+                <li>넓은 영역을 가지고 있는 요소에 <strong>text-align: center;</strong>를 주면 그 안에 있는 inline요소는 가운데 정렬을 한다.</li>
+                <li>만약 block요소를 가운데 정렬해야 한다면 display: inline-block;으로 inline요소로 변경하면 된다. <em class="txt_red">(단, float값을 주면 안된다)</em></li>
+            </ul>
+            <div class="exp ex01 clearfix">
+                <div class="left">
+                    <div class="area">
+                        <em class="tit txt_red">text-align: center;를 준 요소의 영역 </em>
+                        <strong>strong태그</strong>
+                        <p><strong>p태그</strong>는 block요소라 가운데 정렬이 안됨<br />(단, 글씨만 center를 상속받아 p영역 안에서 가운데 정렬함)</p>
+                        <ul>
+                            <li>1i태그</li>
+                            <li>1i태그</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="right">
+                    <strong class="tit">html은</strong>
+                    &lt;div class="area"&gt;
+                        <span class="tab1">&lt;strong&gt; strong태그 &lt;/strong&gt;</span>
+                        <span class="tab1">&lt;p&gt; p태그 &lt;/p&gt;</span>
+                        <span class="tab1">&lt;ul&gt;</span>
+                            <span class="tab2">&lt;li&gt; li태그 &lt;/li&gt;</span>
+                            <span class="tab2">&lt;li&gt; li태그 &lt;/li&gt;</span>
+                        <span class="tab1">&lt;/ul&gt;</span>
+                    &lt;/div&gt;
+    
+                    <strong class="tit">css는</strong>
+                    .area{<strong class="txt_red">text-align: center;</strong>}
+                    .area ul li{<strong class="txt_blue">display: inline-block;</strong>}
+                    <em class="txt_green">/* block요소라도 display: inline-block;을 주면 가운데 정렬을 할 수 있다. */</em>
+                </div>
+            </div>
+    
+            <ul class="gray bg_gray">
+                <li><em class="txt_red">float값으로 정렬한 요소</em>를 꼭 가운데 정렬해야 하는 경우 (float를 준 요소를 감싸는 요소에 display: inline-block;을 준다)</li>
+            </ul>
+            <div class="exp ex02 clearfix">
+                <div class="left">
+                    <div class="area1">
+                        <em class="tit txt_red">text-align: center;를 준 요소의 영역 </em>
+                        <ul class="clearfix">
+                            <li>1i태그</li>
+                            <li>1i태그</li>
+                            <li>1i태그</li>
+                        </ul>
+                    </div>
+                    <div class="area2">
+                        <strong class="tit txt_blue">하지만, 여러줄일 경우는 안됨 </strong>
+                        <ul class="clearfix">
+                            <li>1i태그</li>
+                            <li>1i태그</li>
+                            <li>1i태그</li>
+                            <li>1i태그</li>
+                            <li>1i태그</li>
+                            <li>1i태그</li>
+                            <li>1i태그</li>
+                            <li>1i태그</li>
+                            <li>1i태그</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="right">
+                    <strong class="tit">html은</strong>
+                    &lt;div class="area"&gt;
+                        <span class="tab1">&lt;ul&gt;</span>
+                            <span class="tab2">&lt;li&gt; li태그 &lt;/li&gt;</span>
+                        <span class="tab1">&lt;/ul&gt;</span>
+                    &lt;/div&gt;
+    
+                    <strong class="tit">css는</strong>
+                    .area{<strong class="txt_red">text-align: center;</strong>}
+                    .area ul{<strong class="txt_blue">display: inline-block;</strong>}
+                    .area ul li{<strong class="txt_red">float: left;</strong>}
+                    <em class="txt_green">/* float를 준 요소를 감싸고 있는 요소를 inline요소로 변경하면 가운데 정렬이 가능 */</em>
+                </div>
+            </div>
+    
+            <ul class="gray bg_gray">
+                <li><em class="txt_red">float값으로 정렬한 요소</em>를 꼭 가운데 정렬해야 하는 경우 <em class="txt_red">(여러줄일때)</em></li>
+            </ul>
+            <div class="exp ex03 clearfix">
+                <div class="left">
+                    <div class="area">
+                        <em class="tit txt_blue">text-align: center;를 준 요소의 영역 </em>
+                        <ul class="clearfix">
+                            <li>1i태그</li>
+                            <li>1i태그</li>
+                            <li>1i태그</li>
+                            <li>1i태그</li>
+                            <li>1i태그</li>
+                            <li>1i태그</li>
+                            <li>1i태그</li>
+                            <li>1i태그</li>
+                            <li>1i태그</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="right">
+                    <strong class="tit">css는</strong>
+                    .area{<strong class="txt_red">text-align: center;</strong>}
+                    .area ul{<strong class="txt_blue">font-size: 0;</strong>}
+                    .area ul li{<strong class="txt_red">display: inline-block;</strong>}
+                    <em class="txt_green">/* li를 감싸는 ul에서 font-size: 0;을 줘서 li 사이에 발생할 수 있는 여백을 삭제 (inline-block은 사이에 빈칸하나의 여백이 발생한다)*/</em>
+                </div>
+            </div>
+        </div>
+        <h2>margin: 0 auto;로 가운데 정렬하기</h2>
+        <div class="contents layout_06">
+            <ul class="gray bg_gray">
+                <li>넓이가 고정인 요소를 가운데 정렬할 경우 사용한다.</li>
+                <li>가운데 정렬할 요소는 반드시 block요소이어야하고, width가 고정이어야 한다.</li>
+            </ul>
+    
+            <div class="exp ex04 clearfix">
+                <div class="left">
+                    <div class="area">
+                        <em class="tit txt_red">text-align: center;를 준 요소의 영역 </em>
+                        <p>기업가는 문제 해결을 위해 노력하고 답을 찾아내는 사람입니다. 옐로모바일은 이러한 기업가 정신으로 새로운 문제에 도전하고 세상을 개선해 나갈 것입니다.</p>
+                    </div>
+                </div>
+                <div class="right">
+                    <strong class="tit">html은</strong>
+                    &lt;div class="area"&gt;
+                        <span class="tab1">&lt;p&gt; 기업가는 문제 해결을 위해 노력하고 답을 찾아내는 사람입니다. 옐로모바일은 이러한 기업가 정신으로 새로운 문제에 도전하고 세상을 개선해 나갈 것입니다. &lt;/p&gt;</span>
+                    &lt;/div&gt;
+    
+                    <strong class="tit">css는</strong>
+<pre>
+.area p{
+    <strong class="txt_red">width: 300px;
+    margin: 0 auto;</strong>
+}
+</pre>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, maximum-scale=2.0, minimum-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="/web/css/explain.css" />
+	<script type="text/javascript" src="/web/js/jquery-1.12.4.min.js"></script>
+	<script type="text/javascript" src="/web/js/banner_01.js"></script>
+	<title>좌우로 이동하는 일반 배너</title>
+</head>
+<body>
+    <div class="wrap">
+        <h1>좌우로 이동하는 일반 배너</h1>
+        <section class="banner bnr01">
+            <h2>배너존</h2>
+            <div class="banner_wrap">
+                <ul>
+                    <li><a href="#n">1번배너</a></li>
+                    <li><a href="#n">2번배너</a></li>
+                    <li><a href="#n">3번배너</a></li>
+                    <li><a href="#n">4번배너</a></li>
+                    <li><a href="#n">5번배너</a></li>
+                    <li><a href="#n">6번배너</a></li>
+                    <li><a href="#n">7번배너</a></li>
+                    <li><a href="#n">8번배너</a></li>
+                    <li><a href="#n">9번배너</a></li>
+                    <li><a href="#n">10번배너</a></li>
+                </ul>
+            </div>
+            <a href="#n" class="next btn">다음</a>
+            <a href="#n" class="prev btn">이전</a>
+        </section>
+    
+        <div class="banner_01">
+            <h2>배너의 구조</h2>
+            <div class="bnr_sample">
+                <ul>
+                    <li>1번 배너</li>
+                    <li>2번 배너</li>
+                    <li>3번 배너</li>
+                    <li>4번 배너</li>
+                    <li>5번 배너</li>
+                    <li>6번 배너</li>
+                    <li>7번 배너</li>
+                    <li>8번 배너</li>
+                    <li>9번 배너</li>
+                    <li>10번 배너</li>
+                </ul>
+                <div class="box"><span>보이는 영역</span></div>
+            </div>
+            <h2>배너의 특징</h2>
+            <ul>
+                <li>좌우로 이동하는 배너이다. 마지막 배너가 보이면 더이상 다음 버튼이 안눌리고, 1번 배너가 보이면 더이상 이전버튼이 안눌림</li>
+                <li class="txt_red">li에는 절대 넓이 이외의 값이 들어가면 안됨. (padding, margin, border 금지)<br />만약 여백이나 border가 필요하면 li안에 감싸고 있는 요소에 준다.</li>
+                <li>li의 넓이값만큼 이동함.</li>
+                <li>ul의 넓이는 jquery에서 li의 갯수를 계산해서 li가 두줄로 되지 않도록 (좌우로 배치되도록) width값을 주고 있다.</li>
+            </ul>
+            <h2>기본 html 구조</h2>
+            <div class="code">
+        &lt;div class="banner"&gt; <span class="txt_green">/* obj_wrap */</span>
+            &lt;ul&gt; <span class="txt_green">/* obj_name 배너 전체를 묶어주는 요소로 이 요소가 jquery에서 움직임(반드시 position: absolute;, left: 0; 이어야함) */</span>
+                &lt;li&gt;&lt;/li&gt; <spa class="txt_green">/* obj_child 배너항목(반드시 float: left;를 줘서 모든 배너이 옆으로 나란히 배치되도록 해야함.)*/</span>
+            &lt;/ul&gt;
+        &lt;/div&gt;
+            </div>
+    
+            <h2>기본 css 코드</h2>
+            <div class="code">
+<pre>
+.banner{position: relative;}
+.banner ul{
+    position: aboslute;
+    top: 0;
+    left: 0;
+}
+.banner li{
+    float: left;
+    <em class="txt_red">width: 배너의넓이;
+    height: 배너의높이;</em>
+}
+</pre>
+            </div>
+    
+            <h2>jquery소스</h2>
+            <a href="../../js/banner_01.js" target="_blank" class="bg_red">jquery 소스보기</a>
+        </div>
+    </div>
+   </body>
+</html>

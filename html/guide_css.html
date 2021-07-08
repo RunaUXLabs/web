@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8" />
+	<link rel="stylesheet" type="text/css" href="/web/css/selector.css" />
+    <script type="text/javascript" src="/web/js/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript" src="/web/js/web.js"></script>
+	<title>css 선택자</title>
+</head>
+<body>
+	<aside class="quick">
+        <ul>
+			<li><a href="/web/html/main.html">수업자료메인</a></li>
+			<li><a href="/web/html/guide_html.html" target="_blank">html/css 기초</a></li>
+			<li><a href="/web/html/guide_css.html" target="_blank">css선택자</a></li>
+			<li><a href="/web/html/guide_jquery.html" target="_blank">jquery 기초</a></li>
+			<li><a href="/web/html/tutorial/tutorial.html" target="_blank">코딩튜토리얼</a></li>
+		</ul>
+	</aside>
+	<div class="wrap">
+		<h1>CSS 선택자</h1>
+		<h2>타입 선택자</h2>
+		<p>html 태그의 이름을 css에서 호출해서 사용하는 방식</p>
+		<h3>사용예</h3>
+		<div class="ex">
+			<p class="tit">html에서</p>
+			<p class="cts">
+				&lt;h2&gt;제목&lt;strong&gt;1 수선화&lt;/strong&gt;&lt;/h2&gt;<br />
+				&lt;p&gt;&lt;strong&gt;수선화&lt;/strong&gt;는 꽃이다&lt;/p&gt;
+			</p>
+			<p class="tit">css에서</p>
+			<p class="cts">
+				h2{font-size:20px;}<br />
+				strong{color:#ff0000;}<br />
+				p{font-size:15px;}<br />
+				<em>/*html태그에서 사용한 태그를 css에서 태그의 명만 불러서 스타일을 선언하면 그 태그를 사용한 모든 곳에서 동일한 스타일 적용됨.*/</em>
+			</p>
+		</div>
+		
+		<h2>ID(아이디) 선택자</h2>
+		<p>html 요소에 <strong>id="아이디명"</strong> 이라는 속성값을 추가해주면 css에서  <strong>#아이디명</strong> 이라고 스타일을 선언해서 사용하는 방식<br />아이디명은 한페이지에서 절대 중복사용 불가능합니다. (동일한 이름을 두번 사용 불가)<br />
+		html요소 중에서 레이아웃에 크게 영향을 끼치는 요소만 id로 지정 (안줘도 됨)</p>
+		
+		
+		<h2>class(클래스) 선택자</h2>
+		<p>html 요소에 <strong>class="클래스명"</strong>이라는 속성값을 추가해주면 css에서 <strong>.클래스명</strong> 이라고 스타일 선언해서 사용하는 방식<br />
+		클래스명은 영어, 숫자, 언더바(_)만 가능하고 첫글자는 무조건 영어만 가능<br />
+		클래스명은 태그명은 피하고, 클래스명은 중복사용가능하고, 그 영역의 목적에 맞게 의미에 맞게 네이밍을 정하는게 중요.</p>
+		<h3>사용예</h3>
+		<div class="ex">
+			<p class="tit">html에서</p>
+			<p class="cts">
+				&lt;h2&gt;제목&lt;span <em>class="point"</em>&gt;1 수선화&lt;/span&gt;&lt;/h2&gt;<br />
+				&lt;p&gt;&lt;strong <em>class="point"</em>&gt;수선화&lt;/strong&gt;는 꽃이다&lt;/p&gt;
+			</p>
+			
+			<p class="tit">css에서</p>
+			<p class="cts">
+				<em>.point</em>{color:#ff0000;text-decoration:underline;}<br />
+				<em>/* html태그에서 class속성으로 선언된 이름(클래스명) 앞에 .(점)을 추가해서 css에서 호출하는 방식<br />
+				css에서 선택자를 구분할때 .(점)이 없으면 태그명이고, .(점)이 있으면 class명임 */</em>
+			</p>
+			<p class="tit">css에서 class를 호출하는 또 다른 방식</p>
+			<p class="cts">
+				<em>span.point</em>{color:#ff0000;}
+				<em>/* span.point 는 span태그 중에서 class명이 point인 요소 만..을 의미한다 */</em><br />
+				<em>.notice.on</em>{color:#0000ff;}
+				<em>/* 하나의 요소에 notice라는 클래스와 on이라는 클래스가 동시에 선언된 경우(<strong>&lt;div class="notice on"&gt;</strong>)*/</em>
+				
+			</p>
+		</div>
+		<h3>중복사용예</h3>
+		<div class="ex">
+			<p class="tit">html에서</p>
+			<p class="cts">
+				&lt;div <em>class="service on"</em>&gt;우산 대여&lt;/div&gt;<br />
+				&lt;div <em>class="service"</em>&gt;충전기 대여&lt;/div&gt;<br />
+				&lt;div <em>class="service"</em>&gt;유모차 대여&lt;/div&gt;<br />
+				<em><strong>&lt;!-- 이때 service와 on 클래스를 동시에 선언하려면 두개의 클래스명 사이에 반드시 한칸의 여백을 줘야함. (여러개의 클래스를 동시에 선언가능)--&gt;</strong></em>
+			</p>
+			
+			<p class="tit">css에서</p>
+			<p class="cts">
+				<em>.service</em>{float:left; width:300px; height:200px; background:#ededed; border:1px solid #ccc;}<br />
+				<em>/* service클래스가 선언된 모든 요소에 적용 */</em><br />
+				<em>.service.on</em>{background:#fff; border:1px solid #ff6600;}<br />
+				<em>/* service클래스와 on 클래스가 동시에 선언된 우산 대여에만 추가적으로 적용 (최종적으로 우산대여는 float:left; width:300px; height:200px; background:#fff; border:1px solid #ff6600;)의 css가 적용됨<br />
+				<strong>service클래스와 on클래스를 동시에 선언한 요소를 선택할때는 반드시 여백없이 .service.on 이라고 써줘야함.</strong>*/</em>
+			</p>
+		</div>
+		
+		<h2>자손 선택</h2>
+		<p>자손 선택으로 선택할 수 있는 요소는 반드시 태그가 감싸여 있는 구조이어야만 가능 (시작태그와 종료태그로 감싸여 있어야 함)</p>
+		<h3>사용예</h3>
+		<div class="ex">
+			<p class="tit">html에서</p>
+			<p class="cts">
+	<pre>
+	&lt;div class="visual"&gt;
+		&lt;h2&gt;&lt;em&gt;비쥬얼&lt;/em&gt; 팝업(visual popup)&lt;/h2&gt;
+		&lt;p&gt;화면 가로를 100% 차지하는 &lt;strong&gt;큰 팝업&lt;/strong&gt;&lt;/p&gt;
+	&lt;/div&gt;
+	&lt;div class="notice"&gt;
+		&lt;h2&gt;&lt;em&gt;공지&lt;/em&gt;사항&lt;/h2&gt;
+		&lt;p&gt;홈페이지 공지사항을 흔히 &lt;strong class="point"&gt;notice&lt;/strong&gt;라고 네이밍함&lt;/p&gt;
+	&lt;/div&gt;
+	</pre>
+			</p>
+			
+			<p class="tit">css에서 <em>띄어쓰기 매우 주의!!!</em></p>
+			<p class="cts">
+				.visual h2{color:red;} <em>/*visual이라는 클래스명을 가진 요소 안에 감싸여있는 h2태그*/</em><br />
+				.notice h2{color:blue;}<br />
+				h2 em{ } <em>/* h2태그 안에 감싸여 있는 em태그 */</em><br />
+				p strong{ }<br />
+				div.notice{ }<em>/* div태그중에 notice라는 클래스명을 가진 요소 */</em><br />
+				.notice .point{ } <em>/* notice라는 클래스명을 가진 요소 안에 감싸여있는 point라는 클래스 명을 가진 요소 */</em><br />
+				.notice h2 em{ } <br />
+				.notice em{ }<br />
+				.notice strong.point{ }<em>/* notice라는 클래스명을 가진 요소 안에 감싸여있는 strong태그 중에 point라는 클래스 명을 가진 요소 */</em><br />
+			</p>
+		</div>
+		
+		<h2>자식 선택자</h2>
+		<p>감싸고 있는 요소들을 하나도 빠짐없이 순서대로 불러야 하는 css 선택방식, 동일한 태그가 반복적으로 사용될때 사용</p>
+		<h3>사용예</h3>
+		<div class="ex">
+			<p class="tit">html에서</p>
+			<p class="cts">
+	<pre>
+	&lt;nav&gt;
+		&lt;ul&gt;
+			&lt;li&gt;
+				&lt;a href="#"&gt;1차 메뉴1&lt;/a&gt;
+				&lt;ul&gt;
+					&lt;li&gt;&lt;a href="#"&gt;2차 메뉴1&lt;/a&gt;&lt;/li&gt;
+					&lt;li&gt;&lt;a href="#"&gt;2차 메뉴2&lt;/a&gt;&lt;/li&gt;
+				&lt;/ul&gt;
+			&lt;/li&gt;
+			&lt;li&gt;
+				&lt;a href="#"&gt;1차 메뉴2&lt;/a&gt;
+				&lt;ul&gt;
+					&lt;li&gt;&lt;a href="#"&gt;2차 메뉴3&lt;/a&gt;&lt;/li&gt;
+					&lt;li&gt;&lt;a href="#"&gt;2차 메뉴4&lt;/a&gt;&lt;/li&gt;
+				&lt;/ul&gt;
+			&lt;/li&gt;
+		&lt;/ul&gt;
+	&lt;/nav&gt;
+	</pre>
+			</p>
+			<p class="tit">css에서</p>
+			<p class="cts">
+				nav ul li a{ }<em>/*이렇게 선택하면 1차메뉴의 a와 2차메뉴의 a 모두가 선택된다. */</em><br />
+				nav>ul>li>a{ } <em>/*1차메뉴 a를 선택하는 방법*/</em><br />
+				nav>ul>li>ul>li>a{ } <em>/*2차메뉴 a를 선택하는 방법*/</em><br /><br />
+				
+				nav>ul>ul{ } <em>/*이렇게 선택하면 아무것도 선택되지 않음 (중간 li가 빠져있으므로)*/</em><br /><br />
+
+				<em>2차메뉴 li를 선택할 경우는 그 태그르 감싸고 있는 nav>ul>li>ul을 모두 써야 한다. (a태그는 감싸는 태그가 아니므로 생략가능)<br />
+					자손선택은 "손주"이기 때문에 아빠빼고, 길동이네집 손주 개똥이라고 부를 수 있으나, 자식선택은 반드시 아빠까지 포함해서 선언해야함.</em>
+			</p>
+		</div>
+
+		<h2>다중 선택자</h2>
+		<p>여러 요소를 한꺼번에 선택하여 동일한 스타일을 적용하고자 할때 사용</p>
+		<h3>사용예</h3>
+		<div class="ex">
+			<p class="tit">html에서</p>
+			<p class="cts">
+<pre>
+	&lt;div class="bbs"&gt;
+		&lt;div class="notice"&gt;
+			&lt;h2&gt;공지사항&lt;/h2&gt;
+			&lt;ul&gt;
+				&lt;li&gt;&lt;a href="#n"&gt;공지사항 1&lt;/a&gt;&lt;/li&gt;
+			&lt;/ul&gt;
+			&lt;a href="#n"&gt;더보기&lt;/a&gt;
+		&lt;/div&gt;
+		&lt;div class="news"&gt;
+			&lt;h2&gt;최신뉴스&lt;/h2&gt;
+			&lt;ul&gt;
+				&lt;li&gt;&lt;a href="#n"&gt;최신뉴스 1&lt;/a&gt;&lt;/li&gt;
+			&lt;/ul&gt;
+			&lt;a href="#n"&gt;더보기&lt;/a&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+</pre>
+			</p>
+			<p class="tit">css에서</p>
+			<p class="cts">
+				.bbs .notice h2<span class="point">,</span> .bbs .news h2{ }<br />
+				<em>/*공지사항과 최신뉴스 모두에 동일한 스타일을 적용하고자 할때 사용하는 스타일로 선택자 사이를 <span class="point">쉼표(,)</span>로 연결*/</em><br />
+			</p>
+		<div>
+	</div>		
+</div>
+</body>
+</html>

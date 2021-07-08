@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8" />
+	<link rel="stylesheet" type="text/css" href="/web/css/main.css" />
+	<script type="text/javascript" src="/web/js/jquery-1.12.4.min.js"></script>
+	<script type="text/javascript" src="/web/js/main.js"></script>
+<title>jquery 기초</title>
+</head>
+
+<body>
+	<aside class="quick">
+        <ul>
+			<li><a href="/web/html/main.html">수업자료메인</a></li>
+			<li><a href="/web/html/guide_html.html" target="_blank">html/css 기초</a></li>
+			<li><a href="/web/html/guide_css.html" target="_blank">css선택자</a></li>
+			<li><a href="/web/html/guide_jquery.html" target="_blank">jquery 기초</a></li>
+			<li><a href="/web/html/tutorial/tutorial.html" target="_blank">코딩튜토리얼</a></li>
+		</ul>
+	</aside>
+	<div class="wrap">
+		<h1>jquery 기초</h1>
+		<h2>jquery 사용하는 이유</h2>
+		<div class="gray_box">
+			<strong>jQuery는 자바스크립트 DOM을 좀더 쉽게 작업하기 위한 라이브러리이다.</strong>
+			<p>결론부터 말하자면 jQuery의 정체는 자바스크립트 문법 중 프로토타입 방식으로 만들어진 클래스이다. 쉽게 이야기해 jQuery 메서드는 자바스크립트 DOM으로 이루어져 있다. 그렇기에 jQuery를 배운다는것은 메서드를 배우는 것이며, 이를 통해 자바스크립트로 코딩하면 10줄, jQuery로 코딩하면 2-3줄로 처리 할수 있을 만큼 효율적인 코드작업을 할 수 있다. 그렇다고 jQuery로 모든것을 다 할 수 있는것도 아니며 무조건 좋다는 말은 아니다.</p>
+			<p>제일 좋은 방법은 jQuery와 자바스크립트를 같이 사용하여 최적화 하는방법이 좋다. jQuery는 쉬운데 자바스크립트는 어렵다고 한다면 자바스크립트 기초도 충실히 공부해야 한다.</p>
+			<p>jQuery는 DOM 제어보다 크로스 브라우징 처리가 편리하다. IE7은 비표준 브라우저이기 때문에 이벤트 등록시 자바스크립트로 처리할 경우 attachEvent(), addEventListener()를 사용하여 코드를 작성하여야,	IE7과 기타 브라우저의 크로스브라우징을 정상적으로 처리해야 한다. 하지만 jQuery 내부에는 이런 번거로운 작업들을 대신 처리해주기 때문에 이벤트를 아주 쉽게 처리할 수 있다.</p>
+		</div>
+		<h2>jquery 학습 방법</h2>
+		<div class="gray_box">
+			<strong>자바스크립트의 경우 기본 문법을 모를 경우 공부하기가 힘들다.</strong>
+			<p>그러나 jQuery의 경우 수많은 메서드로 구성되어 있기에 순서없이 메서드를 하나씩 학습하면 된다.	굳이 공부하는 순서를 따져야 한다면, jQuery는 css와 연관성이 많기에 css를 기본적으로 이해해야 하며, 노드를 찾아가는 방법(체인기능) 메서드부터 진행하면 된다.</p>
+		</div>
+		<h2>jquery 노드 메서드</h2>
+		<table class="tbl_form">
+			<thead>
+				<tr>
+					<th scope="col">분류</th>
+					<th scope="col">핵심 내용</th>
+					<th scope="col">핵심 프로퍼티 및 메서드</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td rowspan="4">일반 노드<br>찾기</td>
+					<td>아이디 이름으로 노드 찾기</td>
+					<td>$("#아이디")</td>
+				</tr>
+				<tr>
+					<td>태그 이름으로 노드 찾기</td>
+					<td>$("태그")</td>
+				</tr>
+				<tr>
+					<td>클래스 이름으로 노드 찾기</td>
+					<td>$(".클래스")</td>
+				</tr>
+				<tr>
+					<td>속성으로 노드 찾기</td>
+					<td>$("[속성이름=값]")</td>
+				</tr>
+				<tr>
+					<td rowspan="7">찾은 노드<br>다루기</td>
+					<td>찾은 개수 구하기</td>
+					<td>$("선택자").length</td>
+				</tr>
+				<tr>
+					<td>n번째 노드 접근하기</td>
+					<td>$("선택자").eq(main)</td>
+				</tr>
+				<tr>
+					<td>자바스크립트 DOM 객체 접근하기</td>
+					<td>$("선택자").get(main)<br>$("선택자")[main] </td>
+				</tr>
+				<tr>
+					<td>순차적으로 노드 접근하기</td>
+					<td>$("선택자").each(function(main){ $(this) 또는 $("선택자").eq(main); }); </td>
+				</tr>
+				<tr>
+					<td>찾은 노드 중에서 특정 노드만 찾기</td>
+					<td>$("선택자").filter("선택자")</td>
+				</tr>
+				<tr>
+					<td>찾은 노드의 자손 노드 중 특정 노드만 찾기</td>
+					<td>$("선택자").find("선택자")</td>
+				</tr>
+				<tr>
+					<td>
+					<p>인덱스 값 구하기</p></td>
+					<td>$("선택자").main()<br>$목록.main($("선택자"))<br>$목록.main(선택자 DOM 객체)<br></td>
+				</tr>
+				<tr>
+					<td rowspan="5">자식 노드<br>찾기</td>
+					<td>모든 자식 노드 찾기</td>
+					<td>$("선택자").children()</td>
+				</tr>
+				<tr>
+					<td>특정 자식 노드만 찾기</td>
+					<td>$("선택자").children("선택자")</td>
+				</tr>
+				<tr>
+					<td>첫 번째 자식 노드 찾기</td>
+					<td>$("선택자").children().first()<br>$("선택자").children(":first")<br>$("선택자").children().eq(0)<br>$("선택자").children("eq(0)") </td>
+				</tr>
+				<tr>
+					<td>마지막 번째 자식 노드 찾기</td>
+					<td>$("선택자").children().last()<br>$("선택자").children(":last")<br>$("선택자").children().eq($("선택자").children().length-1)<br>$("선택자").children(":eq("+($("선택자").children().length-1)+")") </td>
+				</tr>
+				<tr>
+					<td>n번째 자식 노드 찾기</td>
+					<td>$("선택자").children().eq(main)<br>$("선택자").children(":eq("+main+")") </td>
+				</tr>
+				<tr>
+					<td rowspan="2">부모 노드<br>찾기</td>
+					<td>부모 노드 찾기</td>
+					<td>$("선택자").parent()</td>
+				</tr>
+				<tr>
+					<td>조상 노드 찾기</td>
+					<td>$("선택자").parents(["선택자"])</td>
+				</tr>
+				<tr>
+					<td rowspan="2">형제 노드<br>찾기</td>
+					<td>이전 형제 노드 찾기</td>
+					<td>$("선택자").prev()<br>$("선택자").prevAll(["선택자"]) </td>
+				</tr>
+				<tr>
+					<td>다음 형제 노드 찾기</td>
+					<td>$("선택자").next()<br>$("선택자").nextAll(["선택자"]) </td>
+				</tr>
+				<tr>
+					<td rowspan="5">노드 생성/<br>추가</td>
+					<td>노드 생성</td>
+					<td>$("추가노드 DOM 문자열")</td>
+				</tr>
+				<tr>
+					<td>첫 번째 자식 노드로 추가</td>
+					<td>$부모노드.prepend($추가노드)<br>$추가노드.prependTo($부모노드) </td>
+				</tr>
+				<tr>
+					<td>마지막 번째 자식 노드로 추가</td>
+					<td>$부모노드.append($추가노드)<br>$추가노드.appendTo($부모노드) </td>
+				</tr>
+				<tr>
+					<td>특정 노드의 이전 위치에 추가</td>
+					<td>$기준노드.before($추가노드)<br>$추가노드.insertBefore($기준노드) </td>
+				</tr>
+				<tr>
+					<td>특정 노드의 다음 위치에 추가</td>
+					<td>$기준노드.after($추가노드)<br>$추가노드.insertAfter($기준노드) </td>
+				</tr>
+				<tr>
+					<td rowspan="2">노드제거</td>
+					<td>특정 노드 제거</td>
+					<td>$("선택자").remove()</td>
+				</tr>
+				<tr>
+					<td>모든 자식 노드 제거</td>
+					<td>$("선택자").children().remove()</td>
+				</tr>
+				<tr>
+					<td rowspan="4">노드 내용<br>읽기 및 변경</td>
+					<td>노드 내용을 문자열로 읽기</td>
+					<td>$("선택자").html() //태그 내용 포함<br>$("선택자").text() //태그 내용 제외 </td>
+				</tr>
+				<tr>
+					<td>노드 내용 수정하기</td>
+					<td>$("선택자").html("수정할 태그 문자열")<br>$("선택자").text("수정할 텍스") </td>
+				</tr>
+				<tr>
+					<td>노드 내용을 이용해 여러 개의 자식 노드 추가하</td>
+					<td>$("선택자").html("추가할 태그 문자열")</td>
+				</tr>
+				<tr>
+					<td>노드 내용을 이용해 모든 자식 노드 제거하기</td>
+					<td>$("선택자").html("")</td>
+				</tr>
+			</tbody>
+		</table>
+		<h2>jquery 스타일 메서드</h2>
+		<table class="tbl_form">
+			<thead>
+				<tr>
+					<th scope="col">분류</th>
+					<th scope="col">핵심 내용</th>
+					<th scope="col">핵심 프로퍼티 및 메서드</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td rowspan="4">스타일<br>다루기</td>
+					<td>스타일 값 구하기</td>
+					<td>$("선택자").css("스타일 속성 이름")<br>$("선택자").css(["스타일 속성 이름", ...]) </td>
+				</tr>
+				<tr>
+					<td>스타일 값 설정하기</td>
+					<td>$("선택자").css("스타일 속성 이름",값)<br>$("선택자").css({스타일 속성 이름:값, ...}) </td>
+				</tr>
+				<tr>
+					<td>클래스 추가</td>
+					<td>$("선택자").addClass("클래스 이름")</td>
+				</tr>
+				<tr>
+					<td>클래스 삭제</td>
+					<td>$("선택자").removeClass("클래스 이름")</td>
+				</tr>
+			</tbody>
+		</table>
+		<h2>jquery 속성 메서드</h2>
+		<table class="tbl_form">
+			<thead>
+				<tr>
+					<th scope="col">분류</th>
+					<th scope="col">핵심 내용</th>
+					<th scope="col">핵심 프로퍼티 및 메서드</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td rowspan="2">속성<br>다루기</td>
+					<td>속성값 구하기</td>
+					<td>$("선택자").attr("속성이름")<br>$("선택자").data("data-속성이름") </td>
+				</tr>
+				<tr>
+					<td>속성값 설정하기</td>
+					<td>$("선택자").attr("속성이름","값")<br>$("선택자").data("data-속성이름","값") </td>
+				</tr>
+			</tbody>
+		</table>
+
+		<h2>jquery 이벤트 메서드</h2>
+		<table class="tbl_form">
+			<thead>
+				<tr>
+					<th scope="col">분류</th>
+					<th scope="col">핵심 내용</th>
+					<th scope="col">핵심 프로퍼티 및 메서드</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td rowspan="7">이벤트<br>다루기</td>
+					<td>일반 이벤트 등록</td>
+					<td>$("선택자").on("이벤트 이름", 이벤트리스너)</td>
+				</tr>
+				<tr>
+					<td>단축 이벤트 등록</td>
+					<td>$("선택자").단축 이벤트(이벤트리스너)</td>
+				</tr>
+				<tr>
+					<td>등록한 이벤트 제거</td>
+					<td>$("선택자").off("click", 삭제하고 싶은 이벤트 리스너 명)<br>$("선택자").off("click")<br>$("선택자").off()</td>
+				</tr>
+				<tr>
+					<td>이벤트 한 번만 실행</td>
+					<td>$("선택자").one("이벤트 이름", 이벤트리스너)</td>
+				</tr>
+				<tr>
+					<td>기본 행동 취소</td>
+					<td>이벤트 객체.preventDefault()</td>
+				</tr>
+				<tr>
+					<td>버블링 멈추기</td>
+					<td>이벤트 객체.stopPropagation()</td>
+				</tr>
+				<tr>
+					<td>버블링 활용:하나의 이벤트</td>
+					<td>$("선택자").on("이벤트 이름", "선택자", 이벤트 리스너)</td>
+				</tr>
+			</tbody>
+		</table>
+		<h2>jquery 위치 및 크기 메서드</h2>
+		<table class="tbl_form">
+			<thead>
+				<tr>
+					<th scope="col">분류</th>
+					<th scope="col">핵심 내용</th>
+					<th scope="col">핵심 프로퍼티 및 메서드</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td rowspan="4">요소의 위치 및<br>크기 관련 기능</td>
+					<td>부모 좌표 노드 구하기</td>
+					<td>$("선택자").offsetParent()</td>
+				</tr>
+				<tr>
+					<td>지역 좌표 위치 다루기</td>
+					<td>지역 좌표 위치 구하기<br>$("선택자").position().left<br>$("선택자").position().top<br><br>지역 좌표 위치 설정하기<br>$("선택자").css("left",위치값)<br>$("선택자").css("top",위치값)<br>또는<br>$("선택자").css({left:위치값,top:위치값}) </td>
+				</tr>
+				<tr>
+					<td>전역 좌표 위치 다루기</td>
+					<td>전역 좌표 위치 구하기<br>$("선택자").offset().left<br>$("선택자").offset().top<br><br>전역 표표위치 설정하기<br>$("선택자").offset({left:위치값,top:위치값}) </td>
+				</tr>
+				<tr>
+					<td>요소 크기 다루기</td>
+					<td>기본 크기 구하기<br>$("선택자").width()<br>$("선택자").height()<br><br>기본 크기+padding 크기 구하기<br>$("선택자").innerWidth()<br>$("선택자").innerHeight()<br><br>기본 크기+padding+border 크기 구하기<br>$("선택자").outerWidth()<br>$("선택자").outerHeight()<br><br>기본 크기+padding+border+margin 크기 구하기<br>$("선택자").outerWidth(true)<br>$("선택자").outerHeight(true)<br><br>기본 크기 설정하기<br>$("선택자").width(크기값)<br>$("선택자").height(크기값)<br><br>기본 크기+padding 크기 설정하기<br>$("선택자").innerWidth(크기값)<br>$("선택자").innerHeight(크기값) </td>
+				</tr>
+				<tr>
+					<td>요소의 위치 및<br>크기 관련 기능</td>
+					<td>요소의 스크롤 위치 다루기</td>
+					<td>스크롤 위치 구하기<br>$("선택자").scrollLeft()<br>$("선택자").scrollTop()<br><br>스크롤 위치 설정하기<br>$("선택자").scrollLeft(위치값)<br>$("선택자").scrollTop(위치값) </td>
+				</tr>
+				<tr>
+					<td>문서의 위치 및<br>크기 관련 기능</td>
+					<td>문서 크기 구하기</td>
+					<td>$(document).width()<br>$(document).height() </td>
+				</tr>
+				<tr>
+					<td rowspan="7">화면의 위치 및<br>크기 관련 기능<br>윈도우의 위치<br>및 크기 관련<br>기능</td>
+					<td>전체 화면 크기 구하기</td>
+					<td>screen.width<br>screen.height </td>
+				</tr>
+				<tr>
+					<td>유효한 전체 화면 크기 구하기</td>
+					<td>screen.availWidth<br>screnn.availHeight </td>
+				</tr>
+				<tr>
+					<td>윈도우 크기 구하기</td>
+					<td>기본 크기 구하기<br>window.innerWidth<br>window.innerHeight<br><br>기본 크기+메뉴바+툴바 영역이 포함된 크기 구하기<br>$(window).width()<br>$(window).height()<br><br>기본 크기+메뉴바+툴바+스크롤바 영역이 포함된 크기 구하기<br>window.outerWidth<br>window.outerHeight </td>
+				</tr>
+				<tr>
+					<td>윈도우 크기 설정하기</td>
+					<td>window.resizeTo(width,height)</td>
+				</tr>
+				<tr>
+					<td>윈도우 변경 이벤트 처리</td>
+					<td>$(window).on("resize", function(){})</td>
+				</tr>
+				<tr>
+					<td>윈도우 위치 다루기</td>
+					<td>위치 값 구하기<br>window.screenLeft<br>window.screenTop<br><br>위치 값 설정하기<br>window.moveTo(dx,dy)<br>window.moveBy(dx,dy) </td>
+				</tr>
+				<tr>
+					<td>윈도우 스크롤 다루기</td>
+					<td>스크롤 위치 값 구하기<br>window.pageXOffset<br>window.pageYOffset<br><br>스크롤 위치 설정하기<br>window.scrollTo(x,y)<br>window.scrollBy(x,y)<br><br>스크롤 이벤트 처리하기<br>$(window).on("scroll",function(){}) </td>
+				</tr>
+				<tr>
+					<td rowspan="2">마우스의<br>위치 및 크기<br>관련 기능</td>
+					<td>클릭한 전역 위치</td>
+					<td>윈도우 영역을 기준으로 하는 전역 위치<br>mouseEvent.clientX<br>mouseEvent.clientY<br><br>문서 영역을 기준으로 하는 전역 위치<br>mouseEvent.pageX<br>mouseEvent.pageX </td>
+				</tr>
+				<tr>
+					<td>클릭한 지역 위치</td>
+					<td>var offsetX = mouseEvent.pageX - $(타깃).offset().left<br>var offsetY = mouseEvent.pageY - $(타깃).offset().top </td>
+				</tr>
+			</tbody>
+		</table>
+
+		<h2>jquery 애니메이션 메서드</h2>
+		<table class="tbl_form">
+			<thead>
+				<tr>
+					<th scope="col">분류</th>
+					<th scope="col">핵심 내용</th>
+					<th scope="col">핵심 프로퍼티 및 메서드</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td rowspan="3">일반<br>효과<br>다루기</td>
+					<td>나타나고 사라지는 효과</td>
+					<td>나타나기<br>$("선택자").show()<br><br>사라지기<br>$("선택자").hide() </td>
+				</tr>
+				<tr>
+					<td>페이드 인/아웃 효과</td>
+					<td>페이드 인<br>$("선택자").fadeIn()<br><br>페이드 아웃<br>$("선택자").fadeOut() </td>
+				</tr>
+				<tr>
+					<td>슬라이드 업/다운 효과</td>
+					<td>슬라이드 업<br>$("선택자").slideUp()<br><br>슬라이드 다운<br>$("선택자").slideDown() </td>
+				</tr>
+				<tr>
+					<td rowspan="2">사용자<br>정의<br>효과<br>다루기</td>
+					<td>사용자 정의 애니메이션 효과 만들기</td>
+					<td>$("선택자").animate({스타일 속성 이름:속성값, ...},애니메이션 시간)</td>
+				</tr>
+				<tr>
+					<td>애니메이션 효과 멈추기</td>
+					<td>$("선택자").stop()</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<h2>jquery 사용법</h2>
+		<div class="quot_wrap clearfix">
+			<strong class="tit">html파일</strong>
+			<div class="quot_box">
+
+<pre>&lt;!DOCTYPE html&gt;
+&lt;html lang="ko"&gt;
+&lt;head&gt;
+	&lt;meta charset="UTF-8" /&gt;
+	&lt;link rel="stylesheet" type="text/css" href="css파일경로" /&gt;
+	<em>&lt;script src="js를작동시키는파일"&gt;&lt;/script&gt;</em>
+	<em>&lt;script src="js파일"&gt;&lt;/script&gt;</em>
+	&lt;title&gt;제목&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+
+			</div>
+			<div class="quot_exp">
+<pre>&lt;!DOCTYPE html&gt;
+&lt;html lang="ko"&gt;
+&lt;head&gt;
+	&lt;meta charset="UTF-8" /&gt;
+	&lt;link rel="stylesheet" type="text/css" href="css파일경로" /&gt; 
+	<em>/* css를 먼저 호출해야함. */</em>
+	&lt;script src="js를작동시키는파일"&gt;&lt;/script&gt;
+	<em>/* jquery-1.12.4.min.js 같이 jquery를 작동시키기 위한 파일을 반드시 연결해야함 */</em>
+	&lt;script src="js파일"&gt;&lt;/script&gt; <em>/* 작성한 js 파일 불러오기 */</em>
+	&lt;title&gt;제목&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+			</div>
+		</div>
+
+		<div class="quot_wrap clearfix">
+			<strong class="tit">js파일</strong>
+			<div class="quot_box">
+
+<pre><em>$(document).ready(function(){
+	
+});</em></pre>
+
+			</div>
+			<div class="quot_exp">
+<pre>$(document).ready(function(){ <em>/* jquery를 문서를 모두 준비가 되면 실행함. */</em>
+	<em class="green">/*실행문*/</em>
+});</pre>
+			</div>
+		</div>
+
+		<h2>jquery 선택자</h2>
+		<div class="gray_box">
+			<div class="exp">
+				$("<strong class="blue">선택자</strong>")
+			</div>
+			<ul>
+				<li>jquery 선택자는 css 선택자와 동일함</li>
+				<li>이벤트를 줄 요소를 적절하게 선택해야함.</li>
+			</ul>
+		</div>
+
+		<h2>jquery 이벤트 주기</h2>
+		<div class="gray_box">
+			<div class="exp">
+<pre>
+	$("<strong class="blue">선택자</strong>").on("<strong class="red">이벤트핸들러</strong>", function(){
+		
+	});
+</pre>
+			</div>
+			<p>이벤트핸들러는 두개이상 쓸 수 있다. 이 경우 두 이벤트핸들러 사이에 반드시 여백을 줘야함.<em class="blue">$("선택자").on("mouseenter focusin", function(){ });</em></p>
+			<ul>
+				<li><strong class="red">mouseenter</strong>- 선택자에 마우스를 오버 했을때</li>
+				<li><strong class="red">mouseleave</strong>- 선택자에 마우스를 오버 후에 아웃 했을때</li>
+				<li><strong class="red">click</strong>- 선택자를 클릭 했을때</li>
+				<li><strong class="red">focusin</strong>- 선택자가 포커스 되었을때</li>
+				<li><strong class="red">focusout</strong>- 선택자에서 포커스가 이동했을때</li>
+			</ul>
+		</div>
+		<h2>jquery 명령어 응용</h2>
+		<div class="gray_box">
+			<div class="exp">
+<pre>
+	$("선택자").on("이벤트핸들러", function(){
+		$("<em class="blue">선택자</em>").<strong class="red">addClass("class명")</strong>;		<em class="green">/*요소에 클래스 추가하기 &lt;태그 class="class명"&gt;*/ 이런식으로 실제 추가됨</em>
+		$("<em class="blue">선택자</em>").<strong class="red">removeClass("class명")</strong>;		<em class="green">/*클래스 삭제하기*/</em>
+		$("<em class="blue">선택자</em>").<strong class="red">show()</strong>;		<em class="green">/*보이게 하기*/</em>
+		$("<em class="blue">선택자</em>").<strong class="red">hide()</strong>;		<em class="green">/*숨기기*/</em>
+		$("<em class="blue">선택자</em>").<strong class="red">fadeIn()</strong>;		<em class="green">/*부드럽게 나타나기*/</em>
+		$("<em class="blue">선택자</em>").<strong class="red">fadeOut()</strong>;		<em class="green">/*부드럽게 사라지기*/</em>
+		$("<em class="blue">선택자</em>").<strong class="red">slideDown()</strong>;		<em class="green">/*위에서 아래로 슬라이드 되어 나타나기*/</em>
+		$("<em class="blue">선택자</em>").<strong class="red">slideUp()</strong>;		<em class="green">/*아래에서 위로 슬라이드 되어 사라지기*/</em>
+	});
+</pre>
+			</div>
+		</div>
+		<ul>
+			<li>선택자를 <strong class="blue">$(this)</strong>라고 선택하면 이벤트가 적용된 요소를 뜻함.<br />
+			$("nav>ul>li").on("mouseenter", function(){<br />
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong class="blue">$(this)</strong>.addClass("on");<br />
+			});<br />
+			이렇게 하면 this는 마우스를 오버한 li가 됨.</li>
+		</ul>
+
+
+		<h2>jqeury 실행시기</h2>
+		<div class="gray_box">
+			<strong class="tit">문서가 준비되면 1번 실행 <span>(html문서만 로딩되면 실행)</span></strong>
+			<div class="exp">
+				$(document).ready(function(){<em class="green">실행문</em>});
+			</div>
+			<strong class="tit">문서에 있는 이미지 파일까지 모두 로딩 한 후에 실행 <span>(만약 요소의 height값을 구해야 하는 jquery가 있다면 필요)</span></strong>
+			<div class="exp">
+				$(window).load(function(){<em class="green">실행문</em>});
+			</div>
+			<strong class="tit">스크롤이 될때마다 1번씩 실행</strong>
+			<div class="exp">
+				$(window).scroll(function(){<em class="green">실행문</em>});
+			</div>
+			<strong class="tit">브라우저가 리사이즈 될때마다 1번씩 실행</strong>
+			<div class="exp">
+				$(window).resize(function(){<em class="green">실행문</em>});
+			</div>
+		</div>
+
+		
+		<h2>jquery 다운받기</h2>
+		<ul>
+			<li><a href="https://code.jquery.com/" target="_blank" title="새창" class="btn_blue">https://code.jquery.com</a></li>
+		</ul>
+		
+		<h2>스크롤 금지 예제</h2>
+		<div class="gray_box">
+			<!--<p class="exp">$("body").css({overflow : "hidden"}).bind('touchmove', function(e){e.preventDefault()});</p>-->
+			<p class="exp">$("html, body").css({overflow : "hidden", height : $(window).height()}).bind("scroll touchmove mousewheel", function(e){e.preventDefault();e.stopPropagation();return false;},function(){passive:false});</p>
+		</div>
+		<h2>스크롤 해제 예제</h2>
+		<div class="gray_box">
+			<!--<p class="exp">$("body").css({overflow : "auto"}).unbind('touchmove');</p>-->
+			<p class="exp">$("html, body").css({overflow : "visible", height : "auto"}).unbind('scroll touchmove mousewheel');</p>
+		</div>
+		
+
+	</div><!--//wrap-->
+</body>
+</html>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, maximum-scale=2.0, minimum-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="/web/css/explain.css" />
+	<script type="text/javascript" src="/web/js/jquery-1.12.4.min.js"></script>
+	<title>패럴랙스 & 자동 스크롤(데스크탑전용) - 설명페이지</title>
+</head>
+<body>
+	<div class="wrap">
+		<h1>패럴랙스 & 자동 스크롤(데스크탑전용) - 설명페이지</h1>
+		<h2>문서의 구조</h2>
+		<div class="contents fullpage_03">
+			<div class="sample">
+				<div class="head brd">
+					<strong>header</strong>
+					<div class="inner">
+						header가 있는 경우 반드시 absolute나 fixed로 줘야함.
+					</div>
+				</div>
+				<div class="sec1 full brd">
+					<strong>1번 섹션</strong>
+					<div class="inner">
+						내부의 컨텐츠
+					</div>
+				</div>
+				<div class="sec1 full brd">
+					<strong>2번 섹션</strong>
+					<div class="inner">
+						내부의 컨텐츠
+					</div>
+				</div>
+				<div class="sec1 full brd">
+					<strong>3번 섹션</strong>
+					<div class="inner">
+						내부의 컨텐츠
+					</div>
+				</div>
+				<div class="foot brd">
+					<strong>footer</strong>
+					<div class="inner">
+						높이가 낮은 footer가 존재해도 됨.
+					</div>
+				</div>
+				<div class="aside">
+					<strong>퀵메뉴</strong>
+					<ul>
+						<li>1번 섹션</li>
+						<li>2번 섹션</li>
+						<li>3번 섹션</li>
+					</ul>
+					<p>섹션 버튼을 누르면 해당 섹션으로 이동하고, 해당 섹션이 나타날때는 각 버튼에 on클래스가 추가됨</p>
+				</div>
+			</div>
+		</div>
+		<h2>섹션의 특징</h2>
+		<ul>
+			<li>parallax는 시차라는 뜻으로 천문학에서 사용하는 용어입니다. 즉 멀리 있는 물체는 천천히 움직이고, 가까이 있는 물체는 빨리 움직이는 현상을 의미하죠. 이 현상을 이용하면 입체감, 실체감을 높여서 보다 인상적인 디자인을 할 수 있다. </li>
+			<li>pc에서는 스크롤을 하면 자동으로 다음 섹션으로 이동하고 모바일에서는 자동 스크롤이 풀림</li>
+			<li class="txt_red">섹션의 높이는 jquery에서 지정됨 (pc만)</li>
+			<li>브라우저 높이가 줄어들면 콘텐츠가 짤림. 브라우저 높이값이 한 섹션의 높이값으로 자동 지정됨. (pc에서만)</li>
+			<li>모바일에서 섹션의 높이는 jquery에서 height:auto로 지정되기때문에 높이를 고정할 필요가 있으면 내부 요소의 높이를 제어하면 됩니다.</li>
+			<li class="txt_red">섹션 내부 요소의 높이를 jquery에서 계산해서 화면에 위아래 가운데 배치하기 때문에 내부요소는 컨텐츠의 높이가 제대로 인식되어야함 (만약 float값이 들어간요소가 있다면 clearfix 필수)</li>
+			<li>header를 갖을 수 있으나 반드시 header는 absolute나 fixed어야 한다. (fixed라면 jquery에서 header_fix_use값을 true로 변경하고, header_fixed_h에 높이값을 줘야함.)</li>
+			<li>footer가 있는 경우 jquery에서 footer_use = true;를 줘야하고, 높이가 낮아야함. 만약 콘텐츠가 많아서 높이가 높아야 한다면 하나의 섹션으로 하는 것이 좋음</li>
+			<li>패럴랙스의 메뉴는 aside에 ul li로 주는 것을 권함. fixed어야 함. 각각의 패럴랙스 메뉴명을 클릭하면 해당 페이지로 이동함. (패럴랙스의 갯수와 aside ul li갯수가 같아야함)</li>
+			<li class="txt_blue">패럴랙스 메뉴는 해당 메뉴가 나타날때는 jquery에서 li에 on클래스가 추가되도록 되어 있음</li>
+			<li class="txt_blue">jquery에서 해당 섹션이 보일때 그 섹션에 on클래스를 추가하도록 되어 있음</li>
+
+		</ul>
+		<h2>기본 html 구조</h2>
+		<div class="code">
+<pre>
+&lt;header&gt;
+	<em class="txt_green">&lt;!-- 반드시 absolute나 fixed로 줘야함. --&gt;</em>
+&lt;/header&gt;
+&lt;section class="sec01 fullpage"&gt; <em class="txt_green">&lt;!-- 화면에 가득찰 섹션은 동일한 class명을 갖아야 한다. --&gt;</em>
+	&lt;div class="cts_wrapper"&gt;  <em class="txt_green">&lt;!-- 섹션 내부의 콘텐츠를 감싸는 요소 (위아래 가운데 배치될 요소만) --&gt;</em>
+	&lt;/div&gt;
+&lt;/section&gt;
+&lt;section class="sec02 fullpage"&gt; <strong class="txt_green">&lt;!-- 해당 섹션이 보일때 on클래스가 추가됨(jquery에서) --&gt;</strong>
+	&lt;div class="cts_wrapper"&gt;
+	&lt;/div&gt;
+&lt;/section&gt;
+&lt;section class="sec03 fullpage"&gt;
+	&lt;div class="cts_wrapper"&gt;
+	&lt;/div&gt;
+&lt;/section&gt;
+&lt;footer&gt;
+	<em class="txt_green">&lt;!-- 높이가 낮은 footer가 존재해도 됨. --&gt;</em>
+&lt;/footer&gt;
+
+&lt;aside&gt;
+	&lt;ul&gt;
+		&lt;li&gt;&lt;button&gt;1번 섹션&lt;/button&gt;&lt;/li&gt; <strong class="txt_green">&lt;!-- 버튼을 누르면 해당 섹션으로 이동 --&gt;</strong>
+		&lt;li&gt;&lt;button&gt;2번 섹션&lt;/button&gt;&lt;/li&gt; <strong class="txt_green">&lt;!-- 해당 섹션이 보일때 li에 on클래스가 추가됨(jqeury에서) --&gt;</strong>
+		&lt;li&gt;&lt;button&gt;3번 섹션&lt;/button&gt;&lt;/li&gt;
+	&lt;/ul&gt;
+&lt;/aside&gt;
+</pre>
+		</div>
+			
+		<h2>기본 css 코드</h2>
+		<div class="code">
+<pre>
+.fullpage{
+	overflow: hidden;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width:100%;
+} <em class="txt_green">/* 절대 fullpage에 margin/padding값이 들어가면 안됨 (jquery에서 윈도우의 높이값을 fullpage의 높이값으로 줌) */</em>
+.cts_wrapper{} <em class="txt_green">/* 절대 cts_wrapper에 padding-top값이 들어가면 안됨 (jquery에서 padding-top으로 여백을 줌) */</em>
+footer{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+} <em class="txt_green">/* 반드시 footer도 absolute로 줘야함 */</em>
+
+@media screen and (max-width:640px){ <em class="txt_green">/* 패럴랙스가 해지되는 사이즈 */</em>
+	.fullpage{
+		position: relative;
+		top: auto;
+		left: auto;
+	} <em class="txt_green">/* 높이값을 가질 수 없음 */</em>
+	.cts_wrapper{} 
+	footer{
+		position: relative;
+		top: auto;
+		left :auto;
+	}
+}
+</pre>
+		</div>
+		
+		<h2>jquery설정값</h2>
+		<div class="code">
+<pre>
+var page_wrap = $(".layout"); <em class="txt_green">// 홈페이지 전체를 감싸는 영역의 이름</em>
+var page_name = $(".fullpage");
+var page_inner_name = $(".cts_wrapper"); <em class="txt_green">// 위아래 가운데 배치될 영역의 이름</em>
+var page_css = "on"; <em class="txt_green">// 각 섹션이 보일때 추가될 class명</em>
+var window_h = $(window).height();
+var window_w = $(window).width();
+var index_wrap_name = $("aside"); <em class="txt_green">// 퀵메뉴의 이름</em>
+var index_name = $("aside ul li"); <em class="txt_green">// 퀵메뉴 하나의 이름</em>
+var index_length = index_name.length;
+var index_css = "on"; <em class="txt_green">// 퀵메뉴에 현재 메뉴에 추가되는 클래스명 </em>
+var mobile_size = 640; <em class="txt_green">// 모바일로 변환되는 사이즈 (자동스크롤, 자동높이지정 해제)</em>
+var footer_use = true; <em class="txt_green">// footer의 존재여부 (true - 존재함, false - 존재하지 않음)</em>
+var footer_name = $("#footer"); <em class="txt_green">// footer이름</em>
+var footer_use_h; <em class="txt_green">// footer의 높이값</em>
+var header_name = $("#header"); <em class="txt_green">// header의 이름</em>
+var header_fix_use = true; <em class="txt_green">// header에 fixed를 준 경우 (만약 absolute나 주지 않은 경우는 false을 줘야 한다.)</em>
+var header_fix_h; // header의 높이값 
+var page_index = 1; // 현재 페이지번호
+var prev_index;
+var page_total;
+</pre>
+		</div>
+		
+		<h2>jquery소스</h2>
+		<a href="../../js/fullpage_10.js" target="_blank" class="bg_red">jquery 소스보기</a>
+	</div>
+</body>
+</html>

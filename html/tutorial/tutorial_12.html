@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8" />
+	<link rel="stylesheet" type="text/css" href="/web/css/explain.css" />
+	<title>레이아웃 코딩 시 주의사항</title>
+</head>
+<body>
+	<div class="wrap">
+        <h1>레이아웃 코딩 시 주의사항</h1>
+        <h2>좌우로 정렬되는 요소는 1:1 대응이 되도록</h2>
+        <div class="contents layout_07">
+            <ul class="gray bg_gray">
+                <li>콘텐츠가 좌우로 배치할때 float를 사용할 것이라면 왼쪽에 요소가 1개, 오른쪽에 요소가 1개이어야 합니다.</li>
+                <li>여러개일 경우 div로 묶어주는 것이 좋습니다.</li>
+            </ul>
+            <div class="exp ex01 clearfix">
+                <div class="left">
+                    <div class="clearfix">
+                        <div class="area fl">
+                            <em class="tit txt_red">왼쪽에 배치될 요소</em>
+                            <span><strong>&lt;h2&gt;</strong>아름다운 강줄기 따라 가는 풍경 여행</span>
+                            <span><strong>&lt;a&gt;</strong>자세히보기</span>
+                        </div>
+                        <div class="area fr">
+                            <em class="tit txt_red">오른쪽에 배치될 요소</em>
+                            <span><strong>&lt;p&gt;</strong>강원도 속초 바다향기로는 ...</span>
+                            <span><strong>&lt;img&gt;</strong>이미지</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="right">
+                    <strong class="tit">html은</strong>
+                    <strong class="txt_red">&lt;div class="tit"&gt;</strong>
+                        <span class="tab1">&lt;h2&gt; 아름다운 강줄기 따라 &lt;/h2&gt;</span>
+                        <span class="tab1">&lt;a&gt; 자세히보기 &lt;/a&gt;</span>
+                    <strong class="txt_red">&lt;/div&gt;</strong>
+                    <strong class="txt_blue">&lt;div class="cts"&gt;</strong>
+                        <span class="tab1">&lt;p&gt; 강원도 속초 바다향기로는... &lt;/p&gt;</span>
+                        <span class="tab1">&lt;img src="" alt="이미지" /&gt; </span>
+                    <strong class="txt_blue">&lt;/div&gt;</strong>
+    
+                    <strong class="tit">css는</strong>
+                    .tit{<strong class="txt_red">float: left;</strong>}
+                    .cts{<strong class="txt_green">float :right;</strong>}
+                    <em class="txt_green">/* cts는 float: left;혹은 float: right;   로 정렬해도 됨. */</em>
+                </div>
+            </div>
+    
+            <ul class="gray bg_gray">
+                <li>원래 한쪽 요소가 한개라면 굳이 div로 묶을 필요는 없습니다. </li>
+            </ul>
+            <div class="exp ex01 clearfix">
+                <div class="left">
+                    <div class="clearfix">
+                        <div class="area fl">
+                            <em class="tit txt_red">왼쪽에 배치될 요소</em>
+                            <span><strong>&lt;h2&gt;</strong>같이 걸을까 바스락(樂)길</span>
+                        </div>
+                        <div class="area fr">
+                            <em class="tit txt_red">오른쪽에 배치될 요소</em>
+                            <span><strong>&lt;p&gt;</strong>겨울로 가는 길목에서 ...</span>
+                            <span><strong>&lt;a&gt;</strong>자세히보기</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="right">
+                    <strong class="tit">html은</strong>
+                    <strong class="txt_red">&lt;h2&gt;</strong>같이 걸을까 바스락(樂)길<strong class="txt_red">&lt;/h2&gt;</strong>
+                    <strong class="txt_blue">&lt;div class="inner"&gt;</strong>
+                        <span class="tab1">&lt;p&gt; 겨울로 가는 길목에서... &lt;/p&gt;</span>
+                        <span class="tab1">&lt;a&gt;자세히보기</span>
+                    <strong class="txt_blue">&lt;/div&gt;</strong>
+    
+                    <strong class="tit">css는</strong>
+                    <em class="txt_green">/* 왼쪽에는 h2태그만 존재하기 때문에 div로 묶지 않아도 됨 */</em>
+                    .h2{<strong class="txt_red">float: left;</strong>}
+                    .inner{<strong class="txt_blue">float: right;</strong>}
+                </div>
+            </div>
+        </div>
+        <h2>두개의 요소가 좌우로 배치될때 주의사항</h2>
+        <div class="contents layout_07">
+            <ul class="gray bg_gray">
+                <li class="txt_red">반드시 브라우저에서 왼쪽/오른쪽에 배치될 요소의 넓이를 확인해야 합니다.</li>
+                <li class="txt_blue">만약 긴 문장이 들어있어서 영역의 넓이가 넓은 경우는 width로 넓이를 제한해야 합니다.</li>
+                <li>왼쪽 요소와 오른쪽 요소, 그 사이의 여백의 합이 콘텐츠 영역보다 넓이면 안됩니다.</li>
+                <li>모든 요소를 float: left;로만 정렬할 경우는 둘 사이의 여백값을 줘야하고, float: left/right;로 정렬하는 경우는 여백을 주지 않아도 됩니다.</li>
+                <li>3개 이상이 정렬하는 경우 모든 요소에 float: left;를 주는 것이 좋음.</li>
+            </ul>
+            <div class="exp ex01 clearfix">
+                <div class="left">
+                    <div class="clearfix">
+                        <div class="area fl2">
+                            <em class="tit txt_red">왼쪽에 배치될 요소</em>
+                            <span><strong>&lt;h2&gt;</strong>아름다운 강줄기 따라 가는 풍경 여행</span>
+                            <span><strong>&lt;a&gt;</strong>자세히보기</span>
+                        </div>
+                        <div class="mrg">여백</div>
+                        <div class="area fr">
+                            <em class="tit txt_red">오른쪽에 배치될 요소</em>
+                            <span><strong>&lt;p&gt;</strong>강원도 속초 바다향기로는 속초해수욕장(남문)부터 외옹치해변으로 이어져 외옹치활어회센터까지 이어지는 걷기 좋은 길이다. 바다향기로는 크게 데크길과 외옹치해변길 그리고 군 경계 철책 일부가 있는 길로 푸른 바다를 보며 파도 소리를 들으며 걷는 구간이다. 코스 난이도는 낮고 편도로는 3~40분 왕복 1시간30분 정도면 충분히 걸을 수 있다. 자연과 함께 걸으며 분단의 현실과 우리나라 역사의식을 고취시키는 길이다.</span>
+                            <span><strong>&lt;img&gt;</strong>이미지</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="right">
+                    <strong class="tit">html은</strong>
+                    <strong class="txt_red">&lt;div class="fl"&gt;</strong>
+                        <span class="tab1">&lt;h2&gt; 아름다운 강줄기 따라 &lt;/h2&gt;</span>
+                        <span class="tab1">&lt;a&gt; 자세히보기 &lt;/a&gt;</span>
+                    <strong class="txt_red">&lt;/div&gt;</strong>
+                    <strong class="txt_blue">&lt;div class="fr"&gt;</strong>
+                        <span class="tab1">&lt;p&gt; 강원도 속초 바다향기로는... &lt;/p&gt;</span>
+                        <span class="tab1">&lt;img src="" alt="이미지" /&gt; </span>
+                    <strong class="txt_blue">&lt;/div&gt;</strong>
+    
+                    <strong class="tit">css는 <span class="txt_red">(float: left;로만 정렬하는경우)</span></strong>
+<pre>
+.fl{
+    <strong class="txt_red">float: left;</strong>
+    <strong class="txt_blue">margin-right: 50px;</strong>
+}<em class="txt_green">/* 왼쪽 요소와 오른쪽 요소 사이의 여백 */</em>
+.fr{
+    <strong class="txt_red">float: left;</strong>
+    <strong class="txt_blue">width: 500px;</strong>
+}<em class="txt_green">/* 문장이 길어서 넓이를 고정 */</em>
+</pre>
+    
+                    <strong class="tit">css는 <span class="txt_red">(float: left/right;로 정렬하는경우)</span></strong>
+<pre>
+.fl{<strong class="txt_red">float: left;</strong>} <em class="txt_green">/* 여백을 주지 않아도 됨 */</em>
+.fr{
+    <strong class="txt_red">float: right;</strong>
+    <strong class="txt_blue">width: 500px;</strong>
+}<em class="txt_green">/* 문장이 길어서 넓이를 고정 */</em>
+</pre>
+                    
+                </div>
+            </div>
+        </div>    
+        <h2>float값이 들어간 요소는 반드시 이 요소들을 감싸는 영역이 존재해야함.</h2>
+        <div class="contents layout_07">
+            <ul class="gray bg_gray">
+                <li>float값으로 정렬한 요소는 다른 요소가 해당 요소를 인지하지 못하기 때문에 반드시 감싸는 영역을 줘서 다른 요소와 겹치지 않게 해야 합니다.</li>
+                <li>감싸는 영역에 높이를 주거나 display: block;를 주면 다른 요소와 겹치지 않습니다.</li>
+            </ul>
+    
+            <div class="exp ex02 clearfix">
+                <div class="left">
+                    <div class="area clearfix">
+                        <em class="tit txt_red">상단요소</em>
+                        <div class="area fl">
+                            <em class="tit txt_red">왼쪽요소</em>
+                            <span><strong>&lt;h2&gt;</strong>같이 걸을까 바스락길</span>
+                        </div>
+                        <div class="area fr">
+                            <em class="tit txt_red">오른쪽요소</em>
+                            <span><strong>&lt;p&gt;</strong>겨울로 가는 길목에서 남해는 색다른 매력을 자랑하다. 이른바 다도해라 불리며 많은 섬과 함꼐 거친 해안 지형의 아름다움과 </span>
+                            <span><strong>&lt;a&gt;</strong>자세히보기</span>
+                        </div>
+                    </div>
+                    <div class="area margin_t50">
+                        <em class="tit txt_red">하단요소</em>
+                        <span>
+                            <strong>&lt;ul&gt;</strong>
+                            <ul>
+                                <li><strong>&lt;li&gt;</strong>남해 바래길</li>
+                                <li><strong>&lt;li&gt;</strong>앵강다숲길</li>
+                                <li><strong>&lt;li&gt;</strong>가천 다랭이 마을</li>
+                            </ul>
+                        </span>
+                    </div>
+                </div>
+                <div class="right">
+                    <strong class="tit">html은</strong>
+                    <strong class="txt_red">&lt;div class="tit"&gt;</strong>
+                        <strong class="tab1 txt_blue">&lt;h2&gt;</strong>같이 걸을까 바스락(樂)길<strong class="txt_blue">&lt;/h2&gt;</strong>
+                        <strong class="tab1 txt_blue">&lt;div class="inner"&gt;</strong>
+                            <span class="tab2">&lt;p&gt; 겨울로 가는 길목에서... &lt;/p&gt;</span>
+                            <span class="tab2">&lt;a&gt;자세히보기</span>
+                        <strong class="tab1 txt_blue">&lt;/div&gt;</strong>
+                    <strong class="txt_red">&lt;/div&gt;</strong>
+    
+                    <strong class="txt_red">&lt;ul&gt;</strong>
+                        <strong class="tab1 txt_blue">&lt;li&gt;</strong>남해 바래길<strong class="txt_blue">&lt;/li&gt;</strong>
+                        <strong class="tab1 txt_blue">&lt;li&gt;</strong>앵강다숲길<strong class="txt_blue">&lt;/li&gt;</strong>
+                        <strong class="tab1 txt_blue">&lt;li&gt;</strong>가천 다랭이 마을<strong class="txt_blue">&lt;/li&gt;</strong>
+                    <strong class="txt_red">&lt;/ul&gt;</strong>
+    
+                    <strong class="tit">css는</strong>
+                    .tit{<strong class="txt_blue">display: block;</strong>} <em class="txt_green">/* display: block;를 줘서 h2와 inner의 높이를 인지하도록 함 */</em>
+                    .tit h2{<strong class="txt_blue">float: left;</strong>}
+                    .tit .inner{<strong class="txt_blue">float: right;</strong>}
+                    ul{<strong class="txt_blue">display: block;</strong>} <em class="txt_green">/* display: block;를 줘서 h2와 inner의 높이를 인지하도록 함 */</em>
+                    ul li{<strong class="txt_blue">float: left;</strong>}
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

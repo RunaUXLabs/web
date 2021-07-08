@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, maximum-scale=2.0, minimum-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="/web/css/explain.css" />
+	<script type="text/javascript" src="/web/js/jquery-1.12.4.min.js"></script>
+	<script type="text/javascript" src="/web/js/fullpage_03.js"></script>
+	<title>패럴랙스(차원, 시차를 이용한 효과) & 겹치기 스크롤</title>
+</head>
+<body>
+<div class="fullpage_05">
+	<section class="visual">
+		<div class="wrap">
+			<div class="cts">
+				<h2>NEW DREAM,<br />WE BUILD</h2>
+				<p>Total Solution & Service를 제공하는<br />ONLYONE 종합부동산회사</p>
+				<a href="#n">MORE</a>
+			</div>
+		</div>
+	</section>
+	<div class="container">
+		<section class="business">
+			<div class="wrap">
+				<ul>
+					<li>
+						<a href="#n">
+							<img src="/web/images/popup2.jpg" alt="" />
+							<strong>건설</strong>
+							<em>신뢰를 바탕으로 최초, 최고, 차별화된 공간문화를 창조합니다. 오피스, 물류시설, 골프장, 리모델링에 이르기까지 최고의 공간가치를 창조하는 Global E&C Partner 입니다.</em>
+							<span>MORE</span>
+						</a>
+					</li>
+					<li>
+						<a href="#n">
+							<img src="/web/images/popup3.jpg" alt="" />
+							<strong>부동산</strong>
+							<em>통합된 Solution으로 고객의 자산가치를 극대화합니다. 개발, 자산운영, 공간 복합화 전문가 집단이 고객 부동산의 자산가치가 극대화될 수 있도록 최상의 종합부동산 서비스를 제공합니다.</em>
+							<span>MORE</span>
+						</a>
+					</li>
+					<li>
+						<a href="#n">
+							<img src="/web/images/popup4.jpg" alt="" />
+							<strong>리조트</strong>
+							<em>국내 1등의 PRESTIGE 리조트 사업개발 및 운영 역량을 확보하고 있습니다. 국내 유일의 세계 100대 코스 클럽 나인브릿지, 최고의 Private Club 해슬리 나인브릿지는 CJ건설을 대표하는 최고의 브랜드입니다.</em>
+							<span>MORE</span>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</section>
+		<section class="building">
+			<div class="wrap">
+				<h2>신뢰 위에 혁신을 짓는 사람들</h2>
+				<p>CJ건설은 주거시설, 물류시설, 플랜트, 도로철도에 이르기까지 최고의 공간가치를 창조합니다.</p>
+				<a href="#n">MORE</a>
+			</div>
+		</section>
+		<div class="contents pb50">
+			<div class="wrap">
+				<h1 class="mt50">패럴랙스(차원, 시차를 이용한 효과) & 겹치기 스크롤</h1>
+				<h2>문서의 구조</h2>
+				<div class="sample">
+					<div class="box1">
+						아래에 깔린 컨텐츠 <strong class="txt_red">(obj_back)</strong>
+						<em>아래 콘텐츠가 올라오면 안보일 컨텐츠 <strong class="txt_red">(obj_back_cts)</strong></em>
+					</div>
+					<div class="box2">
+						<strong>위에 올라간 컨텐츠 들을 감싸는 영역 (container)</strong>
+						<div class="box3">
+							<em>스크롤 한번에 위로 올라갈 컨텐츠 <span class="txt_red">(obj_top)</span></em>
+						</div>
+						<div class="box4">
+							일반 컨텐츠
+						</div>
+					</div>
+					<div class="more">
+						<ul>
+							<li>obj_back과 obj_top의 높이는 동일하게 설정 됨</li>
+							<li>컨텐츠를 감싸는 영역 container는 obj_back을 제외한 모든 요소를 감싸는 것이 좋습니다. z-index로 obj_back보다 위로 배치시켜야 하기때문</li>
+							<li>스크롤을 해서 obj_top이 올라오면 obj_back의 일부 컨텐츠를 (obj_back_cts) 숨김처리 할 수 있습니다.</li>
+						</ul>
+					</div>
+				</div>
+				<h2>기본 html 구조</h2>
+				<div class="code">
+<pre>
+&lt;div class="visual"&gt; <em class="txt_green">/* obj_back */</em>
+	&lt;div class="cts"&gt; <em class="txt_green">/* obj_back_cts */</em>
+		스크롤을 내리면 사라질 컨텐츠
+	&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="container"&gt;
+	&lt;div class="business"&gt; <em class="txt_green">/* obj_top */</em>
+		스크롤 하면 올라올 컨텐츠
+	&lt;/div&gt;
+	&lt;div&gt;
+		다른 일반 컨텐츠
+	&lt;/div&gt;
+&lt;/div&gt;
+</pre>
+				</div>
+				<h2>필수 css 코드</h2>
+				<p class="txt_blue"><strong>처음에는 코딩을 할때는 아래에서 언급한 css값을 주지말고 기본값으로 코딩한 후에 마지막에 css 값을 주고 jquery를 적용한다.</strong></p>
+				<div class="code">
+<pre>
+.visual{
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	z-index: 20;
+} <em class="txt_green">/* 높이는 jquery에서 결정 */</em>
+.container{
+	position: relative;
+	z-index: 21;
+} <strong class="txt_green">/* 모든 컨텐츠를 visual위에 올리기 위해서 */</strong>
+.business{} <em class="txt_green">/* 높이는 jquery에서 결정, .visual과 떨어뜨리는 것도 jquery에서 계산해서 줌. */</em>
+</pre>
+				</div>
+				<h2>jquery소스</h2>
+				<a href="../../js/fullpage_03.js" target="_blank" class="bg_red">jquery 소스보기</a>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>

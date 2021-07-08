@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8" />
+	<link rel="stylesheet" type="text/css" href="/web/css/explain.css" />
+	<title>float와 inline-block을 이용하여 코딩시 주의사항</title>
+</head>
+<body>
+    <div class="wrap">
+        <h1>float와 inline-block을 이용하여 코딩시 주의사항</h1>
+        <h2>코딩시 주의사항</h2>
+        <div class="contents layout_03">
+            <ul class="gray bg_gray">
+                <li>display: inline-block, float: left 를 준 요소는 <strong class="txt_red">왼쪽에서 오른쪽으로 배치</strong>된다.</li>
+                <li>display: inline-block;과 float: left;를 동시에 준 경우는 float: left;만 준 경우와 거의 비슷하게 나타남.</li>
+            </ul>
+            <div class="exp ex01 clearfix">
+                <div class="left">
+                    <ul>
+                        <li>1번</li>
+                        <li>2번</li>
+                        <li>3번</li>
+                        <li>4번</li>
+                    </ul>
+                </div>
+                <div class="right">
+                    <strong class="tit">html은</strong>
+                    &lt;ul&gt;
+                    <span class="tab1">&lt;li&gt; 1번 &lt;/li&gt;</span>
+                    <span class="tab1">&lt;li&gt; 2번 &lt;/li&gt;</span>
+                    &lt;/ul&gt;
+
+                    <strong class="tit">css는</strong>
+                    ul li{<span class="txt_red">float: left;</span> } <span class="txt_green">/* display: inline-block;만 줘도 동일하게 됨. */</span>
+                </div>
+            </div>
+
+            <ul class="gray bg_gray">
+                <li>float: right 를 준 요소는 <strong class="txt_red">오른쪽에서 왼쪽으로 배치</strong>된다.</li>
+            </ul>
+            <div class="exp ex02 clearfix">
+                <div class="left">
+                    <ul>
+                        <li>1번</li>
+                        <li>2번</li>
+                        <li>3번</li>
+                        <li>4번</li>
+                    </ul>
+                </div>
+                <div class="right">
+                    <strong class="tit">css는</strong>
+                    ul li { <span class="txt_red">float: right;</span> } 
+                </div>
+            </div>
+
+            <h2>여러줄로 표시하는 경우</h2>
+            <ul class="gray bg_gray">
+                <li>감싸고 있는 공간이 좁으면 float를 주거나 inline-block을 준 요소는 자동으로 아래줄로 내려간다.</li>
+            </ul>
+            <div class="exp ex03 clearfix">
+                <div class="left">
+                    <span class="tit txt_red">ul</span>
+                    <ul class="clearfix">
+                        <li>1번</li>
+                        <li>2번</li>
+                        <li>3번</li>
+                        <li>4번</li>
+                    </ul>
+                </div>
+                <div class="right">
+                    <strong class="tit">css는</strong>
+                    ul{width: 300px;}
+                    ul li{<span class="txt_red">float: left;</span>} <span class="txt_green">/* display: inline-block;만 줘도 동일하게 됨. */</span>
+                </div>
+            </div>
+
+            <ul class="gray bg_gray">
+                <li>각 요소의 길이 값이 다르고, 두세줄로 나타나는 경우 줄바뀌어서 나타나는 요소가 왼쪽으로 나타나지 않는 경우가 있다.</li>
+                <li>예를 들어 2개씩 한줄에 나타나는데 1번째 요소가 높이가 길면 3번째 요소가 1번째 요소의 오른쪽 하단에 배치된다.</li>
+            </ul>
+            <div class="exp ex04 clearfix">
+                <div class="left">
+                    <span class="tit txt_red">ul</span>
+                    <ul class="clearfix">
+                        <li>1번<br />2줄</li>
+                        <li>2번</li>
+                        <li>3번</li>
+                        <li>4번</li>
+                    </ul>
+                </div>
+                <div class="right">
+                    <strong class="tit">css는</strong>
+                    ul{width: 300px;}
+                    ul li{<span class="txt_red">float: left;</span>}
+
+                    <strong class="tit txt_blue">해결방법</strong>
+                    <span class="txt_blue">ul li:nth-child(3) {clear: left;}</span>
+                    <span class="txt_green">/* li중에 3번째 요소에 <strong>clear:left</strong>를 주면 왼쪽에 다른 요소가 오지 못하게 한다. */</span>
+                </div>
+            </div>
+
+            <h2>좌우로 배치되는 요소의 넓이 제어하기</h2>
+            <ul class="gray bg_gray">
+                <li>좌우로 배치되는 컨텐츠가 짧다면 넓이를 제어하지 않아도 display: inline-block;이나 float: left;를 주면 콘텐츠가 존재하는 만큼 넓이가 결정된다.</li>
+            </ul>
+            <div class="exp ex05 clearfix">
+                <div class="left">
+                    <ul class="clearfix">
+                        <li>공지사항</li>
+                        <li>학사일정 바로가기</li>
+                        <li>학생지원</li>
+                        <li>입학</li>
+                    </ul>
+                </div>
+                <div class="right">
+                    <strong class="tit">css는</strong>
+                    ul li{ <span class="txt_red">display: inline-block;</span>} <span class="txt_green">/* float: left;만 줘도 동일하게 됨. */</span>
+                </div>
+            </div>
+
+            <ul class="gray bg_gray">
+                <li>좌우로 배치될 콘텐츠의 가로 길이가 길면 넓이를 제어하지 않을시 display: inline-block;이나 float: left;를 줘도 좌우로 배치되지 않는다.</li>
+            </ul>
+            <div class="exp ex06 clearfix">
+                <div class="left">
+                    <ul class="clearfix">
+                        <li>
+                            <h3>기업가 정신</h3>
+                            <p>기업가는 문제 해결을 위해 노력하고 답을 찾아내는 사람입니다. 옐로모바일은 이러한 기업가 정신으로 새로운 문제에 도전하고 세상을 개선해 나갈 것입니다.</p>
+                        </li>
+                        <li>
+                            <h3>협업</h3>
+                            <p>전통 산업 시대 1+1은 2였지만, 모바일 시대 1+1은 11 이상의 가치를 만들어 냅니다. 옐로모바일은 젊고 강한 기업들의 협업을 통해 새로운 시너지와 도약을 일궈 내겠습니다.</p>
+                        </li>
+                    </ul>
+
+                    <strong class="txt_blue">li의 넓이를 제어한 후</strong>
+                    <ul class="wl clearfix">
+                        <li>
+                            <h3>기업가 정신</h3>
+                            <p>기업가는 문제 해결을 위해 노력하고 답을 찾아내는 사람입니다. 옐로모바일은 이러한 기업가 정신으로 새로운 문제에 도전하고 세상을 개선해 나갈 것입니다.</p>
+                        </li>
+                        <li>
+                            <h3>협업</h3>
+                            <p>전통 산업 시대 1+1은 2였지만, 모바일 시대 1+1은 11 이상의 가치를 만들어 냅니다. 옐로모바일은 젊고 강한 기업들의 협업을 통해 새로운 시너지와 도약을 일궈 내겠습니다.</p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="right">
+                    <strong class="tit">html은</strong>
+                    &lt;ul&gt;
+                        <span class="tab1">&lt;li&gt;</span>
+                            <span class="tab2">&lt;h3&gt;기업가 정신&lt;/h3&gt;</span>
+                            <span class="tab2">&lt;p&gt;기업가는 문제 해결을 위해 노력하고 답을 찾아내는 사람입니다. 옐로모바일은 이러한 기업가 정신으로 새로운 문제에 도전하고 세상을 개선해 나갈 것입니다.&lt;/p&gt;</span>
+                        <span class="tab1">&lt;/li&gt;</span>
+                        <span class="tab1">&lt;li&gt;</span>
+                            <span class="tab2">&lt;h3&gt;협업&lt;/h3&gt;</span>
+                            <span class="tab2">&lt;p&gt;전통 산업 시대 1+1은 2였지만, 모바일 시대 1+1은 11 이상의 가치를 만들어 냅니다. 옐로모바일은 젊고 강한 기업들의 협업을 통해 새로운 시너지와 도약을 일궈 내겠습니다.&lt;/p&gt;</span>
+                        <span class="tab1">&lt;/li&gt;</span>
+                    &lt;/ul&gt;
+
+                    <strong class="tit">css는</strong>
+                    ul li{<span class="txt_red">display: inline-block;</span>} <span class="txt_green">/* 문장이 길어서 li요소가 inline 요소로 변경되어도 좌우로 배치되지 않음 */</span>
+
+                    <strong class="tit txt_blue">해결방법</strong>
+<pre class="txt_blue">
+ul li{
+    display: inline-block;
+    <strong class="under">width:  100px;</strong>
+}</pre>
+                    <span class="txt_green">/* li의 넓이를 제어하여 좌우로 배치되게 함. <strong class="under">절대 긴 문장을 &lt;br /&gt;로 줄바꿈해서 좌우로 배치되게 하지마세요. */</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

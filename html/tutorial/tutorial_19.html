@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, maximum-scale=2.0, minimum-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="/web/css/explain.css" />
+	<script type="text/javascript" src="/web/js/jquery-1.12.4.min.js"></script>
+	<script type="text/javascript" src="/web/js/banner_02.js"></script>
+	<title>반응형 배너</title>
+</head>
+<body>
+	<div class="wrap">
+		<h1>반응형 배너</h1>
+		<section class="banner bnr02">
+			<h2>배너존</h2>
+			<div class="banner_wrap">
+				<ul>
+					<li><a href="#n">1번배너</a></li>
+					<li><a href="#n">2번배너</a></li>
+					<li><a href="#n">3번배너</a></li>
+					<li><a href="#n">4번배너</a></li>
+					<li><a href="#n">5번배너</a></li>
+					<li><a href="#n">6번배너</a></li>
+					<li><a href="#n">7번배너</a></li>
+					<li><a href="#n">8번배너</a></li>
+					<li><a href="#n">9번배너</a></li>
+					<li><a href="#n">10번배너</a></li>
+				</ul>
+			</div>
+			<button class="next btn">다음</button>
+			<button class="prev btn">이전</button>
+			<button class="stop btn">정지</button>
+			<button class="play btn">재생</button>
+		</section>
+		
+		<div class="contents banner_02">
+			<h2>배너의 구조</h2>
+			<div class="bnr_sample">
+				<ul>
+					<li>1번 배너</li>
+					<li>2번 배너</li>
+					<li>3번 배너</li>
+					<li>4번 배너</li>
+					<li>5번 배너</li>
+					<li>6번 배너</li>
+					<li>7번 배너</li>
+					<li>8번 배너</li>
+					<li>9번 배너</li>
+					<li>10번 배너</li>
+				</ul>
+				<div class="box"><span>보이는 영역</span></div>
+			</div>
+			<h2>배너의 특징</h2>
+			<ul class="gray">
+				<li>배너가 끝으로가면 첫배너가 뒤따라 오는 무한반복 배너이다. 첫번재 배너과 마지막 배너을 복제하여 배치하는 것이 특징이기때문에 각각의 배너 li를 선택해야 할 경우 nth-child로 선택하면 안되고 반드시 class명을 별도로 줘야 한다.</li>
+				<li class="txt_red">li에는 절대 여백 및 border를 주면 안됨(padding, margin, border 금지) 만약 여백이나 border가 필요하면 li안에 감싸고 있는 요소에 준다.</li>
+				<li>ul의 넓이는 jquery에서 li의 갯수를 계산해서 li가 두줄로 되지 않도록 (좌우로 배치되도록) width값을 주고 있다.</li>
+				<li>pc와 mobile에서 보여질 배너의 갯수를 설정할 수 있다.(단 모바일에서 1개 이상일 경우라도 터치해서 드래그하면 1개씩만 옆으로 이동함, 왠만하면 모바일은 1개가 좋음)</li>
+				<li>감싸고 있는 영역의 넓이에 맞게 배너이 리사이즈되고, 높이도 자동으로 줄어든다. (li의 높이값을 감싸는 영역에 한번 더 지정하는 방식)</li>
+				<li>배너는 하나씩이동</li>
+			</ul>
+			<h2>기본 html 구조</h2>
+			<div class="code">
+		&lt;div class="banner"&gt; <span class="txt_green">/* obj_wrap */</span>
+			&lt;ul&gt; <span class="txt_green">/* obj_name 배너 전체를 묶어주는 요소로 이 요소가 jquery에서 움직임(반드시 position: absolute;, left: 0; 이어야함) */</span>
+				&lt;li&gt;&lt;/li&gt; <span class="txt_green">/* obj_child 배너항목(반드시 float: left;를 줘서 모든 배너이 옆으로 나란히 배치되도록 해야함.) */</span>
+			&lt;/ul&gt;
+		&lt;/div&gt;
+			</div>
+		
+			<h2>기본 css 코드</h2>
+			<div class="code">
+	<pre>
+	.banner{
+		overflow: hidden;
+		position: relative;
+	}
+	.banner ul{
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+	.banner ul li{float:left;} <em class="txt_green">/* li와 넓이는 jquery에서 계산. li의 높이값을 jquery에서 banner의 높이로 재 지정함 */</em>
+	</pre>
+			</div>
+		
+			<h2>jquery소스</h2>
+			<a href="../../js/banner_02.js" target="_blank" class="bg_red">jquery 소스보기</a>
+		</div>
+	</div>
+</body>
+</html>

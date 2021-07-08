@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8" />
+	<title>transform</title>
+	<link rel="stylesheet" type="text/css" href="/web/css/explain.css" />
+</head>
+<body>
+	<div class="wrap">
+		<h1>transform</h1>
+		<h2>기본 설정값</h2>
+		<div class="contents transform">
+			<dl>
+				<dt class="txt_b_red"><strong>이동</strong> translate</dt>
+				<dd class="txt_b_red">transform: translate(50px, 100px); <span class="txt_green"> /*좌우, 위아래*/</span></dd>
+				<dt class="txt_b_red"><strong>회전</strong> rotate</dt>
+				<dd class="txt_b_red">transform: rotate(20deg);  <span class="txt_green"> /*회전각도*/</span></dd>
+				<dt><strong>3차원 회전</strong> rotateX</dt>
+				<dd>transform: rotateX(150deg); <span class="txt_green"> /*앞구르기*/</span></dd>
+				<dt><strong>3차원 회전</strong> rotateY</dt>
+				<dd>transform: rotateY(130deg); <span class="txt_green"> /*옆구르기*/</span></dd>
+				<dt><strong>3차원 회전</strong> rotateZ</dt>
+				<dd>transform: rotateZ(90deg);</dd>
+				<dt><strong>크기</strong> scale</dt>
+				<dd>transform: scale(2, 3); <span class="txt_green"> /*왼쪽 상단을 중심으로 확대/축소*/</span></dd>
+				<dt class="txt_b_red"><strong>3차원 크기</strong> scale3d</dt>
+				<dd class="txt_b_red">transform: scale3d(1.2, 1.2, 1); <span class="txt_green">/*(1.2배 확대) 마지막 값을 1로 설정할 경우 가운데를 중심으로 확대/축소*/</span></dd>
+			</dl>
+			<div class="exp transfrom01 clearfix">
+				<div class="left">
+					<div class="box">
+						<h3>생활을 바꾸다</h3>
+					</div>
+				</div>
+				<div class="right">
+					<strong class="tit">html은</strong>
+					&lt;div&gt;
+					<span class="tab1">&lt;h3&gt; 생활을 바꾸다 &lt;/h3&gt;</span>
+					&lt;/div&gt;
+					<strong class="tit">csss는</strong>
+					div{position:relative;}
+					h3{position:absolute;left:0;top:0;<strong class="txt_red">transfrom:rotate(90deg);</strong>}
+					<p class="txt_green">/* transform으로 h3를 회전하면 h3가 회전하기 전에 존재했던 위치와 영역의 중앙에서 회전함 <br /><strong>(을과 바 사이를 기준으로 회전을 했다는 이야기)</strong><br /><span class="txt_red">그래서 box의 왼쪽 상단에 글자를 배치하려면 글자의 위치를 변경해줘야 함.</span> */</p>
+				</div>
+			</div>
+		</div>
+		<h2>transform 응용</h2>
+		<div class="contents transform">
+			<ul>
+				<li>요소에 transform만 준다고 애니메이션 효과가 들어가는 것은 아니다.</li>
+				<li>transition을 주거나 animation으로 애니메이션 효과를 줘야함.</li>
+			</ul>
+			<div class="exp transfrom02 clearfix">
+				<div class="left">
+					<div class="box">
+						<span class="line1"></span>
+						<span class="line2"></span>
+						<span class="line3"></span>
+					</div>
+					<div class="box_sub">
+						동그라미 위에 마우스를 올려보세요.
+					</div>
+				</div>
+				<div class="right">
+					<strong class="tit">html은</strong>
+<pre>
+	&lt;a href=""&gt;
+	<span class="tab1">&lt;span class="line1"&gt;&lt;/span&gt;</span>
+	<span class="tab1">&lt;span class="line2"&gt;&lt;/span&gt;</span>
+	<span class="tab1">&lt;span class="line3"&gt;&lt;/span&gt;</span>
+	&lt;/a&gt;
+</pre>
+					<strong class="tit">csss는</strong>
+<pre>
+	a{
+		background: #2361be;
+		width: 100px;
+		height: 100px;
+		border-radius: 50px;
+		position: relative;
+	}
+	a span{
+		position: absolute;
+		left: 20px;
+		width: 60px;
+		height: 10px;
+		border-radius: 5px;
+		background: #fff;
+	}
+	a span.line1{
+		top: 22px;
+		<strong class="txt_red">transition: 0.5s;</strong>
+	}
+	a span.line2{
+		top: 44px;
+		<strong class="txt_red">transition: 0.2s;</strong>
+	}
+	a span.line3{
+		top: 66px;
+		<strong class="txt_red">transition: 0.5s;</strong>
+	}
+	<strong class="txt_red">a:hover</strong> span.line1{
+		top: 50px;
+		left: 10px;
+		width: 80px;
+		height: 5px;
+		<strong class="txt_red">transform: rotate(225deg);</strong>
+	}
+	<strong class="txt_red">a:hover</strong> span.line2{
+		top: 44px;
+		opacity:0;
+	}
+	<strong class="txt_red">a:hover</strong> span.line3{
+		top: 50px;
+		left: 10px;
+		width: 80px;
+		height: 5px;
+		<strong class="txt_red">transform: rotate(-225deg);</strong>
+	}
+</pre>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

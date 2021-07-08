@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, maximum-scale=2.0, minimum-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="/web/css/explain.css" />
+	<script type="text/javascript" src="/web/js/jquery-1.12.4.min.js"></script>
+	<script type="text/javascript" src="/web/js/fullpage_02.js" charset="UTF-8"></script>
+	<title>동영상을 화면에 가득차게</title>
+</head>
+<body>
+	<div class="fullpage_04">
+		<section class="fullpage">
+			<iframe id="movie" width="1280" height="720" src="https://www.youtube.com/embed/avULA8q_-Ak?rel=0&amp;controls=0&amp;showinfo=0&amp;autoplay=1&amp;loop=1&amp;playlist=avULA8q_-Ak" frameborder="0" allowfullscreen></iframe>
+		</section>
+	</div>
+	<div class="wrap">
+		<h1 class="mt50">동영상을 화면에 가득차게</h1>
+		<div class="contents fullpage_04">
+			<h2>섹션의 특징</h2>
+			<ul>
+				<li>동영상을 감싸는 요소 section은 넓이 width고 높이는 jquery에서 $(window).height()와 동일하게 리사이즈됨</li>
+				<li>화면의 사이즈가 바뀜에 따라 동영상이 맞춰서 최적의 크기로 보임</li>
+			</ul>
+			<h2>영상제어</h2>
+			<ul>
+				<li>유튜브에서 영상을 퍼오기로 가져오고 난 후에 <em class="txt_red">&amp;autoplay=1&amp;loop=1</em> 추가 (자동 플레이, 반복)<br />
+				그리고 <em class="txt_red">&amp;playlist=</em> 를 추가한 후 동영상 주소의 <em class="txt_red">embed/와 ?사이의 영상 코드값</em>을 복사해서 추가함. (영상 반복 플레이)</li>
+			</ul>
+			<h2>기본 html 구조</h2>
+			<div class="code">
+<pre>
+&lt;section class="fullpage"&gt;
+	동영상 주소
+&lt;/section&gt;
+</pre>
+		</div>
+		<h2>기본 css 코드</h2>
+		<div class="code">
+<pre>
+.fullpage{overflow: hidden;} <em class="txt_green">/* 감싸는 영역 section은 overflow:hidden으로 넘치는 영역을 잘라야 함 */</em>
+</pre>
+			</div>
+			<h2>jquery소스</h2>
+			<a href="../../js/fullpage_02.js" target="_blank" class="bg_red">jquery 소스보기</a>
+		</div>
+	</div>	
+</body>
+</html>

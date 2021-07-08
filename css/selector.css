@@ -1,0 +1,28 @@
+@import url('/web/css/common.css');
+@import url('/web/css/main.css');
+
+
+.ex{
+    background: #ededed;
+    padding: 20px;
+}
+.ex .tit{
+    font-weight: 600;
+}
+.ex .cts{
+    padding-left: 20px;/*word-spacing:1em;*/
+}
+.ex em{
+    color: #ff6600;
+    word-spacing: 0em;
+}
+
+.space{
+    color: #ccc;
+    font-size: 11px;
+}
+.point{
+    color: #f11883;
+    font-weight: 600;
+    font-size: 1.3em;
+}

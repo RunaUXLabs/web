@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, maximum-scale=2.0, minimum-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="/web/css/explain.css" />
+	<script type="text/javascript" src="/web/js/jquery-1.12.4.min.js"></script>
+	<script type="text/javascript" src="/web/js/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="/web/js/scroll_01.js"></script>
+	<title>스크롤을 빠르게 하기</title>
+</head>
+<body>
+	<div class="wrap">
+		<h1>스크롤을 빠르게 하기</h1>
+		<section class="scroll scroll_01">
+			<div>
+				1<br />2<br />3<br />4<br />5<br />6<br />7<br />8<br />9<br />10<br />11<br />12<br />13<br />14<br />15<br />16<br />17<br />18<br />19<br />20
+			</div>
+		</section>
+		<div class="contents scroll_01">
+			
+			<h2>스크롤 제어할 시 주의사항</h2>
+			<ul class="gray">
+				<li>스크롤할때 일반적인 스크롤보다 더 많이 스크롤 되게 하는 소스입니다.</li>
+				<li>js를 새로 만들어서 해당 jquery 소스를 넣고 html에서 호출하면 됩니다.</li>
+				<li>스크롤을 제어하는 다른 소스에 같이 쓰면 안됩니다.</li>
+				<li>js에 speed값이 크면 한번에 스크롤할때 더 많이 스크롤됩니다.</li>
+			</ul>
+	
+			<h2>jquery 셋팅값</h2>
+			<div class="code">
+		var speed = 3000; <span class="txt_green">/* 스크롤을 할때 추가로 스크롤 될 값 (즉, 값이 크면 더 많이 스크롤 됨) */</span>
+			</div>
+			<h2>jquery소스</h2>
+			<a href="../../js/scroll_01.js" target="_blank" class="bg_red">jquery 소스보기</a>
+		</div>
+	</div>
+
+</body>
+</html>

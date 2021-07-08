@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, maximum-scale=2.0, minimum-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="/web/css/explain.css" />
+	<script type="text/javascript" src="/web/js/jquery-1.12.4.min.js"></script>
+	<script type="text/javascript" src="/web/js/banner_pc_m.js"></script>
+	<title>모바일에서만 슬라이드 배너</title>
+</head>
+<body>
+	<div class="wrap">
+		<h1>모바일에서만 슬라이드 배너</h1>
+		<section class="pcnmobile_banner mt50">
+			<div class="seven">
+				<ul class="clearfix">
+					<li>
+						<a href="#">세븐스프링스<br />SALAD·GRILL<br />RICE·NOODLE·DESSERT</a>
+					</li>
+					<li>
+						<a href="#">세븐스프링스 카페<br />PIZZA·PASTA<br />SALAD·RICE·JUICE</a>
+					</li>
+					<li>
+						<a href="#">세븐스프링스 블랙<br />BBQ·SUSHI<br />SALAD·PIZZA·PASTA</a>
+					</li>
+				</ul>
+				<div class="paging">
+					<button>1번 배너</button>
+					<button>2번 배너</button>
+					<button>3번 배너</button>
+				</div>
+				<button class="btn_next">다음</button>
+				<button class="btn_prev">이전</button>
+			</div>
+		</section>
+		
+		<h2>배너의 특징</h2>
+		<ul>
+			<li>pc에서는 모두 보이다가 모바일로 전환되면서 슬라이드 배너로 변환되어 한개씩 보이는 방식</li>
+			<li class="txt_red">li에는 절대 넓이 이외의 값이 들어가면 안됨. (padding, margin, border 금지)<br />만약 여백이나 border가 필요하면 li안에 감싸고 있는 요소에 준다.</li>
+			<li>li는 모바일에서 무조건 1개씩만 보임</li>
+			<li>ul의 넓이는 jquery에서 li의 갯수를 계산해서 li가 두줄로 되지 않도록 (좌우로 배치되도록) width값을 주고 있다.</li>
+		</ul>
+		<h2>기본 html 구조</h2>
+		<div class="code">
+<pre>
+&lt;div class="banner"&gt; <span class="txt_green">/* obj_wrap */</span>
+	&lt;ul&gt; <span class="txt_green">/* obj_name 배너 전체를 묶어주는 요소로 이것이 jquery에서 움직임(반드시 position: absolute;, left: 0; 이어야함) */</span>
+		&lt;li&gt;&lt;/li&gt; <span class="txt_green">/* obj_child 배너항목(반드시 float: left;를 줘서 모든 배너이 옆으로 나란히 배치되도록 해야함.) */</span>
+	&lt;/ul&gt;
+&lt;/div&gt;
+</pre>
+		</div>
+	
+		<h2>jquery 설정값</h2>
+		<div class="code">
+<pre>
+var obj_wrap = $(".seven"); <em class="txt_green">//감싸는 영역의 이름</em>
+var obj_name = $(".seven ul");
+var obj_child = $(".seven ul li");
+var obj_child_width = "33.3%";    <em class="txt_green">//pc에서 li의 넓이값</em>
+var mobile_size = 640;    <em class="txt_green">//모바일로 인식하는 사이즈</em>
+var obj_paging = $(".seven .paging button");  <em class="txt_green">//모바일에서 paging을 한다면</em>
+var btn_next = $(".seven .btn_next");  <em class="txt_green">//모바일에서 다음버튼</em>
+var btn_prev = $(".seven .btn_prev");
+</pre>
+		</div>
+	
+		<h2>jquery소스</h2>
+		<a href="../../js/banner_pc_m.js" target="_blank" class="bg_red">jquery 소스보기</a>
+	</div>
+</body>
+</html>

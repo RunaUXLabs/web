@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8" />
+	<link rel="stylesheet" type="text/css" href="/web/css/explain.css" />
+	<title>중앙정렬(간단ver.)</title>
+</head>
+<body>
+	<div class="wrap">
+    <h1>중앙정렬(간단ver.)</h1>
+    <h2>방법1. li에 display: inline-block 선언하기</h2>
+    <div class="contents layout_08">
+        <ul class="gray bg_gray">
+            <li>li에 display:inline-block을 준다 <em class="txt_red">(절대, float값을 주면 안됨)</em></li>
+            <li>li를 감싸고 있는 ul에 <em class="txt_blue">text-align:center</em>를 준다</li>
+            <li>display:inline-block을 주면 li사이에 여백이 발생함. 스페이스 한칸 정도의 여백 <em class="txt_red">(여백이 절대 있으면 안된다면 방법2로 해야함)</em></li>
+        </ul>
+        <div class="exp ex01 clearfix">
+            <div class="left">
+                <div class="area">
+                    <em class="tit txt_red">text-align: center를 준 ul의 영역</em>
+                    <ul>
+                        <li>1i태그</li>
+                        <li>1i태그</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="right">
+                <strong class="tit">html은</strong>
+                &lt;ul&gt;
+                    <span class="tab1">&lt;li&gt; li태그 &lt;/li&gt;</span>
+                    <span class="tab1">&lt;li&gt; li태그 &lt;/li&gt;</span>
+                &lt;/ul&gt;
+
+                <strong class="tit">css는</strong>
+                ul{<strong class="txt_red">text-align: center;</strong>}
+                ul li{<strong class="txt_blue">display: inline-block;</strong>}
+                <em class="txt_green">/* li가 inline-block이므로 li 사이에 스페이스 한칸 정도의 여백이 발생함 */</em>
+            </div>
+        </div>
+    </div>
+    <h2>방법2. ul에 display: inline-block 선언하기</h2>
+    <div class="contents layout_08">
+        <ul class="gray bg_gray">
+            <li><em class="txt_red">li에 꼭 float: left를 줘야하는 경우</em></li>
+            <li>li를 감싸고 있는 ul에 <em class="txt_red">text-align: center</em>를 주고, <em class="txt_blue">ul을 감싸는 요소에 text-align: center;</em>를 준다.</li>
+            <li>ul에 display: inline-block을 준 경우 ul은 li를 합친 것 만큼의 넓이를 갖으므로, 다른 요소와의 정렬을 주의해야함.</li>
+        </ul>
+
+        <div class="exp ex02 clearfix">
+            <div class="left">
+                <div class="area">
+                    <em class="tit txt_red">text-align: center를 준 ul을 감싸는 영역</em>
+                    <em class="ul_tit">ul태그</em>
+                    <ul>
+                        <li>1i태그</li>
+                        <li>1i태그</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="right">
+                <strong class="tit">html은</strong>
+                &lt;div class="area"&gt;
+                    <span class="tab1">&lt;ul&gt;</span>
+                        <span class="tab2">&lt;li&gt; li태그 &lt;/li&gt;</span>
+                        <span class="tab2">&lt;li&gt; li태그 &lt;/li&gt;</span>
+                    <span class="tab1">&lt;/ul&gt;</span>
+                &lt;/div&gt;
+
+                <strong class="tit">css는</strong>
+                .area{<strong class="txt_red">text-align: center;</strong>}
+                .area ul{<strong class="txt_red">display: inline-block;</strong>}
+                <em class="txt_green">/* ul은 li를 합친 것 만큼의 넓이를 갖음 */</em>
+                .area ul li{<strong class="txt_blue">float: left;</strong>}
+                
+            </div>
+        </div>
+    </div>
+    <h2>방법3. absolute로 가운데 정렬해야 하는 경우</h2>
+    <div class="contents layout_08">
+        <ul class="gray bg_gray">
+            <li><em class="txt_red">반드시 요소가 absolute를 줘야 하는 경우에만 이 방법을 써야함.</em></li>
+            <li><em class="txt_red">요소의 넓이 값이 고정이어야 함</em></li>
+            <li>어떤 요소를 기준으로 정렬할 것인지 반드시 계산하고 해야함.</li>
+        </ul>
+
+        <div class="exp ex03 clearfix">
+            <div class="left">
+                <div class="area">
+                    <em class="tit txt_red">정렬 기준의 넓이</em>
+                    <p>가운데 정렬할 요소<br />(absolute를 준 요소)</p>
+                </div>
+            </div>
+            <div class="right">
+                <strong class="tit">html은</strong>
+                &lt;div class="area"&gt;
+                    <span class="tab1">&lt;div&gt; 가운데 정렬할 요소 (absolute를 준 요소) &lt;/div&gt;</span>
+                &lt;/div&gt;
+
+                <strong class="tit">css는</strong>
+<pre>
+.area{position: relative;}
+.area div{
+    position: absolute;
+    top: 0;
+    <strong class="txt_red">left: 50%;
+    width: 200px;
+    margin-left: -100px;</strong>
+}<em class="txt_green">/* 반드시 넓이값이 들어가야하고,
+left: 50%를 주고 <strong class="txt_red">margin-left: -넓이의 반</strong> (음수값) */</em>
+</pre>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

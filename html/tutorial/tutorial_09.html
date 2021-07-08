@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8" />
+	<link rel="stylesheet" type="text/css" href="/web/css/explain.css" />
+	<title>다양한 레이아웃</title>
+</head>
+<body>
+	<div class="wrap">
+        <h1>다양한 레이아웃</h1>
+        <h2>레이아웃 예시</h2>
+        <div class="contents layout_05">
+            <div class="exp ex01 clearfix">
+                <div class="left">
+                    <div class="service_group clearfix">
+                        <div class="service w_two bg1">1번</div>
+                        <div class="service bg2">2번</div>
+                        <div class="service bg3">3번</div>
+                        <div class="service bg4">4번</div>
+                        <div class="service bg5">5번</div>
+                        <div class="service w_two bg6">6번</div>
+                    </div>
+                </div>
+                <div class="right">
+                    <strong class="tit">html은</strong>
+                    &lt;div&gt;
+                        <span class="tab1">&lt;div class="<strong class="txt_red">service</strong> <strong class="txt_blue">w_two</strong> <strong>bg1</strong>"&gt; 1번 &lt;/div&gt;</span>
+                        <span class="tab1">&lt;div class="<strong class="txt_red">service</strong> <strong>bg2</strong>"&gt; 2번 &lt;/div&gt;</span>
+                        <span class="tab1">&lt;div class="<strong class="txt_red">service</strong> <strong>bg3</strong>"&gt; 3번 &lt;/div&gt;</span>
+                        <span class="tab1">&lt;div class="<strong class="txt_red">service</strong> <strong>bg4</strong>"&gt; 4번 &lt;/div&gt;</span>
+                        <span class="tab1">&lt;div class="<strong class="txt_red">service</strong> <strong>bg5</strong>"&gt; 5번 &lt;/div&gt;</span>
+                        <span class="tab1">&lt;div class="<strong class="txt_red">service</strong> <strong class="txt_blue">w_two</strong> <strong>bg6</strong>"&gt; 6번 &lt;/div&gt;</span>
+                    &lt;/div&gt;
+    
+                    <strong class="tit">css는</strong>
+<pre>
+.service{
+    <span class="txt_red">float: left;</span>
+    <span class="txt_blue">width: 125px;</span>
+}
+<span class="txt_green">/* 여백없이 컨텐츠가 배치되어야 하므로 float:left를 꼭 추가 */</span>
+.service.w_two{<span class="txt_blue">width: 250px;</span>}
+<span class="txt_green">/* 넓이가 다른 요소 두개에 w_two 라고 클래스명을 주고 넓이를 한번 더 지정함. */</span>
+<span class="txt_red">.service.bg1</span>{background: #ededed;}
+<span class="txt_green">/* 하나의 요소에 service라는 클래스명과 bg1이라는 클래스명을 동시에 선언한 경우 */</span>
+</pre>
+                </div>
+            </div>
+    
+            <div class="exp ex02 clearfix">
+                <div class="left">
+                    <ul>
+                        <li>1번</li>
+                        <li>2번</li>
+                        <li>3번</li>
+                        <li>4번</li>
+                    </ul>
+                </div>
+                <div class="right">
+                    <strong class="tit">html은</strong>
+                    &lt;ul&gt;
+                        <span class="tab1">&lt;li&gt; 1번 &lt;/li&gt;</span>
+                        <span class="tab1">&lt;li&gt; 2번 &lt;/li&gt;</span>
+                        <span class="tab1">&lt;li&gt; 3번 &lt;/li&gt;</span>
+                        <span class="tab1">&lt;li&gt; 4번 &lt;/li&gt;</span>
+                    &lt;/ul&gt;
+    
+                    <strong class="tit">css는</strong>
+<pre>
+ul li{
+    <span class="txt_red">float: left;</span>
+    <span class="txt_blue">width: 150px;
+    height: 100px;</span>
+}<span class="txt_green">/* 여백없이 컨텐츠가 배치되어야 하므로 float: left를 꼭 추가 */</span>
+ul{<strong class="txt_red">position: relative;</strong>}
+ul li:nth-child(1){
+    <span class="txt_blue">height: 200px;</span>
+    background: #f8ce48;
+}
+ul li:nth-child(2){background: #6c5648;}
+ul li:nth-child(3){
+    background: #f7f7f7;
+    <strong class="txt_red">clear:left;</strong>
+} <span class="txt_green">/* float값을 준 요소에 clear:left 를 주면 해당 요소가 다음줄로 내려감 */</span>
+ul li:nth-child(4){
+    background: #424242;
+    <span class="txt_blue">width: 200px;
+    height: 200px;</span>
+    <strong class="txt_red">position: absolute;
+    right: 0;
+    top: 0;</strong>
+}
+<span class="txt_green">/* 3번에 clear: left을 줘서 3번을 아래로 내려가도록 배치하였고,
+4번을 position: absolute로 배치한다 */</span>
+</pre>
+                </div>
+            </div>
+    
+            <div class="exp ex03 clearfix">
+                <div class="left">
+                    <div class="crew clearfix">
+                        <h3>즐거운<br />카카오크루</h3>
+                        <div class="cts">
+                            <h4>안식휴가</h4>
+                            <p>크루의 리프레쉬를 위해 매 3년 근속 시마다 안식휴가 1개월과 휴가비 200만원을 지원합니다.</p>
+                            <h4>편의시설</h4>
+                            <p>크루들의 휴식 공간으로 크루만의 카페를 사내에 운영하고 있으며 남/녀 수면실 및 엄마방(모유수유방)과 크루들 간의 아이디어 회의나 독서, 게임 등을 할 수 있는 크루 쉼터가 있습니다.</p>
+                        </div>
+                    </div>
+                    <div class="crew clearfix">
+                        <h3>건강한<br />카카오크루</h3>
+                        <div class="cts">
+                            <h4>의료비 지원</h4>
+                            <p>질병이나 사고로 크루 본인이나 크루 직계가족의 통원 치료비 / 입원비 등이 발생할 시에 최고 3,000만 원의 의료비를 지원합니다.</p>
+                            <h4>건강 검진</h4>
+                            <p>크루의 건강관리와 각종 질병 예방을 위해 연 1회 모든 사원의 정밀 건강검진을 전문기관에서 받고 있습니다.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="right">
+                    <strong class="tit">html은</strong>
+                    &lt;div class="crew"&gt;
+                        <span class="tab1 txt_red">&lt;h3&gt; 즐거운 카카오크루 &lt;/h3&gt;</span>
+                        <span class="tab1 txt_red">&lt;div class="cts"&gt; 2번 &lt;/div&gt;</span>
+                            <span class="tab2">&lt;h4&gt; 안식휴가 &lt;/h4&gt;</span>
+                            <span class="tab2">&lt;p&gt; 크루의 리프레쉬를 위해 매 3년 근속 시마다 안식휴가 1개월과 휴가비 200만원을 지원합니다. &lt;/p&gt;</span>
+                            <span class="tab2">&lt;h4&gt; 편의시설 &lt;/h4&gt;</span>
+                            <span class="tab2">&lt;p&gt; 크루들의 휴식 공간으로 크루만의 카페를 사내에 운영하고 있으며 남/녀 수면실 및 엄마방(모유수유방)과 크루들 간의 아이디어 회의나 독서, 게임 등을 할 수 있는 크루 쉼터가 있습니다. &lt;/p&gt;</span>
+                        <span class="tab1 txt_red">&lt;/div&gt;</span>
+                    &lt;/div&gt;
+    
+                    <strong class="tit">첫번째 방법 css</strong>
+                    .crew <strong>h3</strong>{<span class="txt_red">float: left;</span>}
+                    .crew <strong>.cts</strong>{<span class="txt_red">margin-left: 100px;</span>}<br /><span class="txt_green">/* margin-left의 값은 왼쪽에 있는 h3를 포함한 여백을 계산해야 한다. */</span>
+    
+                    <strong class="tit">두번째 방법 css</strong>
+<pre>
+.crew <strong>h3</strong>{
+    <span class="txt_blue">float: left;
+    width: 100px;</span>
+} <span class="txt_green">/* 왼쪽 h3의 너비를 동일하게 주려면 넓이를 줘야한다 */</span>
+.crew <strong>.cts</strong>{
+    <span class="txt_blue">float: left;
+    width: 450px;</span>
+} <span class="txt_green">/* 오른쪽의 컨텐츠가 길다면 반드시 넓이를 제한해야 한다 */</span>
+</pre>
+    
+                    <strong class="txt_red under">컨텐츠를 좌우로 배치하려면 왼쪽 오른쪽 요소가 하나씩 되도록 해야한다. 지금처럼 왼쪽에 h3가 있고 오른쪽에 h4 p가 있는 상황에서 h4와 p를 div로 묶어서 h3와 div를 좌우로 배치한다.</strong>
+                </div>
+            </div>
+        <h2>코딩시 주의사항</h2>
+        <div class="contents layout_05">
+            <div class="exp ex04 clearfix">
+                <div class="left">
+                    <p><strong class="txt_red">1단계. 이렇게 배치를 해야 하는 상황이라면</strong></p>
+                    <div class="crew_box1 clearfix">
+                        <h3>h3태그</h3>
+                        <div class="cts">
+                            <h4>h4태그</h4>
+                            <p>p태그</p>
+                            <h4>h4태그</h4>
+                            <p>p태그</p>
+                        </div>
+                    </div>
+    
+                    <p><strong class="txt_red">2단계. 왼쪽은 한개, 오른쪽 다수 요소를 div로 묶어서 좌우로 배치함</strong></p>
+                    <div class="crew_box2 clearfix">
+                        <h3>h3태그</h3>
+                        <div class="cts">
+                            <strong> div로 묶음 </strong>
+                            <h4>h4태그</h4>
+                            <p>p태그</p>
+                            <h4>h4태그</h4>
+                            <p>p태그</p>
+                        </div>
+                    </div>
+    
+                    <p><strong class="txt_red">3단계. 왼쪽, 오른쪽으로 배치된 요소들을 하나로 묶어 주는 것이 컨텐츠 배치에 좋음</strong></p>
+                    <em class="crew_box3_tit">div로 묶음</em>
+                    <div class="crew_box3 clearfix">
+                        <h3>h3태그</h3>
+                        <div class="cts">
+                            <strong> div로 묶음 </strong>
+                            <h4>h4태그</h4>
+                            <p>p태그</p>
+                            <h4>h4태그</h4>
+                            <p>p태그</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="right">
+                    <strong class="txt_big">1번 </strong>좌우로 배치할 콘텐츠는 1 : 1 대응이 되어야 하여 한다.
+                    만약 옆의 예제처럼 왼쪽에는 h3 1개, 오른쪽에는 4개의 요소가 있는데 이게 좌우로 배치되어야 한다면 오른쪽에 있는 4개를 div로 묶어서 1개의 요소로 왼쪽 h3와 div를 좌우로 배치하는 구도로 만들어야 한다.
+    
+                    <strong class="txt_big">2번 </strong>좌우로 배치된 요소는 (특히 float가 추가된 요소) 밑에 있는 요소가 인지하지 못하여 여러 문제가 발생 할 수 있으므로 좌우로 배치된 요소들을 묶어주는 div를 추가하여 clearfix를 준다.
+                    float 해결법은 <a href="/WEB-INF/tutorial/tutorial_07.html" class="txt_blue under">tutorial_07.html</a>에 있음.
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

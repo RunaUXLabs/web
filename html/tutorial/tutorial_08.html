@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8" />
+	<link rel="stylesheet" type="text/css" href="/web/css/explain.css" />
+	<title>넓이에 영향을 미치는 요소들</title>
+</head>
+<body>
+	<div class="wrap">
+        <h1>넓이에 영향을 미치는 요소들</h1>
+        <h2>border, padding은 요소의 width를 늘어나게 한다.</h2>
+        <div class="contents layout_04">
+            <div class="exp ex01 clearfix">
+                <div class="left">
+                    <span class="brd">border: 1px;</span>
+                    <ul>
+                        <li><p><span>li의 넓이는 200px</span><em>padding<br />50px</em><strong>컨텐츠를 입력하면 이 회색 영역 안에 만 들어간다.</strong></p></li>
+                    </ul>
+                    <span class="wd">li의 전체 넓이는 302px</span>
+                </div>
+                <div class="right">
+                    <strong class="tit">html은</strong>
+                    &lt;ul&gt;
+                    <span class="tab1">&lt;li&gt; 컨텐츠를 입력하면 이 회색 영역 안에 만 들어간다. &lt;/li&gt;</span>
+                    &lt;/ul&gt;
+                    <strong class="tit">css는</strong>
+<pre>
+ul li{
+    <span class="txt_red">width: 200px;</span>
+    border: 1px solid #ccc;
+    padding: 50px;
+}
+</pre>
+                    <strong>
+                        <sapn class="txt_red">
+                            li의 최종 넓이는<br /><em class="under">넓이 200px</em> + <em class="under">border 2px</em> (좌우 1px씩) + <em class="under">padding 100px</em> (좌우 50px씩)
+                        </sapn>
+                        <span class="txt_blue">200 + 2 + 100 = 302</span>
+                    </strong>
+                    <span class="txt_blue">li의 넓이는 200px이지만 border와 padding 때문에 최종적인 넓이는 302px이 됩니다.</span>
+                    <strong class="tit txt_green">
+                        &starf; Tip! outline인 border를 계산하기가 너무 어렵다면?
+<pre>
+*{
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+}
+</pre>
+                    </strong>
+                </div>
+            </div>
+        </div>
+        <h2>꽉차게 좌우로 컨텐츠를 배치할때 여백 조절</h2>
+        <div class="contents layout_04">
+            <div class="exp ex02 clearfix">
+                <div class="left">
+                    <ul class="color clearfix">
+                        <li>
+                            <h3>Volumn<span>Enterprise Data Hub</span></h3>
+                            <p>비용 효율적인 빅데이터 저장과 분석!<br />데이터 기반의 의사결정 기반 마련<br />새로운 비즈니스 가치 창출</p>
+                            <a href="">more +</a>
+                        </li>
+                        <li>
+                            <h3>Velocity<span>loT</span></h3>
+                            <p>센서(loT)데이터 실시간 수집<br />장기데이터 저장 기반 마련<br />장애 사전 예측 및 대응</p>
+                            <a href="">more +</a>
+                        </li>
+                        <li>
+                            <h3>Variety<span>보안로그통합/FDS고도화</span></h3>
+                            <p>내부 보안 통제로 보안 강화<br />신뢰성 향상 및 탐지 고도화<br />사전, 사후 대응 체계 확립</p>
+                            <a href="">more +</a>
+                        </li>
+                    </ul>
+                    <span class="box_tit">컨텐츠 넓이는 1000px</span>
+                    <ul class="box clearfix">
+                        <li>컨텐츠 넓이 316px</li>
+                        <li>여백<br />26px</li>
+                        <li>컨텐츠 넓이 316px</li>
+                        <li>여백<br />26px</li>
+                        <li>컨텐츠 넓이 316px</li>
+                    </ul>
+                </div>
+                <div class="right">
+                    <strong class="tit">html은</strong>
+                    &lt;ul&gt;
+                        <span class="tab1">&lt;li&gt; Volumn &lt;/li&gt;</span>
+                        <span class="tab1">&lt;li&gt; Velocity &lt;/li&gt;</span>
+                        <span class="tab1">&lt;li&gt; Variety &lt;/li&gt;</span>
+                    &lt;/ul&gt;
+    
+                    <strong class="tit">css는</strong>
+                    ul li { <strong class="txt_red">float:left;</strong> width:316px; <strong class="txt_blue">margin-right:26px;</strong> } <span class="txt_green">/* 여백까지 정확하게 계산할때는 float:left를 꼭 추가하여 컨텐츠를 좌우로 배치하여야 함. */</span>
+                    <strong class="txt_blue">ul li:last-child { margin-right:0; }</strong> <span class="txt_green">/* 마지막 li의 오른쪽 여백 삭제 */</span>
+    
+                    <strong class="txt_red">컨텐츠 영역이 1000px 이므로 모든 요소들이 좌우로 배치되려면 넓이와 여백의 모든 합이 1000px을 넘지 않아야 한다.</strong>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

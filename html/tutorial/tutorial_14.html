@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, maximum-scale=2.0, minimum-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="/web/css/explain.css" />
+	<title>가상요소 활용하기2</title>
+</head>
+<body>
+    <div class="wrap">
+        <h1>가상요소 활용하기2</h1>
+        <h2>가상요소 ::before, ::after</h2>
+        <div class="contents before">
+            <ul>
+                <li>가상요소라 함은 html에 코딩된 요소가 아니지만 css에서 요소(element)의 특별한 상태를 지정하는 선택자(selector) 입니다.</li>
+                <li>즉, html에서 &lt;li&gt;라고만 써도 css에서 li::before 이렇게 사용 가능함.</li>
+                <li>단순히 해당 요소(태그)안에 div가 두개(::before, ::after) 생겼다고 생각하면 됩니다.</li>
+                <li>absolute로 제어할때, ::before, ::after로 생성한 컨텐츠는 요소 밖으로 나갈 수가 있습니다.</li>
+            </ul>
+            <div class="exp ex01 clearfix">
+                <div class="left">
+                    &lt;ul&gt;<br />
+                        <span class="tab1">&lt;li&gt;</span><br />
+                            <strong class="tab2 txt_red">::before</strong><br />
+                            <span class="tab2">li의 컨텐츠</span><br />
+                            <strong class="tab2 txt_red">::after</strong><br />
+                        <span class="tab1">&lt;/li&gt;</span><br />
+                        <span class="tab1">&lt;li&gt;</span><br />
+                            <strong class="tab2 txt_red">::before</strong><br />
+                            <span class="tab2">li의 컨텐츠</span><br />
+                            <strong class="tab2 txt_red">::after</strong><br />
+                        <span class="tab1">&lt;/li&gt;</span><br />
+                    &lt;/ul&gt;
+                </div>
+                <div class="right">
+                    <strong class="tit">html은</strong>
+                    &lt;ul&gt;
+                    <span class="tab1">&lt;li&gt; li의 컨텐츠 &lt;/li&gt;</span>
+                    <span class="tab1">&lt;li&gt; li의 컨텐츠 &lt;/li&gt;</span>
+                    &lt;/ul&gt;
+                    <span class="txt_green">&lt;-- before, after는 html상에는 존재하지 않음 --&gt;</span>
+
+                    <strong class="tit">css는</strong>
+                    ul li<em class="txt_red under">::before</em>{<strong class="txt_red">content:"::before";</strong>}
+                    ul li<em class="txt_red under">::after</em>{<strong class="txt_red">content:"::after";</strong>}
+                    <span class="txt_green">/* 반드시 content: "";를 써줘야 before selector가 나타남. <br />만약, content:"한글"; 이라고 쓰면 '::before'의 위치에 실제 화면상에 '한글'이라는 글자가 나타남. */</span>
+                </div>
+            </div>
+        </div>
+        <h2>::after, ::before의 활용</h2>
+        <div class="contents before">
+            <ul>
+                <li>li 앞에 동그라미를 그리거나, 메뉴와 메뉴 사이에 선을 그리거나, 제목 하단에 선을 그리거나 할때 사용가능하다.</li>
+                <li>::before나 ::after로 생성한 선 및 동그라미 등의 위치를 자유롭게 제어하기 위해서는 position:absolute를 주는 것이 좋다. <br />(이때 정렬의 기준은 before의 원본요소인 것이 좋음, 즉 li:before가 absolute면 li가 position:relative를 갖는 것이 좋음)</li>
+                <li>흔히 위에 왼쪽이나 위에 선을 그리는 경우 ::before를 오른쪽 아래 선을 그리는 경우 ::after를 사용하지만 사실 아무상관없음.</li>
+            </ul>
+            <div class="exp ex02 clearfix">
+                <div class="left">
+                    <ul>
+                        <li>항목1</li>
+                        <li>항목2</li>
+                        <li>항목1</li>
+                    </ul>
+                </div>
+                <div class="right">
+                    <strong class="tit">html은</strong>
+                    &lt;ul&gt;
+                    <span class="tab1">&lt;li&gt; 항목1 &lt;/li&gt;</span>
+                    <span class="tab1">&lt;li&gt; 항목2 &lt;/li&gt;</span>
+                    &lt;/ul&gt;
+                    <strong class="tit">css는</strong>
+<pre>
+ul li{
+    <span class="txt_blue">padding-left: 10px;</span>
+    <strong class="txt_red">position: relative;</strong>
+} <span class="txt_green">/*아이콘을 배치하기 위한 왼쪽 여백*/</span>
+ul li<strong class="txt_red">::before</strong>{
+    content: "";
+    <strong class="txt_red">position: absolute;
+    left: 0;
+    top: 10px;</strong>
+    <span class="txt_blue">width: 3px;
+    height: 3px;
+    border-radius: 3px;
+    background: #f11883;</span>
+}
+<strong class="txt_green">/* before는 li를 기준으로 정렬함 */</strong>
+<span class="txt_green">/* before에 넓이/높이를 주고 배경색을 줘서 도형을 그림 */</span>
+</pre>
+                </div>
+            </div>
+            <div class="exp ex03 clearfix">
+                <div class="left">
+                    <ul>
+                        <li>메뉴1</li>
+                        <li>메뉴2</li>
+                        <li>메뉴3</li>
+                    </ul>
+                </div>
+                <div class="right">
+                    <strong class="tit">html은</strong>
+                    &lt;ul&gt;
+                    <span class="tab1">&lt;li&gt; 메뉴1 &lt;/li&gt;</span>
+                    <span class="tab1">&lt;li&gt; 메뉴2 &lt;/li&gt;</span>
+                    &lt;/ul&gt;
+                    <strong class="tit">css는</strong>
+<pre>
+ul li{
+    float: left;
+    margin: 0 10px;
+    <strong class="txt_red">position: relative;</strong>
+}
+ul li::before{
+    content: "";
+    <strong class="txt_red">position: absolute;
+    left: -10px;
+    top: 7px;</strong>
+    <span class="txt_blue">width: 1px;
+    height: 10px;
+    background: #f11883;</span>
+} <span class="txt_green">/* 위치값은 마이너스도 가능 */</span>
+<strong class="txt_blue">ul li:first-child::before{display: none;}</strong>
+<span class="txt_green">/* before와 first-child를 같이 쓰는 경우 - 첫번째 li의 before 숨김 */</span>
+</pre>
+                </div>
+            </div>
+            <div class="exp ex04 clearfix">
+                <div class="left">
+                    <strong>멘토링 꿈장학사업</strong>
+                    <p>다양한 분야에 꿈과 가능성이 있는 청소년들을 멘토와 함께 선발하여 학생들이 멘토 선생님의 교육적, 정서적 지지를 받으면서 자신의 꿈을 찾고 재능을 개발할 수 있도록 장학금을 지원하는 사업</p>
+                </div>
+                <div class="right">
+                    <strong class="tit">html은</strong>
+                    &lt;h2&gt;멘토링 꿈장학사업&lt;/h2&gt;
+                    &lt;/p&gt; 다양한 분야에 꿈과 가능성이 있는 ... &lt;/p&gt;
+                    <strong class="tit">css는</strong>
+<pre>
+h2{
+    margin: 20px 0;
+    <strong class="txt_red">position: relative;</strong>
+}
+h2::after{
+    content: "";
+    <strong class="txt_red">position: absolute;
+    left: 0;
+    bottom: -10px;</strong>
+    <span class="txt_blue">width: 68px;
+    height: 2px;
+    background: #f11883;</span>
+}
+</pre>
+                </div>
+            </div>
+            <div class="exp ex05 clearfix">
+                <div class="left">
+                    <strong>멘토링 꿈장학사업</strong>
+                    <p>다양한 분야에 꿈과 가능성이 있는 청소년들을 멘토와 함께 선발하여 학생들이 멘토 선생님의 교육적, 정서적 지지를 받으면서 자신의 꿈을 찾고 재능을 개발할 수 있도록 장학금을 지원하는 사업</p>
+                </div>
+                <div class="right">
+                    <strong class="tit">html은</strong>
+                    &lt;h2&gt;멘토링 꿈장학사업&lt;/h2&gt;
+                    &lt;/p&gt; 다양한 분야에 꿈과 가능성이 있는 ... &lt;/p&gt;
+                    <strong class="tit">css는</strong>
+<pre>
+h2{
+    margin: 20px 0;
+    <strong class="txt_red">position: relative;</strong>
+    <span class="txt_blue">text-align: center;</span>
+}
+h2::after{
+    content: "";
+    <strong class="txt_red">position: absolute;
+    <span class="under">left: 50%;</span>
+    bottom: -10px;</strong>
+    <strong class="txt_blue under">margin-left: -23px;</strong>
+    <span class="txt_blue">width: 120px;
+    height: 2px;
+    background: #f11883;</span>
+}
+<strong class="txt_green">/* 글자를 가운데 정렬하고 선도 글자 아래 가운데 정렬하고 싶은 경우 <em class="under"> left: 50%; margin-left: -넓이의반px; </em>을 주면 된다. */</strong>
+</pre>
+                </div>
+            </div>
+
+            <div class="exp ex06 clearfix">
+                <div class="left">
+                    <ul>	
+                        <li>항목1</li>
+                        <li>항목2</li>
+                    </ul>
+                </div>
+                <div class="right">
+                    <strong class="tit">html은</strong>
+                    &lt;ul&gt;
+                    <span class="tab1">&lt;li&gt; 항목1 &lt;/li&gt;</span>
+                    <span class="tab1">&lt;li&gt; 항목2 &lt;/li&gt;</span>
+                    &lt;/ul&gt;
+                    <strong class="tit">css는</strong>
+<pre>
+ul li{
+    <strong class="txt_blue">width: 48%;
+    margin-right: 4%;</strong>
+    height: 100px;
+    background: #f4f4f4;
+    float: left;
+    <strong class="txt_red">position: relative;</strong>
+}
+ul li:last-child{margin-right: 0;}
+<strong class="txt_green">/* li의 넓이를 %로 처리할 경우 border를 li에 줄 수 없음 (border는 넓이를 늘리는 요소이기때문에...) */</strong>
+ul li::before{
+    content: "";
+    <strong class="txt_red">position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;</strong>
+    border: 1px solid #ccc;
+}
+<em class="txt_green">/* before로 li의 사이즈와 동일하게 border를 주려고 한다면 width: 100%; height: 100%가 아니라
+left: 0; right: 0; top: 0; bottom: 0;라고 쓰고 넓이/높이값을 주지 않으면 된다.
+( width: 100%;를 주고 border를 주면 원하는 넓이보다 border만큼 더 늘어난다. )  */</em>
+<strong class="txt_green">/* box-sizing: border-box;를 선언하면 inline-border가 되기 때문에 번거로운 계산이나 선언을 안해도 된다. */</strong>
+</pre>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

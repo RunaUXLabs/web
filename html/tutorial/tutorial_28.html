@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, maximum-scale=2.0, minimum-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="/web/css/explain.css" />
+	<script type="text/javascript" src="/web/js/jquery-1.12.4.min.js"></script>
+	<script type="text/javascript" src="/web/js/line_01.js"></script>
+	<title>메뉴에 마우스를 오버하면 그려지는 선</title>
+</head>
+<body>
+	<div class="wrap">
+		<h1>메뉴에 마우스를 오버하면 그려지는 선</h1>
+		<section class="sample line_01 mt50">
+			<header>
+				<nav>
+					<ul>
+						<li><a href="#n">회사소개</a></li>
+						<li><a href="#n">사업소개</a></li>
+						<li><a href="#n">지속가능한경영</a></li>
+						<li><a href="#n">홍보채널</a></li>
+					</ul>
+					<div class="nav_line"></div>
+				</nav>
+			</header>
+		</section>
+		<div class="contents line_01">
+			<h2>구조의 특징</h2>
+			<ul></ul>
+				<li>마우스를 오버할때 그려지는 선을 포함한 영역은 position:absolute로 설정하는 것이 좋다.</li>
+				<li>선이 그려질 영역을 모두 차지할 수 있어야 한다. 넓이 100%일때 예상한 선이 모두 그려져야 한다.</li>
+				<li>jquery에서 요소의 넓이를 오버한 메뉴의 x좌표값을 얻어 그 값으로 한다. <em class="txt_red"><strong>$(this).offset().left;</strong>는 브라우저 왼쪽에서 부터 메뉴까지의 떨어진 거리값 이다.</em></li>
+				<li>만약 선의 색이 그라데이션이라면 배경이미지로 등록하고 영역의 넓이를 제어하는 것이 좋다.</li>
+			</ul>
+			<h2>기본 html 구조</h2>
+			<div class="code">
+		&lt;div class="gnb"&gt;
+			&lt;div class="wrap"&gt;
+				&lt;ul&gt;
+					&lt;li&gt;&lt;a href="#n"&gt; 메뉴명 &lt;/a&gt;&lt;/li&gt;
+				&lt;/ul&gt;
+			&lt;/div&gt;
+			&lt;div class="gnb_line"&gt;&lt;/div&gt; <em class="txt_green">/*그릴 선*/</em>
+		&lt;/div&gt;
+			</div>
+			<h2>기본 css 코드</h2>
+			<div class="code">
+<pre>
+.gnb{position: relative;} <em class="txt_green">/*gnb_line 정렬의 중심*/</em>
+.gnb .gnb_line{
+	position: absolute;
+	left: 0;
+	bottom: -5px;
+	width: 0;
+	height: 5px;
+	background: linear-gradient(to right, skyblue, yellow);
+}
+</pre>
+			</div>
+	
+			<h2>jquery소스</h2>
+			<a href="../../js/line_01.js" target="_blank" class="bg_red">jquery 소스보기</a>
+		</div>
+	</div>
+</body>
+</html>

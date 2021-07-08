@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8" />
+	<title>Transition</title>
+	<link rel="stylesheet" type="text/css" href="/web/css/explain.css" />
+	<script type="text/javascript" src="/web/js/jquery-1.12.4.min.js"></script>
+	<script type="text/javascript" src="/web/js/explain.js"></script>
+</head>
+<body>
+    <div class="wrap">
+        <h1>Transition</h1>
+        <h2>마우스를 오버했을때 효과주기</h2>
+        <div class="transition">
+            <div class="clearfix ex_group">
+                <div class="ex">
+                    <a href="#n">
+                        <img src="/web/images/over2.jpg" />
+                        <span class="over_bg"></span>
+                        <span class="over_txt">마우스 오버하면<br />나타나는 텍스트</span>
+                    </a>
+                </div>
+                <div class="txt">
+<pre class="source txt_red">
+&lt;a href="#n"&gt;
+    &lt;img src="../images/over2.jpg" /&gt;
+    &lt;span class="over_bg">&lt;/span&gt;
+    &lt;span class="over_txt">마우스 오버하면&lt;br /&gt;나타나는 텍스트&lt;/span&gt;
+&lt;/a&gt;
+</pre>
+            <br />
+<pre class="source">
+a{
+    <em class="txt_blue">position: relative;</em>
+    font-size: 0;
+    line-height: 0;
+    text-decoration: none;
+    display: block;
+}
+a .over_bg{
+    <em class="txt_blue">position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;</em>
+    <strong>opacity: 0;
+    transition: 1s;</strong>
+    background: rgba(54,119,251,0.9);
+}
+a .over_txt{
+    <em class="txt_blue">position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    text-align: center;</em>
+    <strong>opacity :0;
+    transition: 1s;</strong>
+    color: #fff;
+    font-size: 15px;
+    line-height: 1.5;
+}
+a:hover .over_bg{<strong>opacity: 1;</strong>}
+a:hover .over_txt{
+    top: 40%;
+    <strong>opacity: 1;</strong>
+}
+</pre>
+                    <ol>
+                        <li>
+                            <strong class="num">1번</strong> 마우스 오버하면 나타날 효과를 설계한다.<br />
+                            이미지만 보이다가 이미지에 마우스를 올리면 색이 덮어지고 글자가 나타난다.<br />
+                            <em  class="txt_red">이미지를 덮을 색상 over_bg</em>와 <em class="txt_red">나타날 텍스트 ober_txt</em>를 코딩한다.
+                        </li>
+                        <li>
+                            <strong class="num">2번</strong> 마우스를 오버한 상태로 css를 코딩한다.<br />
+<pre class="source">
+a{
+    <em class="txt_blue">position: relative;</em>
+    font-size: 0;
+    line-height: 0;
+    text-decoration: none;
+    display: block;
+}
+a .over_bg{
+    <em class="txt_blue">position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;</em>
+    background: rgba(54,119,251,0.9);
+}
+a .over_txt{
+    <em class="txt_blue">position: absolute;
+    left: 0;
+    top: 40%;
+    width: 100%;
+    text-align: center;</em>
+    color: #fff;
+    font-size: 15px;
+    line-height: 1.5;
+}
+</pre><br />
+                            a를 기준으로 해서(position:relative) 이미지의 위에 over_bg, over_txt가 올라가기 때문에 모두 position:absolute;로 배치해야함.<br />
+                            a의 높이는 img의 높이로 결정되기 때문에 img태그에 행간이 적용되어 img하단에 여백이 발생한다. 그렇기 때문에 <em class="txt_blue">line-height:0;font-size:0;</em>을 img를 감싸고 있는 a태그에 줘야 여백이 사라짐.<br />
+                            반대로 이때문에 over_txt에는 글자크기와 행간을 줘야함.
+                        </li>
+                        <li>
+                            <strong class="num">3번</strong> 마우스를 오버하면 나타나는 요소에 <em class="txt_blue">transtion:1s;opacity:0;</em>을 추가한다.<br />
+                            transtion:1s;는 효과를 1초동안 실행다는 값으로 변경가능 함.<br />
+                            opacity:0;은 자연스럽게 나타나는 효과를 주기 위해서 투명하게 처리한 값. <em class="bg_red">절대 display:none;을 주면 안됨.</em></li>
+                        </li>
+                        <li>
+                            <strong class="num">4번</strong> 마우스를 오버했을 경우 변경되는 값을 코딩한다.<br />
+<pre class="source txt_blue">
+a:hover .over_bg,
+a:hover .over_txt{opacity: 1;}
+</pre><br />
+                            <em class="bg_blue">주의사항 <strong>a:hover .over_bg</strong> 일때 변경사항을 코딩하면 반드시 <strong>a .over_bg</strong>에 transition을 미리 선언했어야함.</em><br />
+<pre class="source txt_blue">
+a .over_bg{
+    opacity: 0;
+    transtion: 1s;
+}
+a .over_txt{
+    opacity: 0;
+    transtion: 1s;
+}
+a:hover .over_bg,
+a:hover .over_txt{opacity: 1;}
+</pre>
+                        </li>
+                        <li>
+                            <strong class="num">5번</strong> <em class=" bg_red">모바일은 터치로 동작하므로 마우스 오버 없음!!!</em><br />
+                            만약 이 효과를 pc버전에서만 적용되게 하려면 <br />
+<pre class="source txt_blue">
+@media screen and (min-width:641px){
+    a:hover .over_bg,
+    a:hover .over_txt{opacity:1;}
+}
+</pre><br />
+                            이렇게 선언하면 마우스 오버효과는 641px이상에서만 적용된다.
+                        </li>
+                    </ol>
+                </div>
+            </div>
+
+            <h2>스크롤을 내려서 해당 컨텐츠가 나타날때 쯤 애니메이션 효과주기(1회성)</h2>
+            <div class="clearfix ex_group">
+                <div class="ex">
+                    <div class="cts show1">
+                        <img src="/web/images/over3.jpg" alt="" />
+                        <span>A</span>
+                    </div>
+                    <div class="cts show2">
+                        <img src="/web/images/over2.jpg" alt="" />
+                        <span>B</span>
+                    </div>
+                    <div class="cts show3">
+                        <img src="/web/images/over1.jpg" alt="" />
+                        <span>C</span>
+                    </div>
+                </div>
+                <div class="txt">
+                    <ol>
+                        <li>
+                            <strong class="num">1번</strong> 움직일 요소가 각 움직임마다 따로 따로 선택할 수 있어야 한다.<br />
+                            예를 들어 A가 나온 후 B가 나타난다면 A와 B를 따로 CSS에서 선택할 수 있어야 한다.
+                        </li>
+                        <li>
+                            <strong class="num">2번</strong> jquery에서 scrollTop값을 출력해서 A가 보이기 시작할 값을 알아낸다.<br />
+<pre class="source txt_blue">
+$(document).ready(function(){
+    var scrolling = $(window).scrollTop();
+
+    $(window).scroll(function(){
+        scrolling = $(window).scrollTop();
+        console.log(scrolling);
+    });
+});
+</pre><br />
+                            브라우저의 console창에서 출력되는 scrollTop값을 보면서 윈도우를 스크롤하여 A요소가 나타나는 효과가 나타났으면 하는 값을 결정한다. 현재 페이지의 A요소는 900px, B요소는 1300px, C요소는 1600px에 나타나는 효과를 줄 예정이다.
+                        </li>
+                        <li>
+                            <strong class="num">3번 </strong> jquery에서 scrollTop값이 설정한 값에 도달하면 각 요소에 클래스를 추가해주도록 한다.<br />
+<pre class="source txt_blue">
+$(document).ready(function(){
+    var scrolling = $(window).scrollTop();
+    <em class="txt_red">scroll_check();</em>
+
+    $(window).scroll(function(){
+        scrolling = $(window).scrollTop();
+        console.log(scrolling);
+        <em class="txt_red">scroll_check();</em>
+    });
+
+    <em class="txt_red">function scroll_check(){
+        if(scrolling > <strong>900</strong>){
+            $(<strong>"A요소의 선택자"</strong>).addClass("on");
+        }
+        if(scrolling > <strong>1300</strong>){
+            $(<strong>"B요소의 선택자"</strong>).addClass("on");
+        }
+        if(scrolling > <strong>1600</strong>){
+            $(<strong>"B요소의 선택자"</strong>).addClass("on");
+        }
+    };</em>
+});
+</pre><br />
+                        </li>
+                        <li>
+                            <strong class="num">4번</strong> 해당 요소가 어떻게 나타나는 효과를 줄것인지 설계한다.<br />
+                            해당 예제에서는 요소가 보이지 않다가 위에서 아래로 내려오면서 나타나는 효과로 할 것이다.
+                        </li>
+                        <li>
+                            <strong class="num">5번</strong> css에 해당요소의 기본 스타일과 on 클래스가 추가되었을때의 스타일을 선언한다.<br />
+<pre class="source txt_blue">
+.A요소선택자{
+    opacity: 0;
+    transform: translate(0, -50px);
+    transition: 1s;
+}
+.B요소선택자{
+    opacity: 0;
+    transform: translate(0, -50px);
+    transition: 1s;
+}
+.C요소선택자{
+    opacity: 0;
+    transform: translate(0, -50px);
+    transition: 1s;
+}
+</pre><br />
+                            모든 요소는 처음에 보이지 않는 상태이고(<em class="txt_b_red">opacity: 0;</em>),<br />
+                            위로 이동하여 있으며(<em class="txt_b_red">transform: translate(0, 50px);</em>),<br />
+                            효과를 1초동안 실행한다(<em class="txt_b_red">transition: 1s;</em>)<br />
+<pre class="source txt_red">
+.A요소선택자.on{opacity:1; transform:translate(0, 0); }
+.B요소선택자.on{opacity:1; transform:translate(0, 0); }
+.C요소선택자.on{opacity:1; transform:translate(0, 0); }
+</pre><br />
+                            해당요소에 on이라는 클래스를 jquery에서 추가해주면 나타나는 효과가 나타남.<br />
+                            jquery가 작동되면 html이 <strong>&lt;div class="A on"&gt;</strong> 이렇게 되기 때문에 선택자는 <strong>.A요소선택자.on</strong> 여백없이 붙여써야 A라는 클래스와  on이라는 클래스가 동시에 선언되면 해당 css가 적용된다.
+                        </li>
+                        <li>
+                            <strong class="num">&starf;Tip!</strong> 만약 스크롤이 올라갔다가 다시 내려올때 같은 애니메이션이 실행되게 하고 싶다면 scroll_check함수에 아래를 추가한다.<br />
+<pre class="source txt_blue">
+    function scroll_check(){
+        if(scrolling > <strong>900</strong>){
+            $(<strong>"A요소의 선택자"</strong>).addClass("on");
+        }
+        if(scrolling > <strong>1300</strong>){
+            $(<strong>"B요소의 선택자"</strong>).addClass("on");
+        }
+        if(scrolling > <strong>1600</strong>){
+            $(<strong>"B요소의 선택자"</strong>).addClass("on");
+        }
+        <em class="txt_red">
+        if(scrolling < 10){
+            $(<strong>"A요소의 선택자"</strong>).removeClass("on");
+            $(<strong>"B요소의 선택자"</strong>).removeClass("on");
+            $(<strong>"B요소의 선택자"</strong>).removeClass("on");
+        }
+        </em>
+    };
+</pre>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

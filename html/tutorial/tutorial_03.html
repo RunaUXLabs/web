@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8" />
+	<title>애니메이션 효과주기</title>
+	<link rel="stylesheet" type="text/css" href="/web/css/explain.css" />
+</head>
+<body>
+    <div class="wrap">
+        <h1>Animation</h1>
+        <h2>반복적인 움직임 주기</h2>
+        <div class="animate">
+            <div class="clearfix ex_group">
+                <div class="ex">
+                    <img src="/web/images/mouse.jpg" alt="" class="ex1" />
+                </div>
+                <div class="txt">
+                    animate 효과는 왼쪽처럼 지속적인 효과를 줄때 사용한다.<br /><br />
+
+                    <em class="source txt_red">&lt;img src="이미지경로" alt="" <strong class="under">class="ex1"</strong> /&gt;</em><br />
+                    움직일 요소를 지정한다.<br />
+
+<pre class="source txt_blue">
+.ex1{
+    animation-name: <strong class="under txt_red">animate_ex1</strong>;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+@keyframes <strong class="under txt_red">animate_ex1</strong>{
+    0% {transform:translate(0, 0);}
+    50% {transform:translate(0, 50px);}
+    100% {transform:translate(0, 0);}
+}
+</pre>
+                    <br />
+                    @keyframes 효과명{시간대별효과} 이와 같이 요소의 움직임을 시간대별로 먼저 선언한다. <strong class="txt_red">(선언한 움직임을 animation-duration로 지정한 시간동한 실행)</strong><br />
+                    시간은 <strong class="txt_blue">0%, 10% ~ 100%</strong> 와 같이 퍼센트로 표기하여 배분한다.<br />
+                    예를 들어 네모로 한바퀴 돈다면 0%에는 왼쪽 상단, 25%에는 오른쪽 상단, 50%에는 오른쪽 하단, 75%는 왼쪽 하단, 100%에는 왼쪽 상단 으로 선언하여 한바퀴 도는 것으로 한다.<br /><br />
+
+                    요소의 크기 및 위치 등등 css로 변경 가능한 것은 거의 애니메이션을 줄 수 있다.<br />
+                    <ul>
+                        <li>투명도 - opacity:0;</li>
+                        <li>위치이동 - transform:translate(0, 50px); //첫번째가 좌우, 다음이 위아래</li>
+                        <li>축소 확대 - transform: scale3d(1.2, 1.2, 1); //첫번째가 좌우, 다음이 위아래</li>
+                    </ul>
+                    
+                    <h3 class="mt20">애니메이션을 요소에 적용하는 값</h3>
+                    <strong class="source under">선택자{<span class="txt_red">animation-name: 효과명;</span> <span class="txt_blue">animation-duration: 애니메이션 실행시간;</span> <span class="txt_green">animation-iteration-count: 반복횟수;</span>}</strong>
+                    <dl class="source txt_blue">
+                        <dt>animation-name</dt>
+                        <dd>효과의 이름</dd>
+                        <dt>animation-duration</dt>
+                        <dd>효과가 실행되는 초 (animation-duration:1.5s)</dd>
+                        <dt>animation-iteration-count</dt>
+                        <dd>반복 횟수 (숫자로 입력, infinite - 무한반복)</dd>
+                        <dt>animation-delay</dt>
+                        <dd>효과가 시작하기 전 대기 시간 (animation-delay:1s;)</dd>
+                        <dt>animation-timing-function</dt>
+                        <dd>가속도 (linear:가속도 없음, ease:가속도, ease-in:점점빠르게, ease-out:점점느리게) - 애니메이션은 기본적으로 가속도가 들어가 있음<br />
+                        cubic-bezier(n,n,n,n) 가속도 조절하기 <a href="http://cubic-bezier.com" target="_blank" class="txt_red">cubic-bezier 값 구하기</a></dd>
+                        <dt>animation-fill-mode</dt>
+                        <dd>animation-fill-mode:forwards; 효과가 끝난 후에도 마지막 상태 유지</dd>
+                    </dl>
+                </div>
+            </div>
+        </div>
+    </div>
+	
+</body>
+</html>

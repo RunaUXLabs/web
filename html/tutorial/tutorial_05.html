@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8" />
+	<link rel="stylesheet" type="text/css" href="/web/css/explain.css" />
+	<title>block요소와 inline요소 구분하기</title>
+</head>
+<body>
+    <div class="wrap">
+        <h1>block요소와 inline요소 구분하기</h1>
+        <h2>block요소</h2>
+        <div class="contents layout_01">
+            <ul class="gray">
+                <li>h1, h2, h3, h4, h5, h6, p, ul, li, dl, dt, dd, header, footer, section, article, nav, div 등</li>
+                <li>block요소는 그 줄에 자기 자신만 존재할 수 있다 (좌우에 다른 요소를 오지 못하게함 - 넓이를 제한해도 좌우에 다른것이 오지 못함)</li>
+                <li>자동줄바꿈이 된다(좌우에 다른 요소를 배치하지 못하기 때문)</li>
+                <li>해당 요소의 넓이를 100%가 되도록 한다 (물론 넓이를 css에서 제어할 수는 있다)</li>
+            </ul>
+            <div class="exp ex01 clearfix">
+                <div class="left">
+                    <ul>
+                        <span>ul태그</span>
+                        <li><span>li태그</span><a href="">a태그</a></li>
+                        <li><span>li태그</span><a href="">a태그</a></li>
+                    </ul>
+                </div>
+                <div class="right">
+                    <strong class="tit">html은</strong>
+                    &lt;ul&gt;
+                    <span class="tab1">&lt;li&gt; &lt;a href=""&gt; &lt;/a&gt; &lt;/li&gt;</span>
+                    <span class="tab1">&lt;li&gt; &lt;a href=""&gt; &lt;/a&gt; &lt;/li&gt;</span>
+                    &lt;/ul&gt;
+                    <span class="txt_green">&lt;-- ul는 물론 li도 block태그이므로 위아래로 배치됨. --&gt;</span>
+                </div>
+            </div>
+        </div>
+        <h2>inline요소</h2>
+        <div class="contents layout_01">
+            <ul class="gray">
+                <li>strong, em, a, img, span 등</li>
+                <li>inline요소는 그줄에 다른 요소도 존재할 수 있음.</li>
+                <li>inline요소 때문에 줄바꿈이 되지는 않음 (물론 css에서 block요소로 변경하면 줄바꿈됨)</li>
+                <li>width값이 없음, 콘텐츠가 존재하는 만큼만 넓이를 갖음</li>
+                <li><strong class="txt_red">inline 태그 안에는 block 태그를 사용할 수 없음 ( <em class="under">&lt;a href=""&gt; &lt;p&gt; 문장 &lt;/p&gt; &lt;/a&gt;</em> - 이렇게 사용 불가)</strong></li>
+                <li><strong class="txt_blue">inline요소는 padding, width, height 값이 적용되지 않음 ( <em class="under">display:inline-block;</em> 으로 속성을 변환해야 값이 적용됨.)</strong></li>
+            </ul>
+            <div class="exp ex02 clearfix">
+                <div class="left">
+                    <strong>strong태그</strong> <em>em태그</em> <span>span태그</span>
+                </div>
+                <div class="right">
+                    <strong class="tit">html은</strong>
+                    &lt;strong&gt; &lt;/strong&gt; &lt;em&gt; &lt;/em&gt; &lt;span&gt; &lt;/span&gt;
+                    <strong class="tit">csss는</strong>
+<pre>
+strong,
+em,
+span{
+    border: 1px solid #ddd;
+    background:#f4f4f4;
+    padding: 5px 20px;
+    <em class="txt_red under">display: inline-block;</em>
+}
+</pre>
+                    <p class="txt_green">/* padding값을 적용하기 위하여 display:inline-block; 값을 추가함. */</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

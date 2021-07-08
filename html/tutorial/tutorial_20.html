@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8" />
+	<link rel="stylesheet" type="text/css" href="/web/css/explain.css" />
+	<script type="text/javascript" src="/web/js/jquery-1.12.4.min.js"></script>
+	<script type="text/javascript" src="/web/js/scroll_top.js"></script>
+	<title>Top 버튼</title>
+</head>
+<body>
+	<div class="wrap top">
+		<h1>Top 버튼</h1>
+		<h2>TOP버튼을 누르면 상단으로 스크롤 되기</h2>
+		<div class="ex_group">
+			<div class="ex">
+				<section class="section01"></section>
+				<section class="section02"></section>
+				<section class="section03"></section>
+				<a href="#" class="goTop">TOP</a>
+				<a href="#" class="goSection02">Go section02</a>
+			</div>
+			<div class="txt">
+				<strong>홈페이지에 하단에 top버튼이 존재해야하고 top버튼에는 임시링크(#n)를 걸어야 한다.</strong><br />
+				<em class="source txt_red">&lt;a href="<strong class="under">#n</strong>&gt;TOP&lt;/a&gt;</em><br /><br />
+				<strong>jquery에 아래의 코드를 추가한다.</strong><br />
+<pre class="source txt_blue">
+$("<strong class="under">top버튼의 선택자</strong>").on("click", function(){
+	$("html, body").animate({
+		scrollTop : 0
+	}, 500);
+}); <span class="txt_green">/* Top버튼을 클릭(click)하면 홈페이지 상단으로 0.5초동안(<strong>500</strong>) 자동 스크롤됨. */</span>
+</pre>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

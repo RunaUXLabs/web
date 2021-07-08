@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, maximum-scale=2.0, minimum-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="/web/css/explain.css" />
+	<script type="text/javascript" src="/web/js/jquery-1.12.4.min.js"></script>
+	<script type="text/javascript" src="/web/js/slideBanner_04.js"></script>
+	<title>fade-in/out 배너</title>
+</head>
+<body>
+
+	<section class="slideBanner pop4">
+		<h2>배너존</h2>
+		<ul>
+			<li>
+				<img src="/web/images/popup1.jpg" alt="" />
+				<div class="cts">
+					<h3>꿈과 희망의 현대</h3>
+					<p>꿈과 희망을 향한 도전과 창조적예지로 풍요로운 내일을 창조합니다.<br />급변하는 국내외 경영 환경 속에서 세계 초우량 기업으로 발돋움 하려는 현대그룹의 힘찬 웅비가 시작됩니다.<br />현대가 움직이면 세계가 움직입니다.</p>
+					<a href="#n">자세히보기</a>
+				</div>
+			</li>
+			<li>
+				<img src="/web/images/popup2.jpg" alt="" />
+				<div class="cts">
+					<h3>한국현대사 70년<br />현대그룹사 70년</h3>
+					<p>한강의 기적을 일군 그 역사의 현장에도, 우리 경제의 큰 맥이 세워진 그 감동의 순간에도, 현대가 함께 있었습니다. 현대그룹은 지금껏 걸어온 과정을 결코 잊지 않고, 한국과 세계의 미래를 변함없이 새롭게 창조해 나갈 것입니다.</p>
+					<a href="#n">자세히보기</a>
+				</div>
+			</li>
+			<li>
+				<img src="/web/images/popup3.jpg" alt="" />
+				<div class="cts">
+					<h3>부산 초고층 주상복합 ‘W’<br />고속엘리베이터 설치 완료</h3>
+					<p>현대엘리베이터가 부산 용호만의 새 랜드마크로 주목 받는 초고층 주상복합아파트 ‘W’(부산광역시 남구)의 고속엘리베이터(분속 240m 20대, 분속 180m 14대) 설치를 마쳤다고 29일 밝혔다.</p>
+					<a href="#n">자세히보기</a>
+				</div>
+			</li>
+			<li>
+				<img src="/web/images/popup4.jpg" alt="" />
+				<div class="cts">
+					<h3>현대아산<br />크루즈 전세선 운항사업 진출</h3>
+					<p>‘코스타 빅토리아호’는 7만 5천톤급(12층) 선박으로 최대 3,000여명 탑승이 가능한 규모며, ‘바다 위의 특급호텔’로 불릴 만큼 세련된 객실을 비롯해 수영장, 면세점, 레스토랑, 공연장, 조깅트랙 등의 시설을 갖추고 있다.</p>
+					<a href="#n">자세히보기</a>
+				</div>
+			</li>
+		</ul>
+		<button class="next btn"><img src="/web/images/2x/baseline_navigate_next_white_24dp.png"></button>
+        <button class="prev btn"><img src="/web/images/2x/baseline_navigate_before_white_24dp.png"></button>
+        <div class="paging">
+            <button>1번 배너 보기</button>
+            <button>2번 배너 보기</button>
+            <button>3번 배너 보기</button>
+            <button>4번 배너 보기</button>
+        </div>
+		<div class="ctrl_group">
+			<div class="numbering">
+				<span class="curr_num"></span>/<span class="total_num"></span>
+			</div>
+			<button class="play"><img src="/web/images/1x/baseline_play_arrow_white_24dp.png"></button>
+			<button class="stop"><img src="/web/images/1x/baseline_pause_white_24dp.png"></button>
+		</div>
+	</section>
+
+	<div class="wrap">
+		<div class="popup_04">
+			<h1 class="mt30">fade-in/out 배너</h1>
+			<h2>배너의 구조</h2>
+			<div class="pop_sample">
+				<ul>
+					<li>1번 배너</li>
+					<li>2번 배너</li>
+					<li>3번 배너</li>
+					<li>4번 배너</li>
+				</ul>
+			</div>
+			<h2>배너의 특징</h2>
+			<ul>
+				<li>모든 배너이 같은 위치에 있고, 다음 배너이 fadein(서서히 나타남)으로 나타나는 배너이다.</li>
+				<li>li의 높이값을 계산해서 jquery에서 li를 감싸고 있는 slideBanner class에 준다. (모바일 홈페이지에서 배너의 사이즈를 줄이때 li의 높이값을 조절하면 slideBanner의 높이를 자동으로 조절하도록 함.)</li>
+				<li>li의 넓이는 css에서 제어함.</li>
+			</ul>
+	
+			<h2>기본 html 구조</h2>
+			<div class="code">
+<pre>
+&lt;div class="slideBanner"&gt; <span class="txt_green">/* obj_wrap 배너이 나오는 영역</span>
+	&lt;ul&gt; <span class="txt_green">/* obj_name 배너 전체를 묶어주는 요소</span>
+		&lt;li&gt;&lt;/li&gt; <span class="txt_green">/* obj_child 배너항목(반드시 float:left;를 줘서 모든 배너이 옆으로 나란히 배치되도록 해야함.) */</span>
+	&lt;/ul&gt;
+&lt;/div&gt;
+</pre>
+			</div>
+			<h2>기본 css 코드</h2>
+			<div class="code">
+<pre>
+.slideBanner{}
+.slideBanner ul{position: relative;}
+.slideBanner ul li{
+	display: none;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 10;
+}
+.slideBanner ul li.active{
+	display: block;
+	z-index: 11;
+}
+</pre>
+			</div>
+	
+			<h2>jquery 셋팅값</h2>
+			<div class="code">
+<pre>
+<strong>var obj_wrap=$(".slideBanner"); <span class="txt_green">//배너을 감싸고 있는 오브젝트의 이름, 이 오브젝트의 넓이가 배너의 넓이가 됨.</span>
+var obj_name = $(".slideBanner ul"); <span class="txt_green">//배너 전체를 묶어주는 요소</span>
+var obj_child = $(".slideBanner ul li"); <span class="txt_green">//보여질 실제 배너을 감싸고 있는 영역</span></strong>
+
+<strong class="txt_green">//배너 컨트롤버튼</strong>
+var ctrl_btn = true; <span class="txt_green">//사용여부 (true, false)</span>
+var ctrl_next = $(".slideBanner .next"); <span class="txt_green">//배너 다음 버튼 (값을 안준다면 그냥 비워두세요. 지우지 마세요!!)</span>
+var ctrl_prev = $(".slideBanner .prev"); <span class="txt_green">//배너 이전 버튼</span>
+var ctrl_stop = $(".slideBanner .stop"); <span class="txt_green">//배너 정지 버튼</span>
+var ctrl_play = $(".slideBanner .play"); <span class="txt_green">//배너 재생 버튼</span>
+
+<strong class="txt_green">//현재배너 번호 / 전체 배너번호</strong>
+var numbering = true; <span class="txt_green">//사용여부 (true, false)</span>
+var curr_num = $(".slideBanner .curr_num");
+var total_num = $(".slideBanner .total_num");
+
+<strong class="txt_green">//배너 리스트</strong>
+var paging = true; <span class="txt_green">//사용여부 (true, false)</span>
+var paging_obj = $(".slideBanner .paging button"); <span class="txt_green">//몇개의 배너이 있는 표시하는 동그라미</span>
+var paging_curr_class = "active"; <span class="txt_green">//현재 선택된 배너을 표시할 class명</span>
+</pre>
+			</div>
+	
+			<h2>jquery소스</h2>
+			<a href="../../js/slideBanner_04.js" target="_blank" class="bg_red">jquery 소스보기</a>
+		</div>
+	</div>
+</body>
+</html>
