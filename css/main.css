@@ -355,7 +355,6 @@ ul.study_list li a:hover{
     text-decoration: none;
     color: #333;
     background: #ededed;
-    font-size: 15px;
 }
 .study_main .link_list li a:hover{
     background: #2361be;
@@ -363,7 +362,7 @@ ul.study_list li a:hover{
 }
 .study_main .link_list li a span{
     color: #666;
-    font-size: 13px;
+    font-size: 0.8rem;
 }
 .study_main .link_list li a:hover span{
     color: rgba(255,255,255,0.5);
