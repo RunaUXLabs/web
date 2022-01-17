@@ -23,7 +23,8 @@
 
 
 .wrap{
-    width: 1200px;
+    /* width: 1200px; */
+    width: 1080px;
     margin: 20px auto 100px auto;
     
 }
@@ -62,7 +63,7 @@ dl.code dd em{
     color: #3d3d3d;
 }
 .class div.study{
-    display: inline-block;
+    float: left;
     margin: 10px;
     width: 340px;
     background: #ededed;
@@ -70,6 +71,7 @@ dl.code dd em{
 }
 .class div.study a{
     display: block;
+    min-height: 244px;
 }
 .class div.study.ing a:before{
     border-top: 3px solid #3060cd;
@@ -114,7 +116,6 @@ dl.code dd em{
     font-size: 1.7rem;
     line-height: 1.2;
 }
-.class div.study.end{margin: 10px 2px;}
 .class div.study.end strong{
     color: #999;
     font-size: 1.3rem;
