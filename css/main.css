@@ -21,12 +21,12 @@
 
 
 
-
+body.now{
+    background: url(/web/images/AREmoji_20220321_231023_17813.gif) no-repeat right bottom;
+}
 .wrap{
-    /* width: 1200px; */
     width: 1080px;
     margin: 20px auto 100px auto;
-    
 }
 h2{
     padding: 20px 0 0 0;
