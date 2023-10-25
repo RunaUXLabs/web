@@ -3,17 +3,17 @@
 /* Layout */
 @import url('/web/css/common.css');
 
-.intro{
+.intro {
     margin: 50px 0 0 0;
     font-size: 20px;
     text-align: center;
 }
-.intro p{
+.intro p {
     display: inline-block;
     border-top: 1px solid #ccc;
     border-bottom: 1px solid #ccc;
 }
-.intro span{
+.intro span {
     display: inline-block;
     padding: 10px;
 }
@@ -21,32 +21,32 @@
 
 
 
-body.now{
-    background: url(/web/images/AREmoji_20220321_231023_17813.gif) no-repeat right bottom;
+body.now {
+    background: url(/web/images/AREmoji_20231025_145304328.gif) no-repeat right bottom;
 }
-.wrap{
+.wrap {
     width: 1080px;
     margin: 20px auto 100px auto;
 }
-h2{
+h2 {
     padding: 20px 0 0 0;
     margin: 50px 0 20px 0;
     border-top: 1px solid #ccc;
 }
-h3{
+h3 {
     padding: 10px 0 0 0;
     margin: 0 0 5px 0;
 }
-dl.code dt{
+dl.code dt {
     display: block;
     float: left;
     padding-left: 20px;
     font-weight: 600;
 }
-dl.code dd{
+dl.code dd {
     margin-left: 100px;
 }
-dl.code dd em{
+dl.code dd em {
     display: inline-block;
     width: 20px;
     color: #ff6600;
@@ -54,26 +54,26 @@ dl.code dd em{
 
 
 
-.class{
+.class {
     text-align: center;
-    margin:30px 0 0 0;
+    margin: 30px 0 0 0;
 }
-.class a{
+.class a {
     text-decoration: none;
     color: #3d3d3d;
 }
-.class div.study{
+.class div.study {
     float: left;
     margin: 10px;
     width: 340px;
     background: #ededed;
     position: relative;
 }
-.class div.study a{
+.class div.study a {
     display: block;
     min-height: 244px;
 }
-.class div.study.ing a:before{
+.class div.study.ing a:before {
     border-top: 3px solid #3060cd;
     border-bottom: 3px solid #3060cd;
     position: absolute;
@@ -82,10 +82,10 @@ dl.code dd em{
     top: 0;
     bottom: 0;
     content: "";
-    transform: scale3d(0,1,1);
+    transform: scale3d(0, 1, 1);
     transition: 0.5s;
 }
-.class div.study.ing a:after{
+.class div.study.ing a:after {
     border-left: 3px solid #3060cd;
     border-right: 3px solid #3060cd;
     position: absolute;
@@ -94,78 +94,78 @@ dl.code dd em{
     top: 0;
     bottom: 0;
     content: "";
-    transform: scale3d(1,0,1);
+    transform: scale3d(1, 0, 1);
     transition: 0.5s;
 }
-.class div.study.ing.red a:before{
+.class div.study.ing.red a:before {
     border-top: 3px solid #f11883;
     border-bottom: 3px solid #f11883;
 }
-.class div.study.ing.red a:after{
+.class div.study.ing.red a:after {
     border-left: 3px solid #f11883;
     border-right: 3px solid #f11883;
 }
-.class div.study.ing a:hover:before{
-    transform: scale3d(1,1,1);
+.class div.study.ing a:hover:before {
+    transform: scale3d(1, 1, 1);
 }
-.class div.study.ing a:hover:after{
+.class div.study.ing a:hover:after {
     transform:
-    scale3d(1,1,1);
+        scale3d(1, 1, 1);
 }
-.class div.study.ing strong{
+.class div.study.ing strong {
     font-size: 1.7rem;
     line-height: 1.2;
 }
-.class div.study.end strong{
+.class div.study.end strong {
     color: #999;
     font-size: 1.3rem;
     line-height: 1.4;
 }
-.class div.study.end span.date{
+.class div.study.end span.date {
     color: #999;
 }
-.class div.study.end span.more{
+.class div.study.end span.more {
     color: #ededed;
 }
-.class div.study.mobile{
+.class div.study.mobile {
     width: 500px;
 }
-.class div strong{
+.class div strong {
     display: block;
     padding: 30px 0 10px 0;
     height: 110px;
 }
-.class div span.date{
+.class div span.date {
     display: block;
     padding: 5px 0;
 }
-.class div span.more{
+.class div span.more {
     display: inline-block;
     margin: 10px 0 30px 0;
     padding: 5px 10px;
     background: #666;
     color: #fff;
 }
-.class div.ing span.more{
+.class div.ing span.more {
     background: #3060cd;
 }
-.class div.ing.red span.more{
+.class div.ing.red span.more {
     background: #f11883;
 }
-.class hr{
+.class hr {
     margin: 50px 0;
     border-top: 1px dotted #ccc;
-    height:1px;
+    height: 1px;
 }
 
-.class div.training{
+.class div.training {
     display: inline-block;
     margin: 20px;
     width: 400px;
     background: #ededed;
 }
 
-.btn_red{
+.btn_red {
     display: inline-block;
     background: #f11883;
     color: #fff;
@@ -173,7 +173,7 @@ dl.code dd em{
     padding: 5px 20px;
     margin: 5px 0;
 }
-.btn_blue{
+.btn_blue {
     display: inline-block;
     background: #2361be;
     color: #fff;
@@ -181,7 +181,7 @@ dl.code dd em{
     padding: 5px 20px;
     margin: 5px 0;
 }
-.btn_saramin{
+.btn_saramin {
     display: inline-block;
     background: #89c040;
     color: #fff;
@@ -189,7 +189,7 @@ dl.code dd em{
     padding: 5px 20px;
     margin: 5px;
 }
-.btn_jobkorea{
+.btn_jobkorea {
     display: inline-block;
     background: #3399ff;
     color: #fff;
@@ -198,79 +198,121 @@ dl.code dd em{
     margin: 5px;
 }
 
-h2.imp{
+h2.imp {
     background: #999;
     padding: 10px;
     border-top: 1px solid #999;
     color: #fff;
 }
-h2.imp a{
+h2.imp a {
     font-size: 13px;
     margin-left: 50px;
 }
 
-.quot_wrap{margin: 20px 0;}
-.quot_wrap .tit{
+.quot_wrap {
+    margin: 20px 0;
+}
+.quot_wrap .tit {
     display: block;
     font-size: 15px;
     color: #3060cd;
 }
 .quot_wrap .quot_box,
-.quot_wrap .quot_exp{
+.quot_wrap .quot_exp {
     display: block;
     float: left;
     padding: 1% 0 1% 3%;
     width: 45%;
 }
-.quot_wrap .quot_exp{width: 55%;}
-.quot_wrap .quot_box{border-left: 2px solid #ededed;}
-.quot_wrap .quot_box pre em{color:#ff6600;}
-.quot_wrap .quot_exp{background: #f4f4f4;}
-.quot_wrap .quot_exp pre em{color: #4CAF50;}
-.quot_wrap .quot_exp pre .blue{color: #3060cd;}
-.quot_wrap .quot_exp pre .red{color: #f11883;}
-.quot_wrap .quot_exp pre .green{color: #4CAF50;}
+.quot_wrap .quot_exp {
+    width: 55%;
+}
+.quot_wrap .quot_box {
+    border-left: 2px solid #ededed;
+}
+.quot_wrap .quot_box pre em {
+    color: #ff6600;
+}
+.quot_wrap .quot_exp {
+    background: #f4f4f4;
+}
+.quot_wrap .quot_exp pre em {
+    color: #4CAF50;
+}
+.quot_wrap .quot_exp pre .blue {
+    color: #3060cd;
+}
+.quot_wrap .quot_exp pre .red {
+    color: #f11883;
+}
+.quot_wrap .quot_exp pre .green {
+    color: #4CAF50;
+}
 
-.more_cts{display: none;}
-.more_cts.cts_show{display: block;}
-.more_cts .exp{
+.more_cts {
+    display: none;
+}
+.more_cts.cts_show {
+    display: block;
+}
+.more_cts .exp {
     font-size: 20px;
     padding: 20px;
     background: #f4f4f4;
 }
-.more_open{padding: 5px 0 0 0;}
-.more_open a{
+.more_open {
+    padding: 5px 0 0 0;
+}
+.more_open a {
     display: inline-block;
-    background:#f11883;
-    color:#fff;
+    background: #f11883;
+    color: #fff;
     padding: 5px 100px;
     text-decoration: none;
 }
 
-.gray_box .tit{
+.gray_box .tit {
     display: block;
     font-size: 15px;
     color: #3060cd;
     margin: 10px 0 5px 0;
 }
-.gray_box .tit span{
+.gray_box .tit span {
     font-weight: 300;
 }
-.gray_box .exp{
+.gray_box .exp {
     font-size: 15px;
     padding: 10px;
     background: #f4f4f4;
 }
-.red, .txt_b_red, .txt_red{color: #f11883 !important;}
-.blue, .txt_b_blue, .txt_blue{color: #3060cd !important;}
-.green, .txt_green, .txt_b_green{color: #4CAF50 !important;}
-.txt_b_red, .txt_b_blue, .txt_b_green{font-weight: 600;}
-.under{text-decoration: underline;}
-.bg_red, .bg_blue, .bg_green{color: #fff;}
-.bg_red{background: #f11883;}
-.bg_blue{background: #3060cd;}
-.bg_green{background: #4CAF50;}
-.source{
+.red, .txt_b_red, .txt_red {
+    color: #f11883 !important;
+}
+.blue, .txt_b_blue, .txt_blue {
+    color: #3060cd !important;
+}
+.green, .txt_green, .txt_b_green {
+    color: #4CAF50 !important;
+}
+.txt_b_red, .txt_b_blue, .txt_b_green {
+    font-weight: 600;
+}
+.under {
+    text-decoration: underline;
+}
+.bg_red, .bg_blue, .bg_green {
+    color: #fff;
+}
+.bg_red {
+    background: #f11883;
+}
+.bg_blue {
+    background: #3060cd;
+}
+.bg_green {
+    background: #4CAF50;
+}
+.source {
     letter-spacing: 0.01em;
     word-spacing: 0.2em;
     display: inline-block;
@@ -279,47 +321,47 @@ h2.imp a{
 
 
 
-ul.study_list li{
+ul.study_list li {
     width: 45%;
     display: inline-block;
     margin: 5px 0;
 }
-ul.study_list li a{
+ul.study_list li a {
     color: #2361be;
     text-decoration: none;
 }
-ul.study_list li a:hover{
+ul.study_list li a:hover {
     text-decoration: underline;
 }
 
-.schedule_show{
+.schedule_show {
     text-align: center;
 }
-.schedule_show a{
+.schedule_show a {
     display: inline-block;
     padding: 10px 200px;
     background: #333;
     color: #fff;
 }
-.schedule_table{
+.schedule_table {
     margin-top: 20px;
 }
-.schedule_table table{
+.schedule_table table {
     width: 100%;
     border-collapse: collapse;
 }
 .schedule_table td,
-.schedule_table th{
-    border: 1px solid  #ccc;
+.schedule_table th {
+    border: 1px solid #ccc;
     text-align: center;
 }
-.schedule_table td.complete{
+.schedule_table td.complete {
     color: #999;
     font-size: 17px;
     font-weight: 600;
     text-decoration: line-through;
 }
-.schedule_table td.submission{
+.schedule_table td.submission {
     font-size: 20px;
     color: #f11883;
     font-weight: 600;
@@ -327,16 +369,16 @@ ul.study_list li a:hover{
 
 
 /*수업자료 페이지*/
-.study_main{
+.study_main {
     display: flex;
     flex-direction: column;
 }
-.study_main h1{
+.study_main h1 {
     text-align: center;
     height: 2rem;
     line-height: 2rem;
 }
-.study_main .date{
+.study_main .date {
     color: #ee2f28;
     text-align: center;
     font-size: 1.2rem;
@@ -345,11 +387,11 @@ ul.study_list li a:hover{
     height: 2rem;
     line-height: 2rem;
 }
-.study_main .link_list li{
+.study_main .link_list li {
     display: inline-block;
     margin: 5px;
 }
-.study_main .link_list li a{
+.study_main .link_list li a {
     display: block;
     padding: 5px 10px;
     text-align: center;
@@ -357,23 +399,23 @@ ul.study_list li a:hover{
     color: #333;
     background: #ededed;
 }
-.study_main .link_list li a:hover{
+.study_main .link_list li a:hover {
     background: #2361be;
     color: #fff;
 }
-.study_main .link_list li a span{
+.study_main .link_list li a span {
     color: #666;
     font-size: 0.8rem;
 }
-.study_main .link_list li a:hover span{
-    color: rgba(255,255,255,0.5);
+.study_main .link_list li a:hover span {
+    color: rgba(255, 255, 255, 0.5);
 }
 
 
-.font_list li{
+.font_list li {
     margin-bottom: 10px;
 }
-.font_list li strong{
+.font_list li strong {
     display: block;
     border-bottom: 1px solid #ccc;
 }
@@ -382,39 +424,38 @@ ul.study_list li a:hover{
 
 
 /* 코딩튜토리얼 css */
-.list{
+.list {
     border-bottom: 1px solid #ccc;
     margin: 10px 0;
     padding: 10px 0 20px 0;
 }
-.list h2{
+.list h2 {
     float: left;
     text-align: right;
-    width:35%;
+    width: 35%;
     border: none;
     margin: 0;
     padding: 0;
     line-height: 1.8rem;
 }
-.list ul{
+.list ul {
     margin-left: 40%;
 }
-.list ul li{
+.list ul li {
     padding-left: 15px;
     margin: 5px 0;
     list-style: none;
     background: url(/web/images/li_bg.png) 0 50% no-repeat;
 }
-.list ul li a:hover{
+.list ul li a:hover {
     color: #2361be;
     text-decoration: underline;
     font-weight: 600;
 }
-.sub_list{
+.sub_list {
     background: #f4f4f4;
     text-align: center;
     padding: 20px 0;
     color: #f11883;
     font-weight: 400;
 }
-
