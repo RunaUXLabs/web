@@ -334,15 +334,11 @@ ul.study_list li a:hover {
     text-decoration: underline;
 }
 
-.schedule_show {
-    text-align: center;
+.calendar {
+    width: 100%;
+    height: 600px;
 }
-.schedule_show a {
-    display: inline-block;
-    padding: 10px 200px;
-    background: #333;
-    color: #fff;
-}
+
 .schedule_table {
     margin-top: 20px;
 }
